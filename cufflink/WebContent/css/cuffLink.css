@@ -1,0 +1,123 @@
+@charset "utf-8";
+.wrap {
+	background-image: url("./image/배너.png");
+	height: 400px;
+	background-position: center; /* Center the image */
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: cover;
+	.
+	/* Resize the background image to cover the entire container */
+}
+
+h1 {
+	font-size: 4em;
+}
+
+h2 {
+	font-size: 3em;
+}
+
+h4 {
+	font-size: 20px;
+}
+
+h5 {
+	font-size: 16px;
+	margin-top: 14px;
+	margin-bottom: 20px;
+}
+
+.ui.segment {
+	text-align: center !important;
+}
+
+/* .title {
+	font-size: 1.5em;
+} */
+
+span {
+	padding-left: 5px;
+	padding-right: 5px;
+	color: red;
+}
+
+p {
+	font-size: 12px;
+}
+
+hr.garo { 
+	border: solid #dedede; border-width: 1px 0 0;
+
+}
+
+hr.dotted {
+	border: dotted gray 0.5px;
+}
+
+.under-line {
+	 text-decoration: underline;
+}
+
+.middle {
+	border-left: groove thin;
+	border-right: groove thin;
+}
+
+.content {
+	font-size: 1.2em;
+}
+
+.logo {
+	margin-left: 20px !important;
+}
+
+.basicspace {
+	padding:10px;
+}
+	
+.center {
+    margin: auto;
+    width: 60%;
+    border: 0px solid #dedede;
+    padding: 10px;
+    text-align: right;
+}
+.center-right {
+    margin: auto;
+    width: 60%;
+    border: 0px solid #dedede;
+    color: red;
+    padding: 10px;
+    text-align: center;
+}
+
+a.h10 {
+	font-size:9px;
+	
+}
+a.h11 {
+	font-size:12px;
+	
+}
+h11 {
+	font-size:12px;
+}
+
+div.h11 { /* 프로젝트찾기 카테고리 글씨 */
+	font-size:12px;
+	margin-left:25px;
+}
+
+div.h15 { /* 프로젝트찾기 카테고리 글씨 */
+	font-size:12px;
+}
+
+.label {
+	font-size:9px;
+	
+}
+
+option {
+	font-size:9px;
+}
+

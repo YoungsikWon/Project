@@ -20,7 +20,7 @@
 					<a class="active item"> 프로젝트 등록 </a> <a class="item"> 프로젝트 목록 </a>
 					<a class="item"> 개발자 목록 </a>
 					<div class="right menu">
-						<button class="ui button" style="margin-right: 10px;" onclick="move('/auth/login')">로그인</button>
+						<button class="ui button" style="margin-right: 10px;">로그인</button>
 						<button class="ui primary button">회원가입</button>
 					</div>
 				</div>
@@ -48,10 +48,6 @@
 <!----------------------------------------------------------------------- main content 끝 -->
 <!----------------------------------------------------------------------- footer content 시작 -->
 <!----------------------------------------------------------------------- footer content 끝 -->
-<script>
-	function move(url){
-		location.href=url
-	}
-</script>
+
 </body>
 </html>

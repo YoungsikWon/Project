@@ -7,5 +7,6 @@
 				class="item"> 지원 내역 </a> <a class="item"> 진행중인 프로젝트 </a> <a
 				class="item"> 완료한 프로젝트 </a>
 		</div>
+		<%=request.getAttribute("bns") %>
 	</div>
 </div>

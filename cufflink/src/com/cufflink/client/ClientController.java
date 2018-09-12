@@ -19,7 +19,7 @@ public class ClientController {
 	@RequestMapping("/page")
 	public String page(Model m) {
 		m.addAttribute("bns", clientLogic.getBNs());
-		return "test";
+		return "partners/info/partnersInfo";
 	}
 	
 	

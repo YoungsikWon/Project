@@ -66,13 +66,13 @@ span {
 	<div class="wrap">
 		<div class="ui container">
 			<div class="ui secondary pointing menu" style="margin-bottom: 50px;">
-				<a class="item" href="/layout"> Home </a>
+				<a class="item"> Home </a>
 				<a class="item"> Messages </a>
 				<a class="item active"> Friends </a>
 				<div class="right menu">
 					<div class="item">
-						<button class="ui button" style="margin-right: 10px;" onclick="move('/auth/login')">로그인</button>
-						<button class="ui primary button">회원가입</button>
+						<button class="ui button" style="margin-right: 10px;" onclick="window.location.href='./login'" />로그인</button>
+						<button class="ui primary button" style="margin-right: 10px;" onclick="window.location.href='./join'" />회원가입</button>
 					</div>
 				</div>
 			</div>
@@ -158,10 +158,6 @@ span {
 			}
 		}
 		autoSplit(100);
-		
-		function move(url){
-			location.href=url
-		}
 	</script>
 </body>
 </html>
