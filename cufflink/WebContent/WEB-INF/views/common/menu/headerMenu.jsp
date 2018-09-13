@@ -22,10 +22,10 @@
 			<div class="ui dropdown button">
 				twins0313 <i class="dropdown icon"></i>
 				<div class="menu">
-					<div class="item" onclick="location.href='/ClientMyCufflink'"><i class="home icon"></i>마이 커프링크</div>
+					<div class="item" onclick="location.href='/partnersMyCufflink'"><i class="home icon"></i>마이 커프링크</div>
 <!-- 					<div class="item" href="/ClientMyCufflink"><i class="home icon" ></i>마이 커프링크</div> -->
-					<div class="item" onclick="location.href='/ClientInfo'"><i class="user icon"></i>클라이언트 정보관리></div>
-					<div class="item" onclick="location.href='/ClientProfile'"><i class="cog icon"></i>계정설정</div>
+					<div class="item" onclick="location.href='/partnersInfo'"><i class="user icon"></i>파트너스 정보관리></div>
+					<div class="item" onclick="location.href='/partnersProfile'"><i class="cog icon"></i>계정설정</div>
 					<div class="item" onclick="location.href='/'"><i class="power off icon"></i>로그아웃</div>
 				</div>
 			</div>

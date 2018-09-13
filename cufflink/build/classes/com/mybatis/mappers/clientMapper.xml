@@ -3,6 +3,16 @@
 <mapper namespace="clientMapper">
 	<select id="cli_select" parameterType="String" resultType="map">
 		<!-- 셀렉문 작성 -->
-		SELECT * FROM CLIENT
+		SELECT * FROM SIGNUP
+	</select>
+	<select id="SelectTest" resultType="map" parameterType="String">
+		select S_EMAIL, S_ID, S_PW
+		from SIGNUP
+		where S_EMAIL = 'a@gmail.com'
+			and S_ID = 'ABC'
+			and S_PW = '124'
+		<if test="S_PW != null"> <!-- if 태그에서 조건 분기 -->
+			and S_PW = #{S_PW}
+		</if>
 	</select>
 </mapper>

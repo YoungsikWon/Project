@@ -6,7 +6,7 @@
 			<a href="/projectSubmitted" class="active item"> 검수중 </a> 
 			<a href="/projectRecruiting" class="item"> 지원자 모집중 </a> 
 			<a href="/projectContractInProgress" class="item"> 진행중인 프로젝트 </a> 
-			<a href="/projectReviewContract" class="item"> 완료한 프로젝트 </a>
+			<a href="/projectReviewContract" class="item"> 종료된 프로젝트 </a>
 		</div>
 	</div>
 </div>

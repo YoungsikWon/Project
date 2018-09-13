@@ -5,7 +5,7 @@
 <head>
 <jsp:include page="./ui.jsp" />
 <meta charset="UTF-8">
-<title>Layout</title>
+<title>로그아웃</title>
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->

@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="../../common/ui.jsp"/>
+<jsp:include page="../../common/ui.jsp" />
 <meta charset="UTF-8">
-<title>파트너스 정보</title>
-<link rel="stylesheet" href="./css/cuffLink.css" />
-<link rel="stylesheet" href="./css/login.css" />
+<title>지원 내역</title>
+<link rel="stylesheet" href="/css/cuffLink.css" />
+<link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->
@@ -32,50 +32,55 @@
 	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
 	
 <!--======================================================================================-->
-<!----------------------------------------------------------------------- main content 시작 -->
+	<!----------------------------------------------------------------------- main content 시작 -->
 
-	<div class="ui container" >
-	
-	<!-- main 입력 시작-->
+	<div class="ui container">
 
 		<div class="ui two column grid container" style="height: 670px">
-			<div class="ui column" style="width: 20%;padding-top: 0px;padding-left: 0px;padding-right: 0px">
+			<div class="ui column"
+				style="width: 20%; padding-top: 0px; padding-left: 0px; padding-right: 0px">
+
 <!-- 로그인 정보 =================================================================================-->
 				<div class="ui segment">
 					<jsp:include page="../../auth/loginOk.jsp" />
 				</div>
 <!-- 로그인 정보 =================================================================================-->
-
-<!-- 서브 메뉴 ===================================================================================-->
+				
 				<div class="ui fluid vertical menu" style="padding-right: 0px">
-					<jsp:include page="./partnersInfoSubmenu.jsp" />
+					<a href="/projectRecruiting" class="teal item active"> 
+						<font style="vertical-align: inherit;"> 
+							지원자 모집중 
+						</font>
+					</a> 
 				</div>
-<!-- 서브 메뉴 ===================================================================================-->			
 			</div>
 			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; width: 80%;">
-				<div class="ui container" style="padding: 20px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height: auto">
-					<div style="padding-bottom:20px;">
-						<h3 style="text-align: left">파트너스 정보</h3>
+				<div class="ui container" style="padding: 20px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede;">
+					<h3 style="text-align: left">지원자 모집 중</h3>
+					<h5 style="text-align: left">지원자를 모집 중인 프로젝트를 관리할 수 있습니다.</h5>
+				</div>
+				<div style="height: 10px;"></div>
+				<div style="padding-top:20px;padding-bottom:20px;padding-left:15px;padding-right:15px; border: 1px solid #dedede;">
+					<div style="height:10px;">
 					</div>
-					<div class="ui container" style="padding-top: 0px; padding-bottom: 30px; padding-left: 0px; padding-right: 20px;">
-						<hr class="dotted" style="" />
-					</div>
-					<div style="text-align:center;">
-						<img src="../../image/client_profile_info.png" width="100px" height="150px"><br><br><br>
-						입력한 '파트너스 정보'가 없습니다.
-					</div>
-					<div style="text-align:center;padding:30px">
-						<div class="ui labeled submit icon button">
-							<i class="icon edit"></i><a href="/partnersUpdate"> 파트너스 정보 등록하기</a>
+					<div class="ui two column grid container" style="padding-top: 0px; border: 1px solid #dedede;">
+						<div class="column" style="width: 10%; padding: 20px">
+							<img class="ui medium circular image" style="width: 40px;" src="../../image/process-guide-success.png">
 						</div>
+						<div class="column" style="width: 90%; text-align: left; padding-left: 5px">
+							1. 지원자 모집 중인 프로젝트 목록입니다.<br>
+							2. [지원자 목록] 버튼을 클릭하여 지원자들의 지원 내역을 확인할 수 있습니다.<br>
+							3. 미팅을 신청하면 스케줄 매니저가 미팅 조율을 도와드립니다.<br>
+							4. 지원자 모집에 대한 문의는 고객센터로 연락 부탁드립니다.<br>
+							고객센터: (02) 0000-0000 / help@cufflink.com
+						</div>
+					</div>
+					<div style="text-align:left;padding-left:10px;padding-top:20px;padding-bottom:0px">
+							지원자 모집 중인 프로젝트가 없습니다.			
 					</div>
 				</div>
 			</div>
 		</div>
-
-
-	<!-- main 입력 끝-->
-
 	</div>
 
 <!----------------------------------------------------------------------- main content 끝 --->

@@ -5,10 +5,10 @@
 			<h3>
 				<img src="../../image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" />CuffLink
 			</h3>
-			<br> 전화:
-			<br> 이메일:
-			<br> 운영시간:
-			<br> 주소:
+			<br> 전화 : 02 - test - Number 
+			<br> 이메일 : Cufflink@gmail.com
+			<br> 운영시간: AM 09:30 ~ PM 18 : 30
+			<br> 주소: 서울특별시 금천구 가산동 월드메르디앙 2차 311호
 			<br> ©2018 CuffLink Corp.
 		</div>
 		<div class="column column-footer container" style="width: 20%; height: 180px; text-align:left">
