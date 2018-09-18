@@ -1,0 +1,106 @@
+@charset "utf-8";
+/* css reset ****************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+div, span { box-size: 1.5rem;
+}
+/* css reset ****************************************/
+
+.container {
+	/* column으로 나눌때 사용 */
+	display: flex; /* 기본값 */
+	/* 	flex-direction : 
+	   	row : 기본값으로 display: flex;(좌측정렬,상단정렬)
+	   	column : row(좌측정렬,상단정렬)		
+	   	row-reverse : 기본값으로 display: flex;(우측정렬,상단정렬)
+	   	column-reverse : row(좌측정렬,하단정렬)	
+	*/
+	flex-direction: column; /* 기본값 */
+	
+	/* 	flex은 반응형 웹을 만들때 사용 화면이 좁아지면 아래로 내려간다.
+		flex-wrap:
+		wrap : 기본값으로 A,B,C형태로 내려간다.
+		wrap-reverse : C,B,A형태로 내려간다.
+	*/
+	/* flex-wrap: wrap; */  /* 기본값 */
+
+	/*	justify-content: 해당아이템 가로정렬
+		flex-start : 왼쪽(기본값)
+		center : 중앙
+		flex-end : 오른쪽
+		space-between : 아이템별 같은 비율로 여백을 가지며 좌우는 꽉채우면서 정렬
+		space-around : space-between에서 좌우에 여백을 가진다.
+	 */
+	 /* justify-content : flex-start */; /* 기본값 */
+	 
+	 /* align-items : 새로정렬 
+	 	flex-start : 상단정렬
+	 	center : 가운데정렬
+	 	flex-end :  하단정렬
+	  */
+	 /* align-items : stretch; */ /* 기본값 */
+	 
+	 /* align-content :  flex-wrap: wrap를 주어야한다. 이유는 item에 맞게 정렬하기위함
+	 	flex-start : 상단정렬
+	 	center : 가운데정렬
+	 	flex-end :  하단정렬
+	 */
+	/* align-content : flex-start; */	 
+	
+	/* view port 100% */
+	height: 100vh; 
+	
+	background: lightgray;
+}
+
+.item {
+	/* flex-basis :
+	0 - 아이템+여백포함해서 비율을 가진다. 
+	auto - 여백만을 비율로 가진다.(초기값)
+	flex-basis와 flex-grow를 함께사용
+	flex : 1은 flex-shrink와 같다 
+    basis를 0으로 준것같은효과
+         또한, flex : 1은 늘어나게 만든다.
+	*/
+	/* flex-basis: 0; */ 
+	background: rgba(255, 0, 0, 0.5);
+}
+.item:nth-child(1) {
+	flex-grow: 1;
+	/* align-self: flex-start; */
+	order: 3;
+}
+.item:nth-child(2) {
+	flex-grow: 1;
+	/* align-self: center; */
+	order: 1;
+}
+.item:nth-child(3) {
+	flex-grow: 1;
+	/* align-self: flex-end; */
+	order: 2;
+}
+
+.item:nth-child(odd) {
+	background: rgba(255, 255, 0, 0.5);
+}
+
+

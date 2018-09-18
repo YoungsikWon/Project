@@ -71,8 +71,8 @@ span {
 				<a class="item active"> Friends </a>
 				<div class="right menu">
 					<div class="item">
-						<button class="ui button" style="margin-right: 10px;" onclick="window.location.href='./login'" />로그인</button>
-						<button class="ui primary button" style="margin-right: 10px;" onclick="window.location.href='./join'" />회원가입</button>
+						<button class="ui button" style="margin-right: 10px;" onclick="window.location.href='/login'" />로그인</button>
+						<button class="ui primary button" style="margin-right: 10px;" onclick="window.location.href='/join'" />회원가입</button>
 					</div>
 				</div>
 			</div>

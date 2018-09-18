@@ -1,0 +1,133 @@
+@charset "utf-8";
+body { /* 기본화면은 모바일화면으로 제작 */
+	font-size:1em;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1, p{
+	margin:0px;
+}
+
+.container {
+	background: pink;
+}
+
+.item {
+	padding: 5%;
+}
+
+.item-a {
+	background-color: yellow;
+}
+
+.item-b {
+	background-color: yellowgreen;
+} 
+
+@media screen and (min-width: 700px) { /* 700사이즈 이상이면 아래와 같이 웹화면으로 제공 */
+	.container {
+		font-size: 0px; /* 공백문자 제거는 폰트사이즈를 제거하는것과 동일 */
+	}
+	
+	.item {
+		display: inline-block; 
+		vertical-align: top; /* display를 block으로 설정해주어야 적용가능 */ 
+		font-size: 1rem; /* 폰트사이즈 제설정 */
+		
+	}
+	.item-a {
+		width: 30%;
+	}
+	.item-b {
+		width: 50%;
+	}
+}
+
+
+
+
+/* inline view 이용 예제 ***********************************************************/
+/* body {
+	font-size:2em;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1, p{
+	margin:0px;
+}
+
+.container {
+	max-width: 1000px;
+	margin: 0 auto;	 margin-left: auto; 	margin-right: auto; 대신 사용
+	font-size: 0px;
+}
+
+.item {
+	display: inline-block;
+	vertical-align: top;  block형태에서 세로정렬
+	padding: 5%;
+	font-size: 1rem; 브라우저가 기본적으로 사용하는 폰트의 크기를 사용
+}
+
+.item-a {
+	width: 30%;
+	background-color: yellow;
+}
+
+.item-b {
+	width: 50%;
+	background-color: yellowgreen;
+} */
+
+
+
+
+
+/* float view 이용 예제 ************************************************************/
+/* body {
+	font-size:2em;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1, p{
+	margin:0px;
+}
+
+.container {
+	background-color: pink;
+	max-width: 1000px; 최대 넓이를 적용시켜서 더이상 늘어나는 것을 방지
+	margin: 0 auto;
+
+}
+
+.container:after { float로 인해서 container의 높이가 0으로 되어있는것을 clear시키는 코드
+	content: '';
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+
+
+.item {
+	float: left; 해당 테그를 왼쪽방향으로 붙는다.
+	padding: 5%;
+}
+
+.item-a {
+	width: 30%;
+	background-color: yellow;
+}
+
+.item-b {
+	width: 50%;
+	background-color: yellowgreen;
+}
+
+footer{
+	clear: both;
+	background-color: gray;
+} */
