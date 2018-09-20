@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>join-(회원가입)</title>
+<title>회원가입</title>
 
 </head>
 <body>

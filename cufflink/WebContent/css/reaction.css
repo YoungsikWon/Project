@@ -1,0 +1,89 @@
+@charset "UTF-8";
+	html {
+		position: relative;
+		height: 100%;
+		background: #f2f2f2
+	}
+	
+	body {
+		background: #f2f2f2
+	}
+	
+	html.sh_overflow {
+		overflow: hidden;
+	}
+	
+	#mode_view {
+		text-align: center;
+		position: relative;
+		height: 100%
+	}
+	
+	#mode_view div.chkMode {
+		width: 100%;
+		text-align: center;
+		background: #fff;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+		z-index: 999;
+	}
+	
+	#mode_view div.chkMode a {
+		display: inline-block;
+		position: relative;
+		width: 33.33%;
+		max-width: 80px;
+		height: 50px;
+		vertical-align: top;
+		border-left: 1px solid #e0e0e0;
+		background-position: 50% 0;
+		background-size: auto 100%;
+		background-repeat: no-repeat;
+		cursor: pointer;
+		margin-left: -5px;
+	}
+	
+	#mode_view div.chkMode a.last {
+		border-right: 1px solid #ddd
+	}
+	
+	#mode_view div.chkMode a:hover, #mode_view div.chkMode a.ckmod {
+		background-color: #f1f1f1;
+	}
+	
+	#mode_view div.chkMode a#mode_pc {
+		background-image: url('/reactionImage/btn_mode_pc.png');
+	}
+	
+	#mode_view div.chkMode a#mode_laptop {
+		background-image: url('/reactionImage/btn_mode_laptop.png');
+	}
+	
+	#mode_view div.chkMode a#mode_tablet {
+		background-image: url('/reactionImage/btn_mode_tablet.png');
+	}
+	
+	#mode_view div.chkMode a#mode_mobile {
+		background-image: url('/reactionImage/btn_mode_mobile.png');
+	}
+	
+	#mode_view div#frame_wrap {
+		position: relative;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+	
+	#mode_view div#frame_wrap #sh_iframe {
+		width: 100%;
+		margin: 1px auto;
+		position: relative;
+		background: #fff
+	}
+	
+	#mode_view div#frame_wrap div.mode_bg {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		text-align: center;
+		opacity: 0
+	}

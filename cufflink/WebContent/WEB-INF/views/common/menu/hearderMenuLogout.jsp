@@ -23,27 +23,22 @@
 		<a href="/"><img src="/image/logo.jpg" class="ui image tiny" alt="" style="float: left; margin-right: 10px" /></a>
 		<div class="ui inverted secondary pointing menu"
 			style="margin-top: 0px;">
-			<a	href="/ProjectFind" class="item">프로젝트 찾기 </a> 
-			<a  href="/PartnersList" class="item">파트너스 목록 </a>
+			<a href="/projectRegister" class="active item">프로젝트 등록 </a> <a
+				href="/projectFind" class="item">프로젝트 찾기 </a> <a
+				href="/partnersList" class="item">파트너스 목록 </a>
 			<div class="right menu">
-				
+				<button id ="b_login" class="ui button" style="margin-right: 10px;" onclick="window.location.href='/login'" />
+					로그인
+				</button>
+				<button id = "b_join" class="ui primary button" style="margin-right: 10px;" onclick="window.location.href='/join'" />
+					회원가입
+				</button>
 			</div>
-			<form id = "f_logout">
-			<div id = "menu_list" class="ui dropdown button">
-				<div id = "out_id"><% if(info!=null) out.print(info.get("S_ID")); %></div> <i class="dropdown icon"></i>
-				<div  class="menu">
-					<div class="item" onclick="location.href='/PartnersMyCufflink'"><i class="home icon"></i>마이 커프링크</div>
-<!-- 					<div class="item" href="/ClientMyCufflink"><i class="home icon" ></i>마이 커프링크</div> -->
-					<div class="item" onclick="location.href='/PartnersInfo'"><i class="user icon"></i>파트너스 정보관리></div>
-					<div class="item" onclick="location.href='/PartnersProfile'"><i class="cog icon"></i>계정설정</div>
-					<div class="item" onclick="location.href='/logout'"><i class="power off icon"></i>로그아웃</div>
-				</div>
-			</div>
-			</form>
 		</div>
 	</div>
 </div>
 <script type="text/javascript">
+
 
 $('.ui.dropdown').dropdown({
 		action : 'hide',

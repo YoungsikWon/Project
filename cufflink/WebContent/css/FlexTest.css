@@ -33,14 +33,14 @@ div, span { box-size: 1.5rem;
 	   	row-reverse : 기본값으로 display: flex;(우측정렬,상단정렬)
 	   	column-reverse : row(좌측정렬,하단정렬)	
 	*/
-	flex-direction: column; /* 기본값 */
+	flex-direction: row; /* 기본값 */
 	
 	/* 	flex은 반응형 웹을 만들때 사용 화면이 좁아지면 아래로 내려간다.
 		flex-wrap:
 		wrap : 기본값으로 A,B,C형태로 내려간다.
 		wrap-reverse : C,B,A형태로 내려간다.
 	*/
-	/* flex-wrap: wrap; */  /* 기본값 */
+	flex-wrap: wrap;  /* 기본값 */
 
 	/*	justify-content: 해당아이템 가로정렬
 		flex-start : 왼쪽(기본값)

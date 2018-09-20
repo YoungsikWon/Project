@@ -48,7 +48,7 @@
 
 <!-- 서브 메뉴 ===================================================================================-->
 				<div class="ui fluid vertical menu" style="padding-right: 0px">
-					<jsp:include page="../info/ClientInfoSubmenu.jsp" />
+					<jsp:include page="../info/PartnersInfoSubmenu.jsp" />
 				</div>
 <!-- 서브 메뉴 ===================================================================================-->			
 			</div>

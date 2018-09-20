@@ -4,8 +4,7 @@
 <head>
 <jsp:include page="../common/ui.jsp"/>
 <meta charset="UTF-8">
-<title>마이 커프링크
-</title>
+<title>마이 커프링크</title>
 <link rel="stylesheet" href="./css/cuffLink.css" />
 <link rel="stylesheet" href="./css/login.css" />
 </head>
@@ -103,7 +102,7 @@
 				</div>
 <!-- 중간 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 				<div class="ui segment container" style="padding: 20px; padding-bottom: 20px; left: 0px; border: 1px solid #dedede;">
-					<div class="ui three column grid container">
+					<div class="ui four column grid container">
 						<div class="column" style="padding-bottom:20px; width:50%;">
 							<h4 style="text-align: left">내 프로젝트</h4>
 						</div>
@@ -119,22 +118,25 @@
 					</div>
 					<div class="ui" style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px;text-align:left;">
       					<div class="ui column segment" style="padding-top:0px;">
-      						<div class="ui blue top left attached label"><a href="/projectSubmitted">>>검수 중<<</a></div>
-	      					<div class="ui three column grid container" style="padding-left: 0px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center;" >
+      						<div class="ui blue top left attached label"><a href="ProjectSubmitted">>>관심 프로젝트<<</a></div>
+	      					<div class="ui four column grid container" style="padding-left: 0px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center;" >
 	      						<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center; width:60%">
 	      							프로젝트 제목
 	      						</div>
 	      						<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center; width:20%">
-	      							제출일자
+	      							예상금액
 	      						</div>
 	      						<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center; width:20%">
-	      							도구
+	      							예상기간
+	      						</div>
+	      						<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center; width:20%">
+	      							마감일자
 	      						</div>
 	      						<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
 									<hr class="garo" style="" />
 								</div>
 								<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:left; width:60%">
-	      							검수 중인 프로젝트가 없습니다.
+	      							관심 프로젝트가 없습니다.
 	      						</div>
 	      						<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center; width:20%">
 	      							<!-- 제출일자 -->
@@ -152,7 +154,7 @@
 					<div class="ui" style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px;text-align:left;">
       					<div class="ui column segment" style="padding-top:0px;">
       						<div class="ui orange top left attached label"><a href="/projectRecruiting">>>지원자 모집 중<<</a></div>
-	      					<div class="ui four column grid container" style="padding-left: 0px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center;" >
+	      					<div class="ui  five column grid container" style="padding-left: 0px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center;" >
 	      						<div class="column" style="padding-left: 20px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;text-align:center; width:40%">
 	      							프로젝트 제목
 	      						</div>

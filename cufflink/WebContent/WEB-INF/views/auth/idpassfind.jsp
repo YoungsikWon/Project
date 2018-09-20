@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>login</title>
+<title>로그인</title>
 </head>
 <body>
 <!----------------------------------------------------------------------- top 시작 -->

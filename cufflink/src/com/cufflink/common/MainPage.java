@@ -6,30 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainPage {
 	
-	//테스트화면
-	@RequestMapping("/Flexbox")
-	public String Flexbox() {
-		return "test/Flexbox";
-	}
 	@RequestMapping("/newfile")
 	public String newfile() {
-		return "test/newfile";
+		return "test/NewFile";
 	}
 	@RequestMapping("/newfile1")
 	public String newfile1() {
-		return "test/newfile1";
-	}
-	@RequestMapping("/newfile3")
-	public String newfile3() {
-		return "test/newfile3";
-	}
-	@RequestMapping("/newfile2")
-	public String newfile2() {
-		return "test/newfile2";
-	}
-	@RequestMapping("/newfile4")
-	public String newfile4() {
-		return "test/newfile4";
+		return "test/NewFile1";
 	}
 	
 	//메인화면
@@ -54,129 +37,94 @@ public class MainPage {
 		return "auth/join";
 	}
 	//프로젝트 찾기
-	@RequestMapping("/projectFind")
+	@RequestMapping("/ProjectFind")
 	public String projectFind() {
-		return "clients/projectFind";
+		return "Project/ProjectFind";
 	}
-	//프로젝트 등록
+	//프로젝트 등록  파트너스 존재하지않음 XXXXXXX
 	@RequestMapping("/projectRegister")
 	public String projectRegister() {
 		return "clients/projectRegister";
 	}
 	//파트너스 목록
-	@RequestMapping("/partnersList")
+	@RequestMapping("/PartnersList")
 	public String partnersList() {
-		return "partners/partnersList";
+		return "Project/PartnersList";
 	}	
 	
-//*********************************	클라이언트 로그인 네비게이터 메뉴
-	//프로젝트 검수중
+//*********************************	파트너스 로그인 네비게이터 메뉴
+	//관심 프로젝트
 	@RequestMapping("/projectSubmitted")
 	public String projectSubmitted() {
-		return "/clients/manage/project/projectSubmitted";
+		return "/ProjectAttention/projectSubmitted";
 	}
 	//프로젝트 지원자 모집중
-	@RequestMapping("/projectRecruiting")
+	@RequestMapping("/ProjectRecruiting")
 	public String projectRecruiting() {
-		return "/clients/manage/projectRecruiting";
+		return "/Project/ProjectRecruiting";
 	}
 	//프로젝트 진행중인 프로젝트
-	@RequestMapping("/projectContractInProgress")
+	@RequestMapping("/ProjectContractInProgress")
 	public String projectContractInProgress() {
-		return "/clients/manage/projectContractInProgress";
+		return "/Project/ProjectContractInProgress";
 	}
-	//프로젝트 종료된 프로젝트
-	@RequestMapping("/projectReviewContract")
-	public String projectReviewContract() {
-		return "/clients/manage/projectReviewContract";
-	}
-//*********************************	클라이언트 로그인 네비게이터 메뉴
-	
-//*********************************	클라이언트 로그인 네비게이터 검수 하위메뉴
-	//프로젝트 검수중
-	//네비게이터의 검수중메뉴와 동일
-	
-	//프로젝트 임시저장
-	@RequestMapping("/projectSaved")
-	public String projectSaved() {
-		return "/clients/manage/project/projectSaved";
-	}
-	//프로젝트 등록실패
-	@RequestMapping("/projectRejected")
-	public String projectRejected() {
-		return "/clients/manage/project/projectRejected";
-	}
-//*********************************	클라이언트 로그인 네비게이터 검수 하위메뉴	
-	
-//*********************************	클라이언트 로그인 네비게이터 검수 하위메뉴
-	//프로젝트 종료된 프로젝트
-	//네비게이터의 종료된 프로젝트 메뉴와 동일
-	
-	//프로젝트 완료된 프로젝트
-	@RequestMapping("/projectCompletedContract")
+	//프로젝트 완료한 프로젝트
+	@RequestMapping("/ProjectReviewContract")
 	public String projectCompletedContract() {
-		return "/clients/manage/projectCompletedContract";
+		return "/Project/ProjectReviewContract";
 	}
-	//프로젝트 취소한 프로젝트
-	@RequestMapping("/projectCancelledProject")
-	public String projectCancelledProject() {
-		return "/clients/manage/projectCancelledProject";
-	}
-//*********************************	클라이언트 로그인 네비게이터 검수 하위메뉴	
-	
-//*********************************	클라이언트 로그인 우측 클라이언트 정보메뉴	
 
 	//마이 커프링크
-	@RequestMapping("/ClientMyCufflink")
+	@RequestMapping("/PartnersMyCufflink")
 	public String ClientMyCufflink() {
-		return "/clients/ClientMyCufflink";
+		return "/Partners/PartnersMyCuffLink";
 	}
 	//---------------------------------------
-	//프로젝트 클라이언트 정보
-	@RequestMapping("/ClientInfo")
+	//프로젝트 파트너스 정보
+	@RequestMapping("/PartnersInfo")
 	public String ClientInfo() {
-		return "/clients/info/ClientInfo";
+		return "/info/PartnersInfo";
 	}
-	//프로젝트 클라이언트 정보등록
-	@RequestMapping("/ClientInfoUpdate")
+	//프로젝트 파트너스 정보등록
+	@RequestMapping("/PartnersInfoUpdate")
 	public String ClientInfoUpdate() {
-		return "/clients/info/ClientInfoUpdate";
+		return "/info/PartnersInfoUpdate";
 	}
 	//프로젝트 프로젝트 히스토리
-	@RequestMapping("/ClientProjectHistory")
+	@RequestMapping("/PartnersProjectHistory")
 	public String ClientProjectHistory() {
-		return "/clients/ClientProjectHistory";
+		return "/Partners/PartnersProjectHistory";
 	}	
 	//---------------------------------------
 	//계정설정 - 기본수정 
-	@RequestMapping("/ClientProfile")
-	public String ClientProfile() {
-		return "/auth/clientSettings/ClientProfile";
+	@RequestMapping("/PartnersProfile")
+	public String ParnersProfile() {
+		return "/PartnersSettings/PartnersProfile";
 	}
 	//계정설정 - 계좌관리
-	@RequestMapping("/ClientBankAccount")
-	public String ClientBankAccount() {
-		return "/auth/clientSettings/ClientBankAccount";
+	@RequestMapping("/PartnersBankAccount")
+	public String PartnersBankAccount() {
+		return "/PartnersSettings/PartnersBankAccount";
 	}
 	//계정설정 - 코인충전페이지
-	@RequestMapping("/ClientAddcoin")
+	@RequestMapping("/PartnersAddcoin")
 	public String ClientAddcoin() {
-		return "/auth/clientSettings/ClientAddcoin";
+		return "/PartnersSettings/PartnersAddcoin";
 	}
 	//계정설정 - 비밀번호변경
-	@RequestMapping("/ClientRelogin")
-	public String ClientRelogin() {
-		return "/auth/clientSettings/ClientRelogin";
+	@RequestMapping("/PartnersRelogin")
+	public String PartnersRelogin() {
+		return "/PartnersSettings/PartnersRelogin";
 	}
 	//계정설정 - 알림설정
-	@RequestMapping("/ClientNotificationSetting")
-	public String ClientNotificationSetting() {
-		return "/auth/clientSettings/ClientNotificationSetting";
+	@RequestMapping("/PartnersNotificationSetting")
+	public String PartnersNotificationSetting() {
+		return "/PartnersSettings/PartnersNotificationSetting";
 	}
 	//계정설정 - 회원탈퇴
-	@RequestMapping("/ClientWithdrawal")
+	@RequestMapping("/PartnersWithdrawal")
 	public String ClientWithdrawal() {
-		return "/auth/clientSettings/ClientWithdrawal";
+		return "/PartnersSettings/PartnersWithdrawal";
 	}
 	//---------------------------------------
 	

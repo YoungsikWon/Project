@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* css reset ****************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+div, span { box-size: 1.5rem;
+}
+/* css reset ****************************************/
+
+.container {
+	display: grid;
+/* 4대 6비율로 배치된다.  grid-gap와 함께 주면 스크롤바생김*/
+/* 	grid-template-columns: 40% 60%; */
+/*	grid-template-columns: 4fr 6fr; */
+
+/* 	grid-template-columns: repeat(4,1fr); */
+
+/*  1fr 1fr 1fr 같은 행은 같은 높이를 가진다.*/
+    grid-template-columns: 1fr 1fr 1fr;
+
+/*  왼쪽은고정 오른쪽은 늘어난다. */
+/*  grid-template-columns: 250px 1fr; */
+
+/*  200px 는 같은높이로 맞추어준다.*/
+/*  grid-auto-rows: 250px; */ 
+
+/*  minmax는 최소높이와 나머지는 auto로 설정*/
+/* 	grid-auto-rows: minmax(200px, auto); */
+
+/*  200px대신 10em(폰트크기10배높이)*/
+    grid-auto-rows: minmax(10em, auto);	
+
+	grid-gap:1rem;
+
+/*  start 왼쪽정렬*/
+/*  center 중앙정렬, end 오른쪽정렬*/
+/* 	justify-items: start; */
+	justify-items: space-around;
+
+/*  start 상단정렬, center 중앙정렬*/
+/*  end 하단정렬*/
+/* 	align-items: start; */
+
+	background: lightgray;
+}
+
+.item {
+
+	background: rgba(255, 0, 0, 0.5);
+}
+
+/*  1번 아이템을 1부터4까지 차지하게함*/
+.item:nth-child(1) {
+	grid-column: 1/4;
+}
+
+/*  4번 아이템을 2부터4까지 차지하게함*/
+.item:nth-child(4) {
+	grid-column: 3;
+	grid-row: 2/4;
+}
+
+/*  5번만 가운데 정렬 */
+.item:nth-child(5) {
+	/* justify-self: center;
+	align-self: center; */
+}
+
+/*  9번을 4번에 침범하도록 할수있다. */
+.item:nth-child(9) {
+	grid-column: 3;
+	grid-row: 3/5;
+}
+
+.item:nth-child(odd) {
+	background: rgba(255, 255, 0, 0.5);
+}
+
+
