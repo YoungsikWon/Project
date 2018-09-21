@@ -15,6 +15,6 @@ public class ProjectController {
 		@RequestMapping("/page")
 		public String proejct(Model m) {
 			m.addAttribute("pro", projectLogic.getProejct());
-			return "common/main";
+			return "Project/PartnersList";
 		}
 }
