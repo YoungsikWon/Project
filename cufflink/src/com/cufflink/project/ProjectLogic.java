@@ -16,14 +16,15 @@ public class ProjectLogic {
 	@Autowired
 	ProjectDao projectDao;
 	
-	public List<String> getProejct(){
-		List<String> pro = new ArrayList<>();
-		List<Map<String, Object>> list = projectDao.getProjectList();
-		logger.info(list);
-		for(Map<String, Object>map : list) {
-			pro.add((String)map.get("S_PW"));
-		}
-		logger.info("pro 호출 성공"+pro);
-		return pro;
+	List<Map<String, Object>>list;
+	Map<String, Map> map;
+	int result;
+	
+	//프로젝트 찾기 : 카테고리 분류
+	public Map<String, Map> getProjectFind(Map<String, Object> pMap){
+		logger.info("ProjectFind 호출 성공");
+		map = projectDao.getProjectFind(pMap);
+		logger.info(map);
+		return map;
 	}
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ProjectMapper">
-<select id="Project_A" resultType="map" parameterType="String">
-	select * from LICENSE
+<!-- 프로젝트 찾기 카테고리  -->
+<select id="ProjectCategory" resultType="map" parameterType="map">
+	select * from category
 </select>
 
 </mapper>

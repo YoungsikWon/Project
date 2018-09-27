@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="testList">
+<!--@@@@@@@@@@@@@@ 셀렉문 작성@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<!--활동요약 정보 - 평균평점  -->
+	<select id="partnersEvaluation_grade" resultType="map" parameterType="map">
+		SELECT (su_prof+su_sati+su_comm+su_comp+su_acti)/5 as "AVG_PRO" FROM support WHERE p_no = 2002
+	</select>
+	<!--활동요약정보 - 계약한 프로젝트 건수  -->
+	 <select id="partnersEvaluation_pro" resultType="map" parameterType="map">
+		SELECT count(pro_no) as "COUNT_PRO" FROM support WHERE p_no = 2002
+	</select>
+	<!--활동요약정보 - 포트폴리오 갯수  -->
+	<select id="partnersEvaluation_port" resultType="map" parameterType="map">
+		SELECT (SELECT (su_prof+su_sati+su_comm+su_comp+su_acti)/5 FROM support WHERE p_no = 2002) as "AVG_PRO"
+              ,(SELECT count(pro_no) FROM support WHERE p_no = 2002) as "COUNT_PRO"
+              ,(SELECT count(*) FROM portfolio WHERE p_no = 2002)    as "COUNT_PORT" 
+ 		  FROM dual
+	</select>
+	<!--세부항목 평가 -->
+	<select id="partnersEvaluation_avg" resultType="map" parameterType="map">
+		SELECT avg(su_prof)as "AVG_PROF", avg(su_sati)as "AVG_SATI", avg(su_comm)as "AVG_COMM"
+              ,avg(su_comp)as "AVG_COMP", avg(su_acti) as "AVG_ACTI" 
+          FROM support WHERE p_no = 2002
+	</select>
+	<!--진행한 카테고리  -->
+	<select id="partnersEvaluation_cate" resultType="map" parameterType="map">
+		SELECT cate_no, cate_main, cate_sub 
+  		  FROM category 
+         WHERE cate_no IN (SELECT cate_no
+                             FROM choice 
+                            WHERE pro_no IN (SELECT pro_no 
+                            				   FROM support 
+                            				  WHERE p_no = 2002))
+	</select>
+	<!--==================================================================================================  -->
+	<!-- 자기소개  -->
+	<select id="partnersIntroduction" resultType="map" parameterType="map">
+		SELECT p_name,p_aboutme FROM partners WHERE p_no = 2002
+	</select>
+	<!--포트톨리오 =========================================================================================== -->
+	<select id="partnersPortfolio" resultType="map" parameterType="map">
+		SELECT port_no, port_file, port_date, port_contents, port_name, port_master
+  		  FROM portfolio
+         WHERE p_no = 2002
+	</select>
+	<!--경력, 학력, 자격증  =================================================================================== -->
+	<select id="partnersBackground" resultType="map" parameterType="map">
+		SELECT * FROM career car, license lic, education edu WHERE car.p_no =2002 and lic.p_no = 2002 AND edu.P_NO = 2002 
+	</select>
+	<!-- 보유 기술 =========================================================================================== -->
+	<select id="partnersSkill" resultType="map" parameterType="map">
+		SELECT skill_no, skill_tec,skill_pro, skill_edu, skill_master FROM skill WHERE p_no = 2002
+	</select>
+</mapper>
