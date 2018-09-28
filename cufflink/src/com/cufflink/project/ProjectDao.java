@@ -15,21 +15,21 @@ import com.cufflink.partners.PartnersDao;
 @Service
 public class ProjectDao {
 	Logger logger = Logger.getLogger(ProjectDao.class);
+		
 		@Autowired
 		SqlSessionTemplate sqlSessionTemplate;
+	
 		
-		int result;
-		List<Map<String, Object>> list;
-		Map<String, Map> map;
 		
-		//프로젝트 찾기  : 카테고리
-		public Map<String, Map> getProjectFind(Map<String, Object>pMap){
-			logger.info("getProjectFind호출 성공");
-			Map<String, Map> rMap = new HashMap<>();
+		//프로젝트 찾기  : 카테고리  개발 / 디자인
+		public List<Map<String, Object>> getProjectFind(){
 			
-			map = sqlSessionTemplate.selectOne("ProjectCategory", map);
-			rMap.put("ProjectCategory", map);
-			logger.info("ProjectCategory 호출 성공"+pMap);
-			return rMap;
+			List<Map<String, Object>> list = new ArrayList<>();
+			list = sqlSessionTemplate.selectList("ProjectCategory"); //개발
+			//list = sqlSessionTemplate.selectList("ProjectCate_main2"); //디자인
+			logger.info("DAO"+list);
+			return list;
 		}
+	
+		
 }

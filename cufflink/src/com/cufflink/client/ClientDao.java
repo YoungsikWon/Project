@@ -16,7 +16,7 @@ public class ClientDao {
 	
 	public List<Map<String,Object>> getClientList(){
 		List<Map<String,Object>> list = new ArrayList<>();
-		list = sqlSessionTemplate.selectList("cli_select");
+		list = sqlSessionTemplate.selectList("page");
 		return list;
 	}
 }

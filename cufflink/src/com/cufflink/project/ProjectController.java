@@ -19,15 +19,10 @@ public class ProjectController {
 		@Autowired
 		ProjectLogic projectLogic;
 		
-		@RequestMapping("{path}")
-		public String ProjectFind(Model mod,@PathVariable String path, @RequestParam Map<String,Object> pMap) {
+		@RequestMapping("/page")
+		public String getProjectFind(Model mod) {
 			logger.info("ProjectFind 호출성공");
-			logger.info(path);
-			mod.addAttribute("path", path);
-			mod.addAttribute("ProjectFind", projectLogic.getProjectFind(pMap));
-			
-			
-			
+			mod.addAttribute("ProjectFind", projectLogic.getProjectFind());
 			return "Project/ProjectFind";
 		}
 }

@@ -16,4 +16,8 @@
 			and S_PW = #{S_PW}
 		</if>
 	</select>
+<select id="page" parameterType="String" resultType="map">
+		select cate_sub from category
+where cate_main = '개발'
+</select>
 </mapper>

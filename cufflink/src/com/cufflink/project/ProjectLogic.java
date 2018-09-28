@@ -21,10 +21,15 @@ public class ProjectLogic {
 	int result;
 	
 	//프로젝트 찾기 : 카테고리 분류
-	public Map<String, Map> getProjectFind(Map<String, Object> pMap){
+	public List<String> getProjectFind(){
 		logger.info("ProjectFind 호출 성공");
-		map = projectDao.getProjectFind(pMap);
-		logger.info(map);
-		return map;
+		List<String> ProjectFind = new ArrayList<>();
+		List<Map<String, Object>> list = projectDao.getProjectFind();
+		logger.info(list);
+		for (Map<String, Object> map : list) {
+			ProjectFind.add((String)map.get("cate_main"));
+		}
+		logger.info(ProjectFind);
+		return ProjectFind;
 	}
 }

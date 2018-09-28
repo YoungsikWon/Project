@@ -15,12 +15,14 @@ public class ClientLogic {
 	@Autowired
 	ClientDao clientDao;
 	
+	
+	//카테고리 - 디자인
 	public List<String> getBNs(){
 		List<String> bns = new ArrayList<>();
 		List<Map<String,Object>> list = clientDao.getClientList();
 		logger.info(list);
 		for (Map<String, Object> map : list) {
-			bns.add((String)map.get("C_BUSINESSNUMBER"));
+			bns.add((String)map.get("cate_main"));
 		}
 		logger.info(bns);
 		return bns;

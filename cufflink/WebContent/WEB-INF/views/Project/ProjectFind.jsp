@@ -1,10 +1,11 @@
+<%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 
 <%
-		Map<String, Object> map 
-		= (Map<String, Object>)request.getAttribute("getProjectFind");
+		 List<String> list =(List<String>) request.getAttribute("ProjectFind");
+		 
 %>
 
 
@@ -103,52 +104,15 @@
 												<input type="checkbox" name="dev"> <div class="h11">개발</div>
 											</div>
 											<div class="list">
+											<% for(String gb : list){ %>
 												<div class="item">
 													<div class="ui child checkbox">
-														<input type="checkbox" name="dev_web"> <div class="h11">웹</div>
+														<input type="checkbox" name="dev_web"> <div class="h11"><%= gb %></div>
 													</div>
 												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="dev_application"> <div class="h11">애플리케이션</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="dev_wordPress"> <div class="h11">워드프레스</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="dev_publishing"> <div class="h11">퍼블리싱</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="dev_software"> <div class="h11">일반 소프트웨어</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="dev_commerce"> <div class="h11">커머스,쇼핑몰</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="dev_game"> <div class="h11">게임</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="dev_embeded"> <div class="h11">임베디드</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="dev_outside"> <div class="h11">기타</div>
-													</div>
-												</div>
+											<% } %>
 											</div>
+												
 										</form>
 <!-- form 끝 ================================================================================================================================== -->												
 									</div>
