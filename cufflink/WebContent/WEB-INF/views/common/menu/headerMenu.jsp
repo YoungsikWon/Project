@@ -1,6 +1,6 @@
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
- <%
+<%--  <%
     Cookie[]    cs          = request.getCookies();
     HttpSession infoSession = request.getSession();
     Map<String,Object> info = null;
@@ -14,7 +14,7 @@
 		
 	  }
     }
-%>
+%> --%>
 <jsp:include page="../ui.jsp"/>
 <link rel="stylesheet" href="/css/cuffLink.css" />
 <link rel="stylesheet" href="/css/login.css" />
@@ -30,7 +30,7 @@
 			</div>
 			<form id = "f_logout">
 			<div id = "menu_list" class="ui dropdown button">
-				<div id = "out_id"><% if(info!=null) out.print(info.get("S_ID")); %></div> <i class="dropdown icon"></i>
+				<div id = "out_id"></div> <i class="dropdown icon"></i>
 				<div  class="menu">
 					<div class="item" onclick="location.href='/PartnersMyCufflink'"><i class="home icon"></i>마이 커프링크</div>
 <!-- 					<div class="item" href="/ClientMyCufflink"><i class="home icon" ></i>마이 커프링크</div> -->

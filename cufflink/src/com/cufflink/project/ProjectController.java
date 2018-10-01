@@ -22,7 +22,9 @@ public class ProjectController {
 		@RequestMapping("/page")
 		public String getProjectFind(Model mod) {
 			logger.info("ProjectFind 호출성공");
-			mod.addAttribute("ProjectFind", projectLogic.getProjectFind());
+			mod.addAttribute("ProjectFind1", projectLogic.getProjectFind1()); //개발
+			mod.addAttribute("ProjectFind2", projectLogic.getProjectFind2()); //디자인
+			mod.addAttribute("Project", projectLogic.getProject()); //전체 프로젝트 정리.
 			return "Project/ProjectFind";
 		}
 }

@@ -1,10 +1,14 @@
-<%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 
 <%
-		 List<String> list =(List<String>) request.getAttribute("ProjectFind");
+		 List<Map<String, Object>> list1 =(List<Map<String, Object>>) request.getAttribute("ProjectFind1"); //개발
+		 List<Map<String, Object>> list2 =(List<Map<String, Object>>) request.getAttribute("ProjectFind2"); // 디자인
+		 List<Map<String, Object>> list3 =(List<Map<String, Object>>) request.getAttribute("Project"); //프로젝트 전체 목록
+		
+		
 		 
 %>
 
@@ -104,17 +108,19 @@
 												<input type="checkbox" name="dev"> <div class="h11">개발</div>
 											</div>
 											<div class="list">
-											<% for(String gb : list){ %>
+											<% 
+											for(Map<String, Object> sub1 : list1) { 
+											%> 
+											<%-- <% for(String sb : map.get("sub1") { %> --%>
 												<div class="item">
 													<div class="ui child checkbox">
-														<input type="checkbox" name="dev_web"> <div class="h11"><%= gb %></div>
+														<input type="checkbox" name="dev_web"> <div class="h11"><%=sub1.get("CATE_SUB") %></div>
 													</div>
 												</div>
-											<% } %>
+										 	<% } %> 
 											</div>
-												
 										</form>
-<!-- form 끝 ================================================================================================================================== -->												
+<!-- form 끝 ================================================================================================================================== -->		
 									</div>
 									<div class="item" style="text-align: left;">
 										<form name="develope">
@@ -122,92 +128,45 @@
 												<input type="checkbox" name="design"> <div class="h11">디자인</div>
 											</div>
 											<div class="list">
+											<%
+											for(Map<String, Object> sub2 : list2) {
+											%>
 												<div class="item">
 													<div class="ui child checkbox">
-														<input type="checkbox" name="design_web"> <div class="h11">웹</div>
+														<input type="checkbox" name="design_web"> <div class="h11"><%=sub2.get("CATE_SUB") %></div>
 													</div>
 												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="design_application"> <div class="h11">애플리케이션</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="design_product"> <div class="h11">제품</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="design_presentation"> <div class="h11">프레젠테이션</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="design_print"> <div class="h11">인쇄물</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="design_commerce"> <div class="h11">커머스,쇼핑몰</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="design_logo"> <div class="h11">로고</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="design_graphics"> <div class="h11">그래픽</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="design_vision"> <div class="h11">영상</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="design_game"> <div class="h11">게임</div>
-													</div>
-												</div>
-												<div class="item">
-													<div class="ui child checkbox">
-														<input type="checkbox" name="design_outside"> <div class="h11">기타</div>
-													</div>
-												</div>
+												<% } %>
 											</div>
 										</form>
 									</div>
 								</div>
 							</div>
 							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
-						
+								<%
+									for(Map<String, Object> Project : list3){
+
+								%>
 							</div>
 						</div>
 					</div>
 					<div class="column grid" style="padding-top: 0px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px; width: 85%;">
 <!-- db 공통 코드================================== -->
 						<div class="ui raised segment" style="padding:20px;">
-							<div class="column" style="text-align: left;"><h3>해외 쇼핑몰 이미지 자동 번역 및 등록 솔루션 개발</h3></div>
-							<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">예상금액 50,000,000원 &nbsp; | &nbsp; 예상기간 90일  &nbsp; |  &nbsp; 등록일자 2018.09.06</div>
+							<div class="column" style="text-align: left;"><h3><%=Project.get("PRO_NAME") %></h3></div>
+							<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;"><%=Project.get("PRO_END") %> &nbsp; | &nbsp; <%=Project.get("PRO_NAME") %>  &nbsp; |  &nbsp; <%=Project.get("PRO_STRT") %></div>
 							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 								<hr style="" />
 							</div>
 							<div class="ui two column grid container" style="padding: 0px;  height:100px;">
-								<div class="column grid" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px; width: 80%; border-right: 1px solid grey; text-align: left">
-								<프로젝트 진행 방식> 시작 시점에 오프라인 미팅 초기 업무 협의를 위한 잦은 오프라인 미팅을 요청드릴 수 있습니다. 이후 커뮤니케이션은 자유롭게 진행하고자 합니다. <프로젝트의 현재 상황> 자사 사이트가 구축되어 있으며, 필요한 사항에 대한 정리가 되어있습니다. <상세한 업무 내용> 필요 요소 : + 자동 수집 및 자동 등록 프로그 ...
-								</div>
+								<div class="column grid" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px; width: 80%; border-right: 
+								1px solid grey; text-align: left"><%=Project.get("PRO_CONTENTS") %></div>
 								<div class="column grid" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px; width: 20%; font-size:11px;">
 									<div class="ui container" style="padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
-										마감 1주 6일 전
+										마감 1주 6일 전<%=Project.get("PRO_PERIOD") %>
 									</div>
 									<div class="ui container" style="padding-top: 0px; padding-bottom: 5px; padding-left: 20px; padding-right: 20px;">
 										<hr style="" />
-									</div>
-									<div class="ui container" style="padding-top: 0px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
-										총 5명 지원
 									</div>
 									<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px;">
 										<hr style="" />
@@ -215,8 +174,9 @@
 								</div>
 							</div>
 							<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">
-								개발 > 웹관련 기술 HTML5 javascript SERVER ...
+								<%=Project.get("PRO_SKILL") %>
 							</div>
+							<% } %>
 							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 							</div>
 						</div>

@@ -2,16 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ProjectMapper">
 <!-- 프로젝트 찾기 카테고리  -->
-<select id="ProjectCategory" resultType="map" parameterType="String">
-	select * from category
+<select id="Project" resultType="map" parameterType="map">
+	select * from Project
 </select>
-
-<select id="ProjectCate_main1" resultType="map" parameterType="String">
+<!-- 개발 -->
+<select id="ProjectCate_sub1" resultType="map" parameterType="map">
 	select cate_sub from category
 where cate_main = '개발'
 </select>
-
-<select id="ProjectCate_main2" resultType="map" parameterType="String">
+<!-- 디자인 -->
+<select id="ProjectCate_sub2" resultType="map" parameterType="map">
 	select cate_sub from category
 where cate_main = '디자인'
 </select>
