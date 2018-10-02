@@ -29,7 +29,7 @@ public class ProjectLogic {
 		List<String> Project = new ArrayList<>();
 		List<Map<String, Object>> list = projectDao.getProject();
 		for (Map<String, Object> map : list) {
-			Project.add((String)map.get("PRO_NO"));
+			Project.add((String)map.get("PRO_NAME"));
 		}
 		return list;
 	}
@@ -61,9 +61,9 @@ public class ProjectLogic {
 	public List<Map<String, Object>> getProject_cateALL(){
 		logger.info("getProject_cateALL 호출 성공");
 		List<String> ProjectFind = new ArrayList<>();
-		List<Map<String, Object>> list = projectDao.getProjectALL();
+		List<Map<String, Object>> list = projectDao.getProject_CATE();
 		for (Map<String, Object> map : list) {
-			ProjectFind.add((String)map.get("CATE_SUB"));
+			ProjectFind.add((String)map.get("CATE_MAIN"));
 		}
 		return list;
 	}

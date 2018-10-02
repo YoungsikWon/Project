@@ -150,7 +150,7 @@
 						<div class="ui raised segment" style="padding:20px;">
 							<div class="column" style="text-align: left;"><h3><%=Project.get("PRO_NAME") %></h3></div>
 							<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">
-							예상금액<%=Project.get("PRO_END") %>원 &nbsp; | &nbsp;예상기간 <%=Project.get("PRO_PERIOD")%>  &nbsp; |  &nbsp; 등록일자 <%=Project.get("PRO_START")%></div>
+							예상금액<%=Project.get("PRO_PRICE") %>원 &nbsp; | &nbsp;예상기간 <%=Project.get("PRO_PERIOD")%>  &nbsp; |  &nbsp; 등록일자 <%=Project.get("PRO_START")%></div>
 							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 								<hr style="" />
 							</div>

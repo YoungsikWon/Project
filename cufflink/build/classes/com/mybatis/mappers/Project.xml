@@ -3,7 +3,20 @@
 <mapper namespace="ProjectMapper">
 <!-- 프로젝트 찾기 카테고리  -->
 <select id="Project" resultType="map" parameterType="map">
-	select * from Project
+SELECT PRO_NO,
+       C_NO,
+       PRO_NAME,
+       PRO_PERIOD,
+       PRO_PRICE,
+       PRO_PLAN,
+       PRO_PARNER,
+       PRO_SKILL,
+       PRO_FILE,
+       PRO_END,
+       PRO_START,
+       PRO_ADDR,
+       PRO_MANAGEMENT,
+        PRO_CONTENTS FROM project
 </select>
 <!-- 개발 -->
 <select id="ProjectCate_sub1" resultType="map" parameterType="map">
@@ -15,7 +28,7 @@ where cate_main = '개발'
 	select cate_sub from category
 where cate_main = '디자인'
 </select>
-<select id="ProjectCate_ALL" resultType="map" parameterType="map">
+<select id="getProject_CATE" resultType="map" parameterType="map">
 select cate_main, cate_sub from category
 </select>
 

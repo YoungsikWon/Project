@@ -34,14 +34,14 @@ public class ProjectDao {
 		List<Object> lists = new ArrayList<Object>();
 		list = sqlSessionTemplate.selectList("Project"); // 프로젝트 전체 목록
 		lists.add(list);
-		logger.info("Project Dao 호출" + list);
+		logger.info("Project Dao 호출");
 		return list;
 	}
 	// 프로젝트 찾기 : 전체 카테고리
-		public List<Map<String, Object>> getProjectALL() {
+		public List<Map<String, Object>> getProject_CATE() {
 			List<Map<String, Object>> list = new ArrayList<>();
 			List<Object> lists = new ArrayList<Object>();
-			list = sqlSessionTemplate.selectList("ProjectCate_ALL"); // 개발
+			list = sqlSessionTemplate.selectList("getProject_CATE"); // 개발
 			lists.add(list);
 			// list = sqlSessionTemplate.selectList("ProjectCate_main2"); //디자인
 			return list;
