@@ -7,15 +7,8 @@
 		 List<Map<String, Object>> list1 =(List<Map<String, Object>>) request.getAttribute("ProjectFind1"); //개발
 		 List<Map<String, Object>> list2 =(List<Map<String, Object>>) request.getAttribute("ProjectFind2"); // 디자인
 		 List<Map<String, Object>> list3 =(List<Map<String, Object>>) request.getAttribute("Project"); //프로젝트 전체 목록
-		
-		
-		 
+		 List<Map<String, Object>> list4 =(List<Map<String, Object>>) request.getAttribute("getProject_cateALL"); //프로젝트 전체 목록
 %>
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,16 +98,16 @@
 <!-- form 시작 ================================================================================================================================== -->		
 										<form name="develope">
 											<div class="ui master checkbox">
-												<input type="checkbox" name="dev"> <div class="h11">개발</div>
+												<input type="checkbox" id="dev" name="dev"> <div class="h11">개발</div>
 											</div>
 											<div class="list">
 											<% 
-											for(Map<String, Object> sub1 : list1) { 
+											for(Map<String, Object> sub1 : list1) {  //개발 DB 넣어주기
 											%> 
 											<%-- <% for(String sb : map.get("sub1") { %> --%>
 												<div class="item">
 													<div class="ui child checkbox">
-														<input type="checkbox" name="dev_web"> <div class="h11"><%=sub1.get("CATE_SUB") %></div>
+														<input type="checkbox" name="dev_List"> <div class="h11"><%=sub1.get("CATE_SUB") %></div>
 													</div>
 												</div>
 										 	<% } %> 
@@ -122,18 +115,18 @@
 										</form>
 <!-- form 끝 ================================================================================================================================== -->		
 									</div>
-									<div class="item" style="text-align: left;">
-										<form name="develope">
+									<div class="item" style="text-align: left;"> 
+									<form name="develope">
 											<div class="ui master checkbox">
-												<input type="checkbox" name="design"> <div class="h11">디자인</div>
+												<input type="checkbox" id="design"> <div class="h11">디자인</div>
 											</div>
 											<div class="list">
 											<%
-											for(Map<String, Object> sub2 : list2) {
+											for(Map<String, Object> sub2 : list2) { // 디자인 DB 넣어주기
 											%>
 												<div class="item">
 													<div class="ui child checkbox">
-														<input type="checkbox" name="design_web"> <div class="h11"><%=sub2.get("CATE_SUB") %></div>
+														<input type="checkbox" name="design_List"> <div class="h11"><%=sub2.get("CATE_SUB") %></div>
 													</div>
 												</div>
 												<% } %>
@@ -143,18 +136,21 @@
 								</div>
 							</div>
 							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
-								<%
-									for(Map<String, Object> Project : list3){
-
-								%>
+							
 							</div>
 						</div>
+								<%
+									for(Map<String, Object> Project : list3){
+									/*  for(Map<String, Object> Category : list4){		 */
+								%>
 					</div>
 					<div class="column grid" style="padding-top: 0px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px; width: 85%;">
-<!-- db 공통 코드================================== -->
+					
+<!-- db 공통 코드===================================================================================================================================== -->
 						<div class="ui raised segment" style="padding:20px;">
 							<div class="column" style="text-align: left;"><h3><%=Project.get("PRO_NAME") %></h3></div>
-							<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;"><%=Project.get("PRO_END") %> &nbsp; | &nbsp; <%=Project.get("PRO_NAME") %>  &nbsp; |  &nbsp; <%=Project.get("PRO_STRT") %></div>
+							<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">
+							예상금액<%=Project.get("PRO_END") %>원 &nbsp; | &nbsp;예상기간 <%=Project.get("PRO_PERIOD")%>  &nbsp; |  &nbsp; 등록일자 <%=Project.get("PRO_START")%></div>
 							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 								<hr style="" />
 							</div>
@@ -163,38 +159,7 @@
 								1px solid grey; text-align: left"><%=Project.get("PRO_CONTENTS") %></div>
 								<div class="column grid" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px; width: 20%; font-size:11px;">
 									<div class="ui container" style="padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
-										마감 1주 6일 전<%=Project.get("PRO_PERIOD") %>
-									</div>
-									<div class="ui container" style="padding-top: 0px; padding-bottom: 5px; padding-left: 20px; padding-right: 20px;">
-										<hr style="" />
-									</div>
-									<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px;">
-										<hr style="" />
-									</div>
-								</div>
-							</div>
-							<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">
-								<%=Project.get("PRO_SKILL") %>
-							</div>
-							<% } %>
-							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
-							</div>
-						</div>
-<!-- db 공통 코드================================== -->
-<!-- db 공통 코드 삭제할 코드================================== -->
-						<div class="ui raised segment" style="padding:20px;">
-							<div class="column" style="text-align: left;"><h3>해외 쇼핑몰 이미지 자동 번역 및 등록 솔루션 개발</h3></div>
-							<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">예상금액 50,000,000원 &nbsp; | &nbsp; 예상기간 90일  &nbsp; |  &nbsp; 등록일자 2018.09.06</div>
-							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
-								<hr style="" />
-							</div>
-							<div class="ui two column grid container" style="padding: 0px;  height:100px;">
-								<div class="column grid" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px; width: 80%; border-right: 1px solid grey; text-align: left">
-								<프로젝트 진행 방식> 시작 시점에 오프라인 미팅 초기 업무 협의를 위한 잦은 오프라인 미팅을 요청드릴 수 있습니다. 이후 커뮤니케이션은 자유롭게 진행하고자 합니다. <프로젝트의 현재 상황> 자사 사이트가 구축되어 있으며, 필요한 사항에 대한 정리가 되어있습니다. <상세한 업무 내용> 필요 요소 : + 자동 수집 및 자동 등록 프로그 ...
-								</div>
-								<div class="column grid" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px; width: 20%; font-size:11px;">
-									<div class="ui container" style="padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
-										마감 1주 6일 전
+										마감 <%=Project.get("PRO_PERIOD") %>전
 									</div>
 									<div class="ui container" style="padding-top: 0px; padding-bottom: 5px; padding-left: 20px; padding-right: 20px;">
 										<hr style="" />
@@ -202,61 +167,33 @@
 									<div class="ui container" style="padding-top: 0px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
 										총 5명 지원
 									</div>
-									<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px;">
-										<hr style="" />
-									</div>
-								</div>
-							</div>
-							<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">
-								개발 > 웹관련 기술 HTML5 javascript SERVER ...
-							</div>
-							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
-							</div>
-						</div>
-						<div class="ui raised segment" style="padding:20px;">
-							<div class="column" style="text-align: left;"><h3>해외 쇼핑몰 이미지 자동 번역 및 등록 솔루션 개발</h3></div>
-							<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">예상금액 50,000,000원 &nbsp; | &nbsp; 예상기간 90일  &nbsp; |  &nbsp; 등록일자 2018.09.06</div>
-							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
-								<hr style="" />
-							</div>
-							<div class="ui two column grid container" style="padding: 0px;  height:100px;">
-								<div class="column grid" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px; width: 80%; border-right: 1px solid grey; text-align: left">
-								<프로젝트 진행 방식> 시작 시점에 오프라인 미팅 초기 업무 협의를 위한 잦은 오프라인 미팅을 요청드릴 수 있습니다. 이후 커뮤니케이션은 자유롭게 진행하고자 합니다. <프로젝트의 현재 상황> 자사 사이트가 구축되어 있으며, 필요한 사항에 대한 정리가 되어있습니다. <상세한 업무 내용> 필요 요소 : + 자동 수집 및 자동 등록 프로그 ...
-								</div>
-								<div class="column grid" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px; width: 20%; font-size:11px;">
-									<div class="ui container" style="padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
-										마감 1주 6일 전
-									</div>
-									<div class="ui container" style="padding-top: 0px; padding-bottom: 5px; padding-left: 20px; padding-right: 20px;">
-										<hr style="" />
-									</div>
 									<div class="ui container" style="padding-top: 0px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
-										총 5명 지원
+										<%-- <%=Category.get("CATE_MAIN")%> | <%=Category.get("CATE_SUB")%> --%>
 									</div>
-									<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px;">
+										<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px;">
 										<hr style="" />
+									</div>
 									</div>
 								</div>
 							</div>
-							<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">
-								개발 > 웹관련 기술 HTML5 javascript SERVER ...
+							<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;" >
+								관련기술<%=Project.get("PRO_SKILL") %>
 							</div>
+							<% 
+							}//Project END
+							// }//CATEGORY END
+							%>
 							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 							</div>
 						</div>
-<!-- db 공통 코드 삭제할 코드================================== -->
+							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	<!-- main 입력 끝-->
-	
 	</div>
-<!----------------------------------------------------------------------- main content 끝 -->
-<!----------------------------------------------------------------------- main content 끝 -->
-	
-	<!-- <div class="ui basicspace">login title와 main content 여백	</div> -->
-	
 <!----------------------------------------------------------------------- footer content 시작 -->
 	<!-- footer 시작-->
 		<footer class="footer">
@@ -265,18 +202,8 @@
 			</div>
 		</footer>
 	<!-- footer 끝-->
-<!----------------------------------------------------------------------- footer content 끝 -->
 /************************************************************ 프로젝트 찾기 - 미팅지역선택  */
 	<script type="text/javascript">
-	$('#search-select')
-	.dropdown();
-	</script>
-	/************************************************************ 프로젝트 찾기 - 미팅지역선택   */
-		
-	<script type="text/javascript">
-	
-	
-	
 	/************************************************************ 프로젝트 찾기 - 프로젝트  카테고리  */
 	$('.list .master.checkbox')
 	.checkbox({
@@ -330,6 +257,8 @@
 	    }
 	  });
 	/************************************************************ 프로젝트 찾기 - 프로젝트  카테고리  */
+//프로젝트 카테고리 기능 구현
+  
 </script>
 </body>
 </html>

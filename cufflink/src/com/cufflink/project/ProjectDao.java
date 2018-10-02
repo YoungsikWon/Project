@@ -25,7 +25,7 @@ public class ProjectDao {
 	/*******************************************************************
 	 * @Name : 원영식
 	 * @return : list
-	 * @Context : 프로젝트 찾기 : 카테고리 디자인 / 개발 및 프로젝트 등 삽입
+	 * @Context : 프로젝트 찾기 : 카테고리 디자인 / 개발 및 프로젝트 등 삽입 / 프로젝트 찾기
 	 ******************************************************************/
 
 	// 프로젝트 전체목록 호출하고자 합니다.
@@ -37,8 +37,16 @@ public class ProjectDao {
 		logger.info("Project Dao 호출" + list);
 		return list;
 	}
-
-	// 프로젝트 찾기 : 카테고리 개발 / 디자인
+	// 프로젝트 찾기 : 전체 카테고리
+		public List<Map<String, Object>> getProjectALL() {
+			List<Map<String, Object>> list = new ArrayList<>();
+			List<Object> lists = new ArrayList<Object>();
+			list = sqlSessionTemplate.selectList("ProjectCate_ALL"); // 개발
+			lists.add(list);
+			// list = sqlSessionTemplate.selectList("ProjectCate_main2"); //디자인
+			return list;
+		}
+	// 프로젝트 찾기 : 카테고리 개발 
 	public List<Map<String, Object>> getProjectFind1() {
 		List<Map<String, Object>> list = new ArrayList<>();
 		List<Object> lists = new ArrayList<Object>();
@@ -47,7 +55,7 @@ public class ProjectDao {
 		// list = sqlSessionTemplate.selectList("ProjectCate_main2"); //디자인
 		return list;
 	}
-
+	// 프로젝트 찾기 : 카테고리 디자인
 	public List<Map<String, Object>> getProjectFind2() {
 		List<Map<String, Object>> list = new ArrayList<>();
 		List<Object> lists = new ArrayList<Object>();

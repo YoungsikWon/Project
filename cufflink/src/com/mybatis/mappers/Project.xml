@@ -15,5 +15,8 @@ where cate_main = '개발'
 	select cate_sub from category
 where cate_main = '디자인'
 </select>
+<select id="ProjectCate_ALL" resultType="map" parameterType="map">
+select cate_main, cate_sub from category
+</select>
 
 </mapper>
