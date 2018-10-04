@@ -32,4 +32,13 @@ where cate_main = '디자인'
 select cate_main, cate_sub from category
 </select>
 
+<resultMap type="java.util.Map" id="testMap"/>
+<select id="test" parameterType="java.util.Map" statementType="CALLABLE">
+	{CALL proc_pagination(
+         #{pagenumber, mode=IN, jdbcType=NUMERIC, javaType=int},
+         #{pagecount, mode=IN, jdbcType=NUMERIC, javaType=int},
+         #{tablesize, mode=OUT, jdbcType=NUMERIC, javaType=int},
+         #{result, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=testMap})
+      }
+</select>
 </mapper>

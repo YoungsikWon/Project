@@ -64,5 +64,15 @@ public class ProjectDao {
 		// list = sqlSessionTemplate.selectList("ProjectCate_main2"); //디자인
 		return list;
 	}
+		// 프로젝트 찾기 : 카테고리 디자인
+		public Map<String, Object> getProAll(int pagenum) {
+			Map<String,Object> map1 = new HashMap<>();
+			map1.put("pagenumber", pagenum);
+			map1.put("pagecount", 10);
+			sqlSessionTemplate.selectOne("test",map1); // 개발
+			logger.info(map1);
+			// list = sqlSessionTemplate.selectList("ProjectCate_main2"); //디자인
+			return map1;
+	}
 
 }
