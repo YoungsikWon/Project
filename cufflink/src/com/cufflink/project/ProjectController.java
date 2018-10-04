@@ -24,7 +24,7 @@ public class ProjectController {
 			mod.addAttribute("Project", projectLogic.getProject()); //전체 프로젝트 정리.
 			mod.addAttribute("ProjectCate_ALL", projectLogic.getProject_cateALL()); //카테고리 찍기~
 			mod.addAttribute("getAll", projectLogic.getProAll(Integer.parseInt(pagenum))); //카테고리 찍기~
-			return "Project/ProjectFind";
+			return "Project/ProjectRoom";
 		}
 		
 }

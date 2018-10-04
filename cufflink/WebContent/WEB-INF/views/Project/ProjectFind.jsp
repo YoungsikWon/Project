@@ -189,6 +189,7 @@
 						<div class="ui raised segment" style="padding: 20px;">
 							<div class="column" style="text-align: left;">
 								<h3><%=Project.get("PRO_NAME")%></h3>
+								<i class="fa fa-heart inactive-heart" onclick="toggle_interest(this);" project-id="41160" style="" title="'관심 프로젝트'에 추가하기"></i>
 							</div>
 							<div class="column"
 								style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">
@@ -217,16 +218,7 @@
 									</div>
 									<div class="ui container"
 										style="padding-top: 0px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
-										총
-										<%
-										if (Project.get("SUP_NUM") == null) {
-												out.print("0");
-											} else {
-												out.print(Project.get("SUP_NUM"));
-											}
-									%>
-
-										명 지원
+										총 <%=Project.get("SUP_NUM")%>명 지원
 									</div>
 									<div class="ui container"
 										style="padding-top: 0px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px;">

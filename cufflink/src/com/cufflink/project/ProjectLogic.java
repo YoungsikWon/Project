@@ -68,7 +68,7 @@ public class ProjectLogic {
 		return list;
 	}
 
-	// 프로젝트 찾기 : 전체 리스트
+	// 프로젝트 찾기 페이지 네이션
 	public Map<String, Object> getProAll(int pagenum) {
 		logger.info("getProAll 호출 성공");
 		Map<String,Object> map = projectDao.getProAll(pagenum);
