@@ -28,14 +28,18 @@ public class ProjectDao {
 	 * @Context : 프로젝트 찾기 : 카테고리 디자인 / 개발 및 프로젝트 등 삽입 / 프로젝트 찾기
 	 ******************************************************************/
 
-	// 프로젝트 전체목록 호출하고자 합니다.
-	public List<Map<String, Object>> getProject() {
-		List<Map<String, Object>> list = new ArrayList<>();
-		List<Object> lists = new ArrayList<Object>();
-		list = sqlSessionTemplate.selectList("Project"); // 프로젝트 전체 목록
-		lists.add(list);
-		logger.info("Project Dao 호출");
-		return list;
+	// Page : 프로젝트 상세보기 
+	public Map<String, Map> Project_1(Map<String, Object> pMap) {
+		logger.info("Project 호출성공");
+		Map<String, Map> rMap = new HashMap<>();
+		map = sqlSessionTemplate.selectOne("Project",map);
+		rMap.put("Project", map);
+		
+		//프로젝트 상세보기 / 클라이언트 프로젝트 계약률 및 현재 진행상태를  넣어주기
+		map = sqlSessionTemplate.selectOne("P_Project",map);
+		rMap.put("P_Project", map);
+	    return rMap;
+	    
 	}
 	// 프로젝트 찾기 : 전체 카테고리
 		public List<Map<String, Object>> getProject_CATE() {

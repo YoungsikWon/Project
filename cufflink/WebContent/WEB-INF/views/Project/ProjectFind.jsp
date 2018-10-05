@@ -107,7 +107,6 @@
 							</div>
 							<div class="ui container"
 								style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
-
 							</div>
 						</div>
 						<div class="ui raised segment" style="padding: 5px;">

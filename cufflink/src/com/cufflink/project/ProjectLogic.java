@@ -21,15 +21,12 @@ public class ProjectLogic {
 	Map<String, Map> map;
 	int result;
 
-	// 프로젝트 전체목록
-	public List<Map<String, Object>> getProject() {
-		logger.info("Project 호출 성공");
-		List<String> Project = new ArrayList<>();
-		List<Map<String, Object>> list = projectDao.getProject();
-		for (Map<String, Object> map : list) {
-			Project.add((String) map.get("PRO_NAME"));
-		}
-		return list;
+	// 프로젝트 찾기  전체목록을 담아줄 것입니다.
+	public Map<String,Map> Project(Map<String, Object> pMap){
+		logger.info("Project 호출성공");
+		map = projectDao.Project_1(pMap);
+		logger.info(map);
+		return map;
 	}
 
 	///////////////////////////////
@@ -42,6 +39,15 @@ public class ProjectLogic {
 		List<Map<String, Object>> list = projectDao.getProjectFind1();
 		for (Map<String, Object> map : list) {
 			ProjectFind.add((String) map.get("CATE_SUB"));
+		}
+		return list;
+	}
+	public List<Map<String, Object>> P_Enrollment() {
+		logger.info("P_Enrollment 호출 성공");
+		List<String> ProjectFind = new ArrayList<>();
+		List<Map<String, Object>> list = projectDao.getProjectFind1();
+		for (Map<String, Object> map : list) {
+			ProjectFind.add((String) map.get("P_NO"));
 		}
 		return list;
 	}

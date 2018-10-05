@@ -3,20 +3,28 @@
 <mapper namespace="ProjectMapper">
 <!-- 프로젝트 찾기 카테고리  -->
 <select id="Project" resultType="map" parameterType="map">
-SELECT PRO_NO,
-       C_NO,
-       PRO_NAME,
-       PRO_PERIOD,
-       PRO_PRICE,
-       PRO_PLAN,
-       PRO_partners,
-       PRO_SKILL,
-       PRO_FILE,
-       PRO_END,
-       PRO_START,
-       PRO_ADDR,
-       PRO_MANAGEMENT,
-        PRO_CONTENTS FROM project
+SELECT 
+  PRO_NO
+  ,C_NO 
+  ,PRO_NAME
+  ,PRO_PERIOD
+  ,PRO_PRICE
+  ,PRO_PLAN
+  ,PRO_PARTNERS
+  ,PRO_SKILL
+  ,PRO_START
+  ,PRO_END
+  ,PRO_ADDR
+  ,PRO_MANAGEMENT
+  ,PRO_CONTENTS
+  FROM PROJECT
+    WHERE PRO_NO = 10001
+</select>
+<!-- 프로젝트 등록 건수 넣기 (클라이언트) -->
+<select id="ProjectA" resultType="map" parameterType="map">
+select count(C_no)
+    from project
+    where C_no = 1002
 </select>
 <!-- 개발 -->
 <select id="ProjectCate_sub1" resultType="map" parameterType="map">
@@ -40,5 +48,14 @@ select cate_main, cate_sub from category
          #{tablesize, mode=OUT, jdbcType=NUMERIC, javaType=int},
          #{result, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=testMap})
       }
+</select>
+<!-- 프로젝트 상세보기 / 클라이언트 프로젝트 건수 넣어주기 -->
+<select id="P_Project" resultType="map" parameterType="map">
+	    select 
+    count(decode(su_state,'완료',1))A,
+    count(decode(su_state,'진행',2))B,
+    sum(decode(su_state,'완료',1,'진행',1))C,
+    SUBSTR(count(decode(su_state,'완료',1))/count(decode(su_state,'완료',1,'진행',1))*100,1,4)D
+    from SUPPORT where p_no = '2002'
 </select>
 </mapper>
