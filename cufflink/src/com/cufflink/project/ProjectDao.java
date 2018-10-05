@@ -38,6 +38,21 @@ public class ProjectDao {
 		//프로젝트 상세보기 / 클라이언트 프로젝트 계약률 및 현재 진행상태를  넣어주기
 		map = sqlSessionTemplate.selectOne("P_Project",map);
 		rMap.put("P_Project", map);
+	
+		/********************************************************
+		 * 파트너스 히스토리                                                                                           *
+		 ********************************************************/
+		// 클라이언트 히스토리  프로젝트 현황표 넣기
+		map = sqlSessionTemplate.selectOne("Partners_history",map);
+		rMap.put("Partners_history", map);
+		
+		// 파트너스 전문성, 사전 준비, 의사 소통, 일정 준수, 적극성 평균 값
+		map = sqlSessionTemplate.selectOne("Partners_AVG",map);
+		rMap.put("Partners_AVG", map);
+		
+		// 파트너스 평균평점 / 평가 0개
+		map = sqlSessionTemplate.selectOne("Partners_AllAVG",map);
+		rMap.put("Partners_AllAVG", map);
 	    return rMap;
 	    
 	}

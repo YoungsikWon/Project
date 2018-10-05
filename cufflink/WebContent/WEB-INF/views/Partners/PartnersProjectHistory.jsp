@@ -1,4 +1,12 @@
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%
+	Map<String,Map> map= (Map<String,Map>)request.getAttribute("Project");
+	
+		Map<String, Object> Part = map.get("Partners_history");
+		Map<String, Object>  evalua = map.get("Partners_AVG");
+		Map<String, Object>  AllAvg = map.get("Partners_AllAVG");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,31 +75,31 @@
 									프로젝트 등록
 								</div>
 								<div class="column" style="width:40%; text-align:right; padding-right: 20px;">
-									0 건
+									<%=Part.get("E") %>건
 								</div>
 								<div class="column" style="width:60%">
 									계약한 프로젝트
 								</div>
 								<div class="column" style="width:40%; text-align:right; padding-right: 20px;">
-									0 건
+									<%=Part.get("B") %> 건
 								</div>
 								<div class="column" style="width:60%">
 									계약률
 								</div>
 								<div class="column" style="width:40%; text-align:right; padding-right: 20px;">
-									0 %
+									<%=Part.get("F")%>%
 								</div>
 								<div class="column" style="width:60%">
 									진행중인 프로젝트
 								</div>
 								<div class="column" style="width:40%; text-align:right; padding-right: 20px;t">
-									0 건
+									 <%=Part.get("C")%>건
 								</div>
 								<div class="column" style="width:60%">
 									완료한 프로젝트
 								</div>
 								<div class="column" style="width:40%; text-align:right; padding-right: 20px;">
-									0 건
+									<%=Part.get("A")%> 건
 								</div>
 							</div>
 							<div class="ui container" style="padding-top: 20px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
@@ -108,13 +116,14 @@
 								￦		
 								</div>
 								<div class="column" style="width:40%; text-align:right; padding-right: 20px;">
-									0 원
+									<%=Part.get("D")%> 원
 								</div>
 							</div>
 						</div>
 						<div class="column" style="width=50%">
 							<div class="ui container" style="padding-top: 10px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px; text-align:center;">
-								<h5>평균평점 <div class="ui star rating" data-rating="3"></div> 0.0 / 평가 0개</h5>
+								<h5>평균평점 <div class="ui star rating" data-rating="3"></div> 
+								<%=AllAvg.get("A") %> / 평가 <%=AllAvg.get("B")%>개</h5>
 							</div>
 							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
 								<hr class="dotted" style="" />
@@ -124,31 +133,36 @@
 									전문성
 								</div>
 								<div class="column" style="width:40%; text-align:right">
-									 <div class="ui star rating" data-rating="3"></div> 0.0
+									 <div class="ui star rating" data-rating="3"></div> 
+									 <%=evalua.get("A") %>
 								</div>
 								<div class="column" style="padding-left: 20px; width:60%">
 									사전 준비
 								</div>
 								<div class="column" style="width:40%; text-align:right">
-									 <div class="ui star rating" data-rating="3"></div> 0.0
+									 <div class="ui star rating" data-rating="3"></div> 
+									  <%=evalua.get("B") %>
 								</div>
 								<div class="column" style="padding-left: 20px; width:60%">
 									의사소통
 								</div>
 								<div class="column" style="width:40%; text-align:right">
-									 <div class="ui star rating" data-rating="3"></div> 0.0
+									 <div class="ui star rating" data-rating="3"></div> 
+									  <%=evalua.get("C") %>
 								</div>
 								<div class="column" style="padding-left: 20px; width:60%">
 									일정 준수
 								</div>
 								<div class="column" style="width:40%; text-align:right">
-									 <div class="ui star rating" data-rating="3"></div> 0.0
+									 <div class="ui star rating" data-rating="3"></div> 
+									  <%=evalua.get("D") %>
 								</div>
 								<div class="column" style="padding-left: 20px; width:60%">
 									적극성
 								</div>
 								<div class="column" style="width:40%; text-align:right">
-									 <div class="ui star rating" data-rating="3"></div> 0.0
+									 <div class="ui star rating" data-rating="3"></div> 
+									  <%=evalua.get("F") %>
 								</div>
 							</div>
 						

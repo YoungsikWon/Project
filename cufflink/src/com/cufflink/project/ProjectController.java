@@ -25,8 +25,10 @@ public class ProjectController {
 			mod.addAttribute("ProjectCate_ALL", projectLogic.getProject_cateALL()); //카테고리 찍기~
 			mod.addAttribute("getAll", projectLogic.getProAll(Integer.parseInt(pagenum))); //페이지 네이션
 			
-			//프로젝트 상세보기
+			//프로젝트 
 			mod.addAttribute("Project", projectLogic.Project(pMap));
+			
+			//클라이언트 히스토리 : 계약한 건들 넣어두기.
 			return "Project/ProjectRoom";
 		}
 		

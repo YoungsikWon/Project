@@ -58,4 +58,37 @@ select cate_main, cate_sub from category
     SUBSTR(count(decode(su_state,'완료',1))/count(decode(su_state,'완료',1,'진행',1))*100,1,4)D
     from SUPPORT where p_no = '2002'
 </select>
+<!-- 
+	 ★★★★★★★★★★★파트너스 히스토리★★★★★★★★★★★★★ 
+ -->
+<!-- 파트너스 히스토리  프로젝트 현황표 넣기 -->
+<select id="Partners_history" resultType="map" parameterType="map">
+	   select
+    count(decode(su_state,'완료',1))A,
+    count(decode(su_state,'완료',1))B,
+    count(decode(su_state,'진행',2))C,
+    sum(decode(su_state,'완료',1,'진행',3450000))D,
+     count(decode(P_no,'2002',SU_MONEY,''))E,
+    SUBSTR(count(decode(su_state,'완료',1))/count(decode(su_state,'완료',1,'진행',1))*100,1,4)F
+    from SUPPORT where p_no = '2002'
+</select>
+<!-- 평가 점수 넣기. -->
+<select id="Partners_AVG" resultType="map" parameterType="map">
+      select p_no,TO_CHAR(avg(su_prof),'9.9') as A,
+                 TO_CHAR(avg(su_sati),'9.9') as B,
+                  TO_CHAR(avg(su_comm),'9.9') as C,
+                   TO_CHAR(avg(su_comP),'9.9') as D,
+                  TO_CHAR(avg(Su_acti),'9.9') as F from support
+    where p_no = 2001 and su_prof is not null 
+    group by p_no
+</select>
+<!-- 평균 평점 / 평가 n 개. -->
+<select id="Partners_AllAVG" resultType="map" parameterType="map">
+   SELECT TRUNC(avg((su_prof+su_sati+su_comm+su_comp+su_acti)/5),1)A
+           ,COUNT(*)B 
+        FROM support 
+        WHERE p_no = 2002 
+         AND su_prof is not null
+</select>
+
 </mapper>
