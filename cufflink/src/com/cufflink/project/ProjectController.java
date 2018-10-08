@@ -29,7 +29,7 @@ public class ProjectController {
 			mod.addAttribute("Project", projectLogic.Project(pMap));
 			
 			//클라이언트 히스토리 : 계약한 건들 넣어두기.
-			return "Project/ProjectRoom";
+			return "Project/ProjectFind";
 		}
 		
 }

@@ -25,7 +25,7 @@ public class ProjectDao {
 	/*******************************************************************
 	 * @Name : 원영식
 	 * @return : list
-	 * @Context : 프로젝트 찾기 : 카테고리 디자인 / 개발 및 프로젝트 등 삽입 / 프로젝트 찾기
+	 * @Context : 프로젝트 찾기 : 카테고리 디자인 / 개발 및 프로젝트 등 삽입 / 프로젝트 찾기 / 프로젝트 상세보기 : 평가, 평가 점수, 클라이언트 소개
 	 ******************************************************************/
 
 	// Page : 프로젝트 상세보기 
@@ -42,7 +42,7 @@ public class ProjectDao {
 		/********************************************************
 		 * 파트너스 히스토리                                                                                           *
 		 ********************************************************/
-		// 클라이언트 히스토리  프로젝트 현황표 넣기
+		// 파트너스 히스토리  프로젝트 현황표 넣기
 		map = sqlSessionTemplate.selectOne("Partners_history",map);
 		rMap.put("Partners_history", map);
 		
@@ -53,6 +53,10 @@ public class ProjectDao {
 		// 파트너스 평균평점 / 평가 0개
 		map = sqlSessionTemplate.selectOne("Partners_AllAVG",map);
 		rMap.put("Partners_AllAVG", map);
+		
+		// 클라이언트 소개
+		map = sqlSessionTemplate.selectOne("Partners_aboutme",map);
+		rMap.put("Partners_aboutme", map);
 	    return rMap;
 	    
 	}
