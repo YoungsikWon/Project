@@ -3,8 +3,6 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
 <%
 	List<Map<String, Object>> list1 = (List<Map<String, Object>>) request.getAttribute("ProjectFind1"); //개발
 	List<Map<String, Object>> list2 = (List<Map<String, Object>>) request.getAttribute("ProjectFind2"); // 디자인
@@ -13,7 +11,6 @@
 	Map<String, Object> map = (Map<String, Object>) request.getAttribute("getAll");
 	List<Map<String, Object>> list3 = (List<Map<String, Object>>) map.get("result");
 	int count = (int) Math.ceil(Double.parseDouble(map.get("tablesize").toString()) / 10);
-	out.print(count);
 %>
 <!DOCTYPE html>
 <html>
@@ -124,20 +121,21 @@
 									<div class="item"
 										style="text-align: left; padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 5px;">
 										<!-- form 시작 ================================================================================================================================== -->
-										<form name="develope">
+										<form name="develope" id='devs'>
 											<div class="ui master checkbox">
-												<input type="checkbox" id="dev" name="dev">
-												<div class="h11">개발</div>
+												<input type="checkbox" id="dev" value='개발'>
+												<label class="h11">개발</label>
 											</div>
 											<div class="list">
 												<%
 													for (Map<String, Object> sub1 : list1) { //개발 DB 넣어주기
 												%>
 												<%-- <% for(String sb : map.get("sub1") { %> --%>
-												<div class="item">
+												<div class="item dev">
 													<div class="ui child checkbox">
-														<input type="checkbox" name="dev_List">
-														<div class="h11"><%=sub1.get("CATE_SUB")%></div>
+														<input type="hidden" value="개발"/>
+														<input type="checkbox" value='<%=sub1.get("CATE_SUB")%>' >
+														<label class="h11"><%=sub1.get("CATE_SUB")%></label>
 													</div>
 												</div>
 												<%
@@ -148,19 +146,19 @@
 										<!-- form 끝 ================================================================================================================================== -->
 									</div>
 									<div class="item" style="text-align: left;">
-										<form name="develope">
+										<form name="design" id='designs'>
 											<div class="ui master checkbox">
-												<input type="checkbox" id="design">
-												<div class="h11">디자인</div>
+												<input type="checkbox" id='design' value='디자인'>
+												<label class="h11">디자인</label>
 											</div>
 											<div class="list">
 												<%
 													for (Map<String, Object> sub2 : list2) { // 디자인 DB 넣어주기
 												%>
-												<div class="item">
+												<div class="item design">
 													<div class="ui child checkbox">
-														<input type="checkbox" name="design_List">
-														<div class="h11"><%=sub2.get("CATE_SUB")%></div>
+														<input type="checkbox" name="design_List" value='<%=sub2.get("CATE_SUB")%>' >
+														<label class="h11"><%=sub2.get("CATE_SUB")%></label>
 													</div>
 												</div>
 												<%
@@ -188,7 +186,9 @@
 						<div class="ui raised segment" style="padding: 20px;">
 							<div class="column" style="text-align: left;">
 								<h3><%=Project.get("PRO_NAME")%></h3>
-								<i class="fa fa-heart inactive-heart" onclick="toggle_interest(this);" project-id="41160" style="" title="'관심 프로젝트'에 추가하기"></i>
+								<i class="fa fa-heart inactive-heart"
+									onclick="toggle_interest(this);" project-id="41160" style=""
+									title="'관심 프로젝트'에 추가하기"></i>
 							</div>
 							<div class="column"
 								style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">
@@ -217,7 +217,8 @@
 									</div>
 									<div class="ui container"
 										style="padding-top: 0px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
-										총 <%=Project.get("SUP_NUM")%>명 지원
+										총
+										<%=Project.get("SUP_NUM")%>명 지원
 									</div>
 									<div class="ui container"
 										style="padding-top: 0px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px;">
@@ -257,8 +258,6 @@
 			</div>
 		</div>
 	</div>
-	</div>
-	</div>
 	<!----------------------------------------------------------------------- footer content 시작 -->
 	<!-- footer 시작-->
 	<footer class="footer">
@@ -267,55 +266,11 @@
 			<jsp:include page="../common/menu/footerMenu.jsp" />
 		</div>
 	</footer>
+
 	<!-- footer 끝-->
 	/************************************************************ 프로젝트 찾기 -
 	미팅지역선택 */
 	<script type="text/javascript">
-		/************************************************************ 프로젝트 찾기 - 프로젝트  카테고리  */
-		$('.list .master.checkbox')
-			.checkbox({
-				// check all children
-				onChecked : function() {
-					var $childCheckbox = $(this).closest('.checkbox').siblings('.list').find('.checkbox');
-					$childCheckbox.checkbox('check');
-				},
-				// uncheck all children
-				onUnchecked : function() {
-					var $childCheckbox = $(this).closest('.checkbox').siblings('.list').find('.checkbox');
-					$childCheckbox.checkbox('uncheck');
-				}
-			});
-		$('.list .child.checkbox')
-			.checkbox({
-				// Fire on load to set parent value
-				fireOnInit : true,
-				// Change parent state on each child checkbox change
-				onChange : function() {
-					var $listGroup = $(this).closest('.list'),
-						$parentCheckbox = $listGroup.closest('.item').children('.checkbox'),
-						$checkbox = $listGroup.find('.checkbox'),
-						allChecked = true,
-						allUnchecked = true;
-					// check to see if all other siblings are checked or unchecked
-					$checkbox.each(function() {
-						if ($(this).checkbox('is checked')) {
-							allUnchecked = false;
-						} else {
-							allChecked = false;
-						}
-					});
-					// set parent checkbox state, but dont trigger its onChange callback
-					if (allChecked) {
-						$parentCheckbox.checkbox('set checked');
-					} else if (allUnchecked) {
-						$parentCheckbox.checkbox('set unchecked');
-					} else {
-						$parentCheckbox.checkbox('set indeterminate');
-					}
-				}
-			});
-			/************************************************************ 프로젝트 찾기 - 프로젝트  카테고리  */
-			//프로젝트 카테고리 기능 구현
 	</script>
 	<script type="text/javascript">
 		/*금액 정렬*/
@@ -334,22 +289,22 @@
 	
 			submitList();
 		}
-		
+	
 		$('.master.checkbox').find('input').click(function() {
-			/* console.log($(this).prop('checked')); */
-			if ($(this).prop('checked')) {
+			console.log($(this).prop('checked'));
+			if ($(this).prop('checked')) { //체크 됬을 경우 $(this).val() = main category / $(this).prop('checked') = true / 체크 안됬을 경우  $(this).val() = main category / $(this).prop('checked') = false 
 				$('.item.' + $(this).prop('id')).find('.child.checkbox').find('input').prop('checked', true);
-				alert($(this).val() + " : " + $(this).prop('checked'));
+				
 			} else {
 				$('.item.' + $(this).prop('id')).find('.child.checkbox').find('input').prop('checked', false);
-				alert($(this).val() + " : " + $(this).prop('checked'));
+			
 			}
 		})
-	
 		$('.child.checkbox').find('input').click(function() {
 			/* console.log($(this).prop('checked')); */
 			if ($(this).prop('checked')) {
 				alert($(this).val() + " : " + $(this).prop('checked'));
+				
 			} else {
 				alert($(this).val() + " : " + $(this).prop('checked'));
 			}
@@ -357,3 +312,5 @@
 	</script>
 </body>
 </html>
+
+
