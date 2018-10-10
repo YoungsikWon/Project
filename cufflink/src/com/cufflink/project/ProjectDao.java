@@ -57,6 +57,8 @@ public class ProjectDao {
 		// 클라이언트 소개
 		map = sqlSessionTemplate.selectOne("Partners_aboutme",map);
 		rMap.put("Partners_aboutme", map);
+		
+
 	    return rMap;
 	    
 	}
@@ -83,6 +85,15 @@ public class ProjectDao {
 		List<Map<String, Object>> list = new ArrayList<>();
 		List<Object> lists = new ArrayList<Object>();
 		list = sqlSessionTemplate.selectList("ProjectCate_sub2"); // 개발
+		lists.add(list);
+		// list = sqlSessionTemplate.selectList("ProjectCate_main2"); //디자인
+		return list;
+	}
+	// 프로젝트 찾기 : 검색기능
+	public List<Map<String, Object>> getProjectseach() {
+		List<Map<String, Object>> list = new ArrayList<>();
+		List<Object> lists = new ArrayList<Object>();
+		list = sqlSessionTemplate.selectList("Pro_seach"); // 개발
 		lists.add(list);
 		// list = sqlSessionTemplate.selectList("ProjectCate_main2"); //디자인
 		return list;

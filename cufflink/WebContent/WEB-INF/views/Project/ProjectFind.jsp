@@ -4,10 +4,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
+	
+	
+
 	List<Map<String, Object>> list1 = (List<Map<String, Object>>) request.getAttribute("ProjectFind1"); //개발
 	List<Map<String, Object>> list2 = (List<Map<String, Object>>) request.getAttribute("ProjectFind2"); // 디자인
 	//List<Map<String, Object>> list3 =(List<Map<String, Object>>) request.getAttribute("Project"); //프로젝트 전체 목록
 	List<Map<String, Object>> list4 = (List<Map<String, Object>>) request.getAttribute("getProject_cateALL"); //프로젝트 전체 목록
+	List<Map<String, Object>> list5 = (List<Map<String, Object>>) request.getAttribute("Projectseach"); //검색기능
 	Map<String, Object> map = (Map<String, Object>) request.getAttribute("getAll");
 	List<Map<String, Object>> list3 = (List<Map<String, Object>>) map.get("result");
 	int count = (int) Math.ceil(Double.parseDouble(map.get("tablesize").toString()) / 10);
@@ -17,6 +21,8 @@
 <head>
 <meta charset="UTF-8">
 <title>프로젝트 찾기</title>
+<link rel="stylesheet" href="/css/cuffLink.css" />
+<link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
 	<!----------------------------------------------------------------------- top 시작 -->
@@ -57,12 +63,14 @@
 					</div>
 					<div class="column" style="text-align: right; margin: 10px 0px;">
 						<!-- form 시작 ================================================================================================================================== -->
-						<form name="p_search">
+						<div class="ui search">
 							<div class="ui icon input">
-								<input type="text" placeholder="Search..."> <i
-									class="inverted circular search link icon"></i>
+								<input class="prompt" type="text"
+									placeholder="Search countries..."> <i
+									class="search icon"></i>
 							</div>
-						</form>
+							<div class="results"></div>
+						</div>
 						<!-- form 끝 ================================================================================================================================== -->
 					</div>
 				</div>
@@ -77,7 +85,7 @@
 		<!-- main 입력 시작-->
 		<div class="ui container">
 			<div class="content-middle-project">
-				<div class="ui two column grid container" style="padding: 00px;">
+				<div class="ui two column grid container" style="padding: 00px; overflow: hidden;">
 					<div class="column grid"
 						style="vertical-align: middle; padding: 00px; width: 15%;">
 						<div class="ui raised segment" style="padding: 10px;">
@@ -309,6 +317,32 @@
 				alert($(this).val() + " : " + $(this).prop('checked'));
 			}
 		})
+	
+		/*******프로젝트 검색 기능************/
+		$('.ui.search')
+		  .search({
+		    type: 'category',
+		    source: categoryContent
+		  })
+		;
+		var categoryContent = [
+			  { category: 'South America', title: 'Brazil' },
+			  { category: 'South America', title: 'Peru' },
+			  { category: 'North America', title: 'Canada' },
+			  { category: 'Asia', title: 'South Korea' },
+			  { category: 'Asia', title: 'Japan' },
+			  { category: 'Asia', title: 'China' },
+			  { category: 'Europe', title: 'Denmark' },
+			  { category: 'Europe', title: 'England' },
+			  { category: 'Europe', title: 'France' },
+			  { category: 'Europe', title: 'Germany' },
+			  { category: 'Africa', title: 'Ethiopia' },
+			  { category: 'Africa', title: 'Nigeria' },
+			  { category: 'Africa', title: 'Zimbabwe' },
+			];
+		
+
+	
 	</script>
 </body>
 </html>

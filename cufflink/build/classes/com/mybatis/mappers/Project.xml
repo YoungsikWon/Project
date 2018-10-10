@@ -39,6 +39,10 @@ where cate_main = '디자인'
 <select id="getProject_CATE" resultType="map" parameterType="map">
 select cate_main, cate_sub from category
 </select>
+<!-- 프로젝트 검색 -->
+<select id="Pro_seach" resultType="map" parameterType="map">
+select * from PROJECT where PRO_NAME like '%${value}%'
+</select>
 
 <resultMap type="java.util.Map" id="testMap"/>
 <select id="test" parameterType="java.util.Map" statementType="CALLABLE">

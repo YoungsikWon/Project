@@ -23,6 +23,7 @@ public class ProjectController {
 			mod.addAttribute("ProjectFind1", projectLogic.getProjectFind1()); //개발
 			mod.addAttribute("ProjectFind2", projectLogic.getProjectFind2()); //디자인
 			mod.addAttribute("ProjectCate_ALL", projectLogic.getProject_cateALL()); //카테고리 찍기~
+			mod.addAttribute("Projectseach", projectLogic.getProjectseach());//검색 기능
 			mod.addAttribute("getAll", projectLogic.getProAll(Integer.parseInt(pagenum))); //페이지 네이션
 			
 			//프로젝트 
