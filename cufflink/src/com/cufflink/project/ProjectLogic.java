@@ -23,7 +23,7 @@ public class ProjectLogic {
 
 	// 프로젝트 찾기  전체목록을 담아줄 것입니다.
 	public Map<String,Map> Project(Map<String, Object> pMap){
-		logger.info("Project 호출성공");
+		logger.info("ProjectA,B,C,D 호출성공");
 		map = projectDao.Project_1(pMap);
 		logger.info(map);
 		return map;
@@ -73,21 +73,21 @@ public class ProjectLogic {
 		}
 		return list;
 	}
-	// 프로젝트 찾기 : 전체 리스트
-	public List<Map<String, Object>> getProjectseach() {
-		logger.info("getProject_cateALL 호출 성공");
-		List<String> ProjectFind = new ArrayList<>();
-		List<Map<String, Object>> list = projectDao.getProjectseach();
-		for (Map<String, Object> map : list) {
-			ProjectFind.add((String) map.get("PRO_NAME"));
-		}
-		return list;
-	}
+	
 
 	// 프로젝트 찾기 페이지 네이션
 	public Map<String, Object> getProAll(int pagenum) {
 		logger.info("getProAll 호출 성공");
 		Map<String,Object> map = projectDao.getProAll(pagenum);
+		return map;
+	}
+	
+	// 프로젝트 상세보기
+	public Map<String, Object> ProjectView(int pro_no) {
+		logger.info("ProjectView");
+		
+		Map<String, Object> map = projectDao.ProjectView(pro_no);
+		logger.info(pro_no);
 		return map;
 	}
 	

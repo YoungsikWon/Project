@@ -17,20 +17,30 @@ public class ProjectController {
 		ProjectLogic projectLogic;
 		
 		@RequestMapping("/page")
-		public String getProjectFind(Model mod, @RequestParam("pagenum") String pagenum, Map<String, Object> pMap) {
+		public String getProjectFind
+		(Model mod, @RequestParam("pagenum") String pagenum,  Map<String, Object> pMap) {
 			logger.info("ProjectFind 호출성공");
 			//프로젝트 --찾기--
 			mod.addAttribute("ProjectFind1", projectLogic.getProjectFind1()); //개발
 			mod.addAttribute("ProjectFind2", projectLogic.getProjectFind2()); //디자인
 			mod.addAttribute("ProjectCate_ALL", projectLogic.getProject_cateALL()); //카테고리 찍기~
-			mod.addAttribute("Projectseach", projectLogic.getProjectseach());//검색 기능
+			
 			mod.addAttribute("getAll", projectLogic.getProAll(Integer.parseInt(pagenum))); //페이지 네이션
 			
-			//프로젝트 
 			mod.addAttribute("Project", projectLogic.Project(pMap));
-			
 			//클라이언트 히스토리 : 계약한 건들 넣어두기.
 			return "Project/ProjectFind";
 		}
+		
+		//프로젝트 상세보기
+		@RequestMapping("/View")
+		public String getProjectRoom
+		(Model mod, @RequestParam("pro_no") int pro_no, Map<String ,Object>pMap) {
+			mod.addAttribute("Project", projectLogic.Project(pMap));
+			mod.addAttribute("view", projectLogic.ProjectView(pro_no));
+			return "Project/ProjectRoom";
+		}
+		
+		
 		
 }

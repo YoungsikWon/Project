@@ -32,6 +32,8 @@ public class ProjectDao {
 	public Map<String, Map> Project_1(Map<String, Object> pMap) {
 		logger.info("Project 호출성공");
 		Map<String, Map> rMap = new HashMap<>();
+		
+		//전체 프로젝트 목록 뿌리기
 		map = sqlSessionTemplate.selectOne("Project",map);
 		rMap.put("Project", map);
 		
@@ -58,7 +60,6 @@ public class ProjectDao {
 		map = sqlSessionTemplate.selectOne("Partners_aboutme",map);
 		rMap.put("Partners_aboutme", map);
 		
-
 	    return rMap;
 	    
 	}
@@ -89,16 +90,7 @@ public class ProjectDao {
 		// list = sqlSessionTemplate.selectList("ProjectCate_main2"); //디자인
 		return list;
 	}
-	// 프로젝트 찾기 : 검색기능
-	public List<Map<String, Object>> getProjectseach() {
-		List<Map<String, Object>> list = new ArrayList<>();
-		List<Object> lists = new ArrayList<Object>();
-		list = sqlSessionTemplate.selectList("Pro_seach"); // 개발
-		lists.add(list);
-		// list = sqlSessionTemplate.selectList("ProjectCate_main2"); //디자인
-		return list;
-	}
-		// 프로젝트 찾기 : 카테고리 디자인
+		// 프로젝트 찾기 : 페이지 네이션
 		public Map<String, Object> getProAll(int pagenum) {
 			Map<String,Object> map1 = new HashMap<>();
 			map1.put("pagenumber", pagenum);
@@ -108,5 +100,17 @@ public class ProjectDao {
 			// list = sqlSessionTemplate.selectList("ProjectCate_main2"); //디자인
 			return map1;
 	}
+		// 프로젝트 상세보기
+		public Map<String, Object>  ProjectView(int pro_no) {
+			Map<String, Object> map = new HashMap<>();
+			map.put("pro_no", pro_no);
+			map = sqlSessionTemplate.selectOne("ProjectView", map);
+			return map;
+		
+			
+			
+	
+		
+		}
 
 }

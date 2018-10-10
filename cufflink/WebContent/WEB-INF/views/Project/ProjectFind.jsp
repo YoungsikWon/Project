@@ -4,17 +4,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	
-	
-
 	List<Map<String, Object>> list1 = (List<Map<String, Object>>) request.getAttribute("ProjectFind1"); //개발
 	List<Map<String, Object>> list2 = (List<Map<String, Object>>) request.getAttribute("ProjectFind2"); // 디자인
-	//List<Map<String, Object>> list3 =(List<Map<String, Object>>) request.getAttribute("Project"); //프로젝트 전체 목록
+
 	List<Map<String, Object>> list4 = (List<Map<String, Object>>) request.getAttribute("getProject_cateALL"); //프로젝트 전체 목록
 	List<Map<String, Object>> list5 = (List<Map<String, Object>>) request.getAttribute("Projectseach"); //검색기능
-	Map<String, Object> map = (Map<String, Object>) request.getAttribute("getAll");
+	
+	
+	Map<String,Object> view =(Map<String,Object>)request.getAttribute("view");// 프로젝트 상세보기 목록 뿌리기	
+	
+	Map<String, Object> map = (Map<String, Object>) request.getAttribute("getAll"); // 페이지 네이션 및 프로젝트 목록 뿌리기
 	List<Map<String, Object>> list3 = (List<Map<String, Object>>) map.get("result");
 	int count = (int) Math.ceil(Double.parseDouble(map.get("tablesize").toString()) / 10);
+
+	//List<Map<String, Object>> list5 = (List<Map<String, Object>>) map.get("result");
+	//Map<String, Object> view =  (Map<String, Object>)request.getAttribute("view");
 %>
 <!DOCTYPE html>
 <html>
@@ -182,25 +186,26 @@
 
 							</div>
 						</div>
-						<%
-							for (Map<String, Object> Project : list3) {
-								/*  for(Map<String, Object> Category : list4){		 */
-						%>
+						
 					</div>
 					<div class="column grid"
 						style="padding-top: 0px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px; width: 85%;">
 
+							<%
+							for (Map<String, Object> Project : list3) {
+								/*  for(Map<String, Object> Category : list4){		 */
+						%>
 						<!-- db 공통 코드===================================================================================================================================== -->
 						<div class="ui raised segment" style="padding: 20px;">
 							<div class="column" style="text-align: left;">
-								<h3><%=Project.get("PRO_NAME")%></h3>
+								<h3><a href="./View?pro_no=<%=Project.get("PRO_NO")%>"><%=Project.get("PRO_NAME")%></a></h3>
 								<i class="fa fa-heart inactive-heart"
 									onclick="toggle_interest(this);" project-id="41160" style=""
 									title="'관심 프로젝트'에 추가하기"></i>
 							</div>
 							<div class="column"
 								style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">
-								예상금액<%=Project.get("PRO_PRICE")%>원 &nbsp; | &nbsp;예상기간
+								예상금액 $<%=Project.get("PRO_PRICE")%>원 &nbsp; | &nbsp;예상기간
 								<%=Project.get("PRO_PERIOD")%>
 								&nbsp; | &nbsp; 등록일자
 								<%=Project.get("PRO_START")%></div>
@@ -243,7 +248,7 @@
 						</div>
 						<%
 							} //Project END
-								// }//CATEGORY END
+							
 						%>
 						<div class="ui container"
 							style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
@@ -319,30 +324,6 @@
 		})
 	
 		/*******프로젝트 검색 기능************/
-		$('.ui.search')
-		  .search({
-		    type: 'category',
-		    source: categoryContent
-		  })
-		;
-		var categoryContent = [
-			  { category: 'South America', title: 'Brazil' },
-			  { category: 'South America', title: 'Peru' },
-			  { category: 'North America', title: 'Canada' },
-			  { category: 'Asia', title: 'South Korea' },
-			  { category: 'Asia', title: 'Japan' },
-			  { category: 'Asia', title: 'China' },
-			  { category: 'Europe', title: 'Denmark' },
-			  { category: 'Europe', title: 'England' },
-			  { category: 'Europe', title: 'France' },
-			  { category: 'Europe', title: 'Germany' },
-			  { category: 'Africa', title: 'Ethiopia' },
-			  { category: 'Africa', title: 'Nigeria' },
-			  { category: 'Africa', title: 'Zimbabwe' },
-			];
-		
-
-	
 	</script>
 </body>
 </html>
