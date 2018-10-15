@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper">
+
+	<select id="GooggleMap" resultType = "map">
+	 select pro_no,pro_name, pro_price, pro_addr from project
+	</select>
+	
+	<select id="projectList" resultType = "map">
+	    select PRO_NO,PRO_NAME,PRO_PERIOD,PRO_PRICE,PRO_PLAN,PRO_PARTNERS,PRO_SKILL,PRO_FILE,PRO_END,PRO_ADDR,PRO_START,PRO_MANAGEMENT,PRO_CONTENTS,C_NO from project
+	</select>
+	<select id="AMainProject" resultType = "map">
+	   Select count(rownum)a, SUM(pro_price)b,count(b.ro2)c from Project a,(select count(rownum) ro2 from client) b
+</select>
+	<select id="ProjectInfo" resultType = "map" parameterType="map">
+	   select PRO_NO , PRO_PERIOD ,PRO_PLAN,PRO_PARTNERS,PRO_SKILL,PRO_END,PRO_ADDR,PRO_MANAGEMENT,
+	   PRO_CONTENTS,PRO_PRICE,PRO_START,PRO_NAME from project where Pro_NO = #{P_NO}
+
+</select>
+	<select id="SearchList" resultType = "map">
+	    select PRO_NO,PRO_NAME,PRO_PERIOD,PRO_PRICE,PRO_PLAN,PRO_PARTNERS,PRO_SKILL,PRO_FILE,PRO_END
+	    ,PRO_ADDR,PRO_START,PRO_MANAGEMENT,PRO_CONTENTS,C_NO from project where Pro_name LIKE '%' ||  #{search} || '%'
+</select>
+
+</mapper>

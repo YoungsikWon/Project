@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="auth">
+	<select id="projectList" resultType="map" parameterType="String">
+		SELECT p.pro_no, pro_name FROM project p, support s WHERE c_NO = (SELECT c_no FROM client WHERE S_EMAIL = #{value}) AND p.pro_no = s.pro_no AND s.su_state = '완료' group by p.pro_no, pro_name
+	</select>
+	<select id="emailList" resultType="map" parameterType="int">
+		SELECT S_Email FROM partners WHERE p_no IN (SELECT p_no FROM support WHERE pro_no = #{value} AND su_state = '완료')
+	</select>
+</mapper>

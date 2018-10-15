@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/views/Project/projectList.jsp=UTF-8
+encoding//src/com/cufflink/auth/AuthController.java=UTF-8
+encoding//src/com/cufflink/partners/PartnersController.java=UTF-8

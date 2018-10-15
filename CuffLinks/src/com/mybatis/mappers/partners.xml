@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.mappers.testList">
+<!--@@@@@@@@@@@@@@ 셀렉문 작성@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+	<select id="getP_no" resultType="int">
+		SELECT p_no, p_name, p_operator, p_aboutme, p_activity FROM partners
+	</select>
+
+	<select id="getUserP_no" resultType="int" parameterType="java.lang.String">
+		SELECT p_no FROM partners WHERE s_email = #{value}
+	</select> 
+	<!--  <select id="partnersInterestProject" resultType="list" parameterType=java.lang.String>
+		SELECT p_no, su_state FROM support WHERE su_state ='진행'
+                                    AND p_no = #{value}
+	</select>  -->
+	<!--select procedure  -->
+	<resultMap id="partners_eval1" type="java.util.HashMap"></resultMap>
+	<resultMap id="partners_eval2" type="java.util.HashMap"></resultMap>
+	<resultMap id="partners_eval3" type="java.util.HashMap"></resultMap>
+	<resultMap id="partners_eval4" type="java.util.HashMap"></resultMap>
+	<resultMap id="partners_eval5" type="java.util.HashMap"></resultMap>
+	<select id="proc_partners_eval" parameterType="java.util.HashMap" statementType="CALLABLE">
+		{call proc_partners_eval(#{e_no, mode=IN, jdbcType=NUMERIC, javaType=int}
+		                        ,#{e_grade , mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_eval1}
+		                        ,#{e_pro   , mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_eval2}
+		                        ,#{e_avg   , mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_eval3}
+		                        ,#{e_cate  , mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_eval4}
+		                        ,#{e_intro ,mode=OUT , jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_eval5})}
+	</select> 
+	<resultMap id="partners_back1" type="java.util.HashMap"></resultMap>
+	<resultMap id="partners_back2" type="java.util.HashMap"></resultMap>
+	<resultMap id="partners_back3" type="java.util.HashMap"></resultMap>
+	<resultMap id="partners_back4" type="java.util.HashMap"></resultMap>
+	<resultMap id="partners_back5" type="java.util.HashMap"></resultMap>
+	<select id="proc_partners_back" parameterType="java.util.HashMap" statementType="CALLABLE">
+		{call proc_partners_back(#{e_no, mode=IN, jdbcType=NUMERIC, javaType=int}
+		                        ,#{e_port    , mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_back1}
+		                        ,#{e_back_car, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_back2}
+		                        ,#{e_back_lic, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_back3}
+		                        ,#{e_back_edu, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_back4}
+		                        ,#{e_skill   , mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_back5})}
+	</select> 
+	<resultMap id="partners_c_eval1" type="java.util.HashMap"></resultMap>
+	<resultMap id="partners_c_eval2" type="java.util.HashMap"></resultMap>
+	<resultMap id="partners_c_eval3" type="java.util.HashMap"></resultMap>
+	<resultMap id="partners_c_eval4" type="java.util.HashMap"></resultMap>
+	<select id="proc_c_eval" parameterType="java.util.HashMap" statementType="CALLABLE">
+		{call proc_c_eval(#{e_no, mode=IN , jdbcType=NUMERIC, javaType=int}
+		                 ,#{c_eval_grade  , mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_c_eval1}
+		                 ,#{c_eval_cate   , mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_c_eval2}
+		                 ,#{c_eval_pro    , mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_c_eval3}
+		                 ,#{c_eval_info   , mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=partners_c_eval4})}
+	</select>
+	<select id="getState" resultType="map" parameterType="map">
+	SELECT cate_main, cate_sub, pro_name, pro_period, pro_price, pro_addr,
+	pro_end FROM project p, category c WHERE pro_no in (SELECT pro_no FROM
+	support WHERE su_state = #{su_state} AND p_no = #{p_no}) AND p.cate_no
+	= c.cate_no
+	</select>
+</mapper>

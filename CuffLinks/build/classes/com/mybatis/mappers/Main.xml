@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper">
+
+	<select id="MainProject" resultType="map">
+
+		Select rownum ro,
+		pro_name,
+		pro_period,
+		pro_price,
+		pro_plan,
+		pro_partners,
+		pro_file,
+		pro_end,
+		pro_addr,
+		pro_management,
+		pro_contents,
+		c_no,
+		b.p_ro from Project a,(Select Max(rownum) p_ro from PARTNERS) b
+	</select>
+
+	<!-- <select id = "proc_board_test" parameterType="map" statementType="CALLABLE" 
+		> {call proc_board_test(#{b_no, mode=IN,jdbcType=NUMBERIC,javaType=int},#{msg, 
+		mode = OUT,jdbcType = VARCHAR, javaType = String})} </select> -->
+
+<!-- <select id="proc_board_test"
+        statementType="CALLABLE"
+        parameterType="map" resultType = "map">
+    { CALL TEST_PROC (
+            #{b_no,mode = IN, jdbcType = INTEGER,javaType = INTEGER},
+            #{msg, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet}
+    ) }
+</select> -->
+
+   <!--  <select id = "proc_board_test" statementType = "CALLABLE" parameterType = "map" resultType = "map">
+      {call proc_board_test(#{b_no,mode = IN, jdbcType = INTEGER,javaType = INTEGER},
+                            #{msg,mode = OUT,jdbcType = VARCHAR,javaType = string})}
+    </select> -->
+</mapper>

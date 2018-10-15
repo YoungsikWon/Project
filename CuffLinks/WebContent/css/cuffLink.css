@@ -1,0 +1,209 @@
+@charset "utf-8";
+
+:placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: red;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: red;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: red;
+}
+
+
+/************************************************************************************** checkbox */
+.allcheckbox {padding-left: 12px;}
+.master input {float: left;}
+.list .item .child {padding-left: 10px;}
+.list .item .child input {float: left; }
+.list .item .child .h11 {}
+
+/************************************************************************************** select box */
+.global {padding: 5px; background-color: #3498DB; cursor: pointer; font-size: 14px; border: 0; color: #fff;}
+.global:hover {background-color: #2980B9;}
+
+/************************************************************************************** header */
+
+#mrc-win {display: none;}
+.mrc {position: relative; margin-top: 0; margin-bottom: 0; width:80px; }
+.mrc .mrc-win:after {margin-top: 0; transition: all 0.2s ease-out;}
+.mrc .mrc-win {z-index: 1000;position: absolute; background: rgba(0,0,0,0.3); color: #fff;width: 260px; height:30px; margin-top: 45px;right: 0px; padding-top: 5px; border-radius: 15px 0; opacity: 1; }
+.mrc a {color: #fff; z-index: 100;margin-top: 0; margin-bottom: 0;}
+.mrc a:hover {color: #64FE2E; }
+.icon-font {text-align: center; margin-top: 0px; padding-bottom: 0px; margin-right: 0px; }
+.icon-font ul {margin-top: 0; margin-bottom: 0; width: 0px; margin-right: 20px; }
+.icon-font li {position: relative; display: inline; }
+      /* border-radius: 50%; ==>> 사각의 웹폰트를 원형으로 만들어준다. */
+.icon-font li a {display: inline-block; width: 30px; height: 30px; background-color: #3192bf; color: #fff; font-size: 20px; border-radius: 50%; margin-top: 5px;padding-top: 5px; ;}
+      /* translateX(-50%); ==>> icon-font를 기준으로 중앙정렬 left를 이용하여 중앙에 오도록 정렬*/
+      /* border-radius: 6px 0; ==>> 사각모양의 왼쪽상단 오른쪽하단 둥글게 만들기 */
+.icon-font li a .tool {position: absolute; left: 50%; width: 70px; color: #fff;left: -20px; font-size: 11px; background-color: red; padding: 1px 7px; border-radius: 6px 0; opacity: 0; transform: translateX(-50%); transition: all 0.3s ease-in-out; }
+.icon-font li a:hover .tool {opacity: 1; left: -40px;}
+      /* border-top: 5px solid #3192bf; border-left: 5px solid transparent; border-right: 5px solid transparent; ==>> icon-font의 아래삼각형 만들기 */
+.icon-font li a .tool:before {position: absolute; left: 50%; margin-left: -5px; content: "";  bottom: 5px; border-top: -5px solid black; border-left: 5px solid transparent; border-right: 5px solid transparent; }
+      /* ie7일때 .icon-font 버튼 숨기기 */
+      
+.ie7 .icon-font {display: none; }
+      /* ie8일때 .icon-font의 상단 글자 숨기기 */
+.ie8 .icon-font li a .tool {display: none; }
+
+
+/************************************************************************************** chatting */
+#chatbtn {display: block; z-index: 100000; }
+#chatbtn.show {display: none; }
+#chatwin {display: none; z-index: 100000; border: 1px solid #fff; }
+#chatwin.show {display: block; }
+
+.chat-right {text-align: center; box-sizing: border-box; }
+.chat-right .chatbtn {border: 1px solid #fff; position: fixed; right: 0; bottom: 0; background-color: #5698ff; width:150px; height: 50px; margin: 30px; padding-top: 10px; border-radius: 30px; }
+.chat-right .chatbtn a {color: #fff; font-size: 20px; }
+.chat-right .chatbtn a p {display: table-cell;  }
+.chat-right .chatbtn a i {vertical-align: middle; font-size: 25px; margin-top: 0px; }
+.chat-right .chatbtn a:hover { }
+.chat-right .chatwin {position: fixed; right: 0; bottom: 0; background-color: #5698ff; width: 300px; height: 500px; margin: 30px; transition: all 0.2s ease-out-in; border-radius: 25px; }
+.chat-right .chatwin .chat-top {width: 100%; height: 50px; padding: 10px;  box-sizing: border-box; }
+.chat-right .chatwin .chat-top .t-left {float: left; width: 10%; }
+.chat-right .chatwin .chat-top .t-left a {color: #000; }
+.chat-right .chatwin .chat-top .t-left a:hover {color: #fff; }
+.chat-right .chatwin .chat-top .t-center {float: left; font-size: 16px; item-align: center; width: 80%; color: #fff;}
+.chat-right .chatwin .chat-top .t-right {float: left; width: 10%; }
+.chat-right .chatwin .chat-top .t-right a {color: #000; }
+.chat-right .chatwin .chat-top .t-right a:hover {color: #fff; }
+.chat-right .chatwin .chat-middle {width: 100%; height: 80%; color: #000; background-color: #CEF6EC; border: 1px solid #dedede; box-sizing: border-box; padding: 10px;}
+.chat-right .chatwin .chat-bottom { }
+.chat-right .chatwin .chat-bottom .b-left {padding-top: 10px; padding-left: 15px; float: left; width: 10%; box-sizing: border-box; }
+.chat-right .chatwin .chat-bottom .b-left a {color: #000; }
+.chat-right .chatwin .chat-bottom .b-left a:hover {color: #fff; }
+.chat-right .chatwin .chat-bottom .b-center {float: left; font-size: 16px; item-align: center; width: 78%; color: #000; }
+.chat-right .chatwin .chat-bottom .b-center input {border-top: 0px solid #fff; border-bottom: 1px solid #fff; border-left: 1px solid #fff; border-right: 1px solid #fff;line-height: 47px; background-color: #5698ff; width:85%; }
+.chat-right .chatwin .chat-bottom .b-right {padding-top: 10px; padding-right: 25px; float: left; width: 10%; box-sizing: border-box; }
+.chat-right .chatwin .chat-bottom .b-right a {color: #000; }
+.chat-right .chatwin .chat-bottom .b-right a:hover {color: #fff;}
+
+
+.wrap {
+   background-image: url("./img/배너.png");
+   height: 400px;
+   background-position: center; /* Center the image */
+   background-repeat: no-repeat; /* Do not repeat the image */
+   background-size: cover;
+   .
+   /* Resize the background image to cover the entire container */
+}
+
+h1 {
+   font-size: 4em;
+}
+
+h2 {
+   font-size: 3em;
+}
+
+h4 {
+   font-size: 20px;
+}
+
+h5 {
+   font-size: 16px;
+   margin-top: 14px;
+   margin-bottom: 20px;
+}
+
+.ui.segment {
+   text-align: center !important;
+}
+
+/* .title {
+   font-size: 1.5em;
+} */
+
+span {
+   padding-left: 5px;
+   padding-right: 5px;
+   color: red;
+}
+
+p {
+   font-size: 12px;
+}
+
+hr.garo { 
+   border: solid #dedede; border-width: 1px 0 0;
+
+}
+
+hr.space
+
+hr.dotted {
+   border: dotted gray 0.5px;
+}
+
+.under-line {
+    text-decoration: underline;
+}
+
+.middle {
+   border-left: groove thin;
+   border-right: groove thin;
+}
+
+.content {
+   font-size: 1.2em;
+}
+
+.logo {
+   margin-left: 20px !important;
+}
+
+.basicspace {
+   padding:10px;
+}
+   
+.center {
+    margin: auto;
+    width: 60%;
+    border: 0px solid #dedede;
+    padding: 10px;
+    text-align: right;
+}
+.center-right {
+    margin: auto;
+    width: 60%;
+    border: 0px solid #dedede;
+    color: red;
+    padding: 10px;
+    text-align: left;
+}
+
+a.h10 {
+   font-size:9px;
+   
+}
+a.h11 {
+   font-size:12px;
+   
+}
+h11 {
+   font-size:14px;
+}
+
+div.h11 { /* 프로젝트찾기 카테고리 글씨 */
+   font-size:14px;
+   margin-left:25px;
+}
+
+div.h15 { /* 프로젝트찾기 카테고리 글씨 */
+   font-size:12px;
+}
+
+.label {
+   font-size:9px;
+   
+}
+
+option {
+   font-size:12px;
+}

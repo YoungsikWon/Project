@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProjectMapper">
+	<!-- 프로젝트 찾기 카테고리 -->
+	<select id="Project" resultType="map" parameterType="map">
+		SELECT
+		PRO_NO
+		,C_NO
+		,PRO_NAME
+		,PRO_PERIOD
+		,PRO_PRICE
+		,PRO_PLAN
+		,PRO_PARTNERS
+		,PRO_SKILL
+		,PRO_START
+		,PRO_END
+		,PRO_ADDR
+		,PRO_MANAGEMENT
+		,PRO_CONTENTS
+		FROM PROJECT
+		WHERE PRO_NO = 10001
+	</select>
+	<!-- 프로젝트 등록 건수 넣기 (클라이언트) -->
+	<select id="ProjectA" resultType="map" parameterType="map">
+		select count(C_no)
+		from project
+		where C_no = 1002
+	</select>
+	<!-- 개발 -->
+	<select id="ProjectCate_sub1" resultType="map"
+		parameterType="map">
+		select cate_sub from category
+		where cate_main = '개발'
+	</select>
+	<!-- 디자인 -->
+	<select id="ProjectCate_sub2" resultType="map"
+		parameterType="map">
+		select cate_sub from category
+		where cate_main = '디자인'
+	</select>
+	<select id="getProject_CATE" resultType="map"
+		parameterType="map">
+		select cate_main, cate_sub from category
+	</select>
+	<!-- 프로젝트 검색 -->
+	<select id="Pro_seach" resultType="map" parameterType="map">
+		select * from PROJECT where PRO_NAME like '%${value}%'
+	</select>
+
+	<!-- 상세보기 조회 -->
+	<select id="ProjectView" resultType="map" parameterType="int">
+		select * from Project
+		where pro_no = #{pro_no}
+	</select>
+	<select id="ProjectPagination" parameterType="map"	resultType="map">
+		SELECT rownum rno, cate_main, cate_sub,
+		pro_no, pro_name, pro_period, pro_price,
+		pro_plan, pro_partners, pro_skill, pro_file,
+		pro_start, pro_end, pro_addr, pro_management,
+		pro_contents FROM PROJECT p , category c WHERE
+		p.cate_no = c.cate_no
+		<if test="cate_main != null">
+			AND CATE_MAIN = #{cate_main}
+		</if>
+		<if test="cate_sub != null">
+			AND CATE_SUB = #{cate_sub}
+		</if>
+	</select>
+
+	<!-- 프로젝트 상세보기 / 클라이언트 프로젝트 건수 넣어주기 -->
+	<select id="P_Project" resultType="map" parameterType="map">
+		select
+		count(decode(su_state,'완료',1))A,
+		count(decode(su_state,'진행',2))B,
+		sum(decode(su_state,'완료',1,'진행',1))C,
+		SUBSTR(count(decode(su_state,'완료',1))/count(decode(su_state,'완료',1,'진행',1))*100,1,4)D
+		from SUPPORT where p_no = '2002'
+	</select>
+	<!-- ★★★★★★★★★★★파트너스 히스토리★★★★★★★★★★★★★ -->
+	<!-- 파트너스 히스토리 프로젝트 현황표 넣기 -->
+	<select id="Partners_history" resultType="map"
+		parameterType="map">
+		select
+		count(decode(su_state,'완료',1))A,
+		count(decode(su_state,'완료',1))B,
+		count(decode(su_state,'진행',2))C,
+		sum(decode(su_state,'완료',1,'진행',3450000))D,
+		count(decode(P_no,'2002',SU_MONEY,''))E,
+		SUBSTR(count(decode(su_state,'완료',1))/count(decode(su_state,'완료',1,'진행',1))*100,1,4)F
+		from SUPPORT where p_no = '2002'
+	</select>
+	<!-- 평가 점수 넣기. -->
+	<select id="Partners_AVG" resultType="map" parameterType="map">
+		select p_no,TO_CHAR(avg(su_prof),'9.9') as A,
+		TO_CHAR(avg(su_sati),'9.9') as B,
+		TO_CHAR(avg(su_comm),'9.9') as C,
+		TO_CHAR(avg(su_comP),'9.9') as D,
+		TO_CHAR(avg(Su_acti),'9.9') as F from support
+		where p_no = 2001 and su_prof is not null
+		group by p_no
+	</select>
+	<!-- 평균 평점 / 평가 n 개. -->
+	<select id="Partners_AllAVG" resultType="map"
+		parameterType="map">
+		SELECT TRUNC(avg((su_prof+su_sati+su_comm+su_comp+su_acti)/5),1)A
+		,COUNT(*)B
+		FROM support
+		WHERE p_no = 2002
+		AND su_prof is not null
+	</select>
+	<!-- 클라이언트 소개 글 -->
+	<select id="Partners_aboutme" resultType="map"
+		parameterType="map">
+		select
+		c_no,C_name , C_ABOUTME from client
+		where c_no = 1003
+	</select>
+	<select id="getStateProjectClient" resultType="map"
+		parameterType="map">
+		SELECT cate_main, cate_sub, pro_name, pro_period, pro_price, pro_end,
+		pro_addr
+		FROM project p, category c WHERE pro_no in
+		(SELECT pro_no FROM support WHERE pro_no in
+		(SELECT pro_no FROM project WHERE c_no =
+		(SELECT c_no FROM client WHERE s_email = #{s_email}))
+		AND su_state = #{su_state})
+		AND p.cate_no = c.cate_no
+	</select>
+	<!-- 클라이언트 아이디  -->
+	<select id="getUserC_no" resultType="int" parameterType="java.lang.String">
+		SELECT C_no FROM Client WHERE s_email = #{value}
+	</select> 
+	<!-- 지원자 모집중 -->
+	<resultMap id="Project_jiwon1" type="java.util.HashMap"/>
+	<resultMap id="Project_jiwon2" type="java.util.HashMap"/>
+	<select id="PROC_PROJECT_JIWON" statementType="CALLABLE" parameterType="map">
+	{call PROC_PROJECT_JIWON(
+	#{e_no,  mode=IN , jdbcType=NUMERIC, javaType=int},
+	#{pro_JiwonList, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=Project_jiwon1},
+	#{pro_support,   mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=Project_jiwon2})}
+	</select>
+	<!-- 지원 목록 -->
+	
+	<select id="project_jiwon" resultType="map" parameterType="map">
+	select * from project 
+
+	</select>
+</mapper>

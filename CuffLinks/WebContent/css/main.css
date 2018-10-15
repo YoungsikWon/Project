@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+.wrap {
+   background-image: url("../image/배너.png");
+   height: 400px;
+   background-position: center; /* Center the image */
+   background-repeat: no-repeat; /* Do not repeat the image */
+   background-size: cover;
+   
+   /* Resize the background image to cover the entire container */
+}
+
+h1 {
+   font-size: 4em;
+}
+
+h2 {
+   font-size: 3em;
+}
+
+h4 {
+   font-size: 20px;
+}
+
+h5 {
+   font-size: 16px;
+   margin-top: 14px;
+   margin-bottom: 20px;
+}
+
+.ui.segment {
+   text-align: center !important;
+}
+
+.title {
+   font-size: 1.5em;
+}
+
+span {
+   padding-left: 5px;
+   padding-right: 5px;
+}
+
+.middle {
+   border-left: groove thin;
+   border-right: groove thin;
+}
+
+.content {
+   font-size: 1.2em;
+}
+
+.logo {
+   margin-left: 20px !important;
+}

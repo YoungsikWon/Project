@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper">
+
+	<!-- <select id="Login" parameterType = "java.lang.String" resultType = 
+		"map"> select s_email,s_id,s_pw,s_shape,s_kinds,c_no from SIGNUP ,(select 
+		c_no from client where s_email = (select s_email from signup where s_id =#{value})) 
+		where s_id = #{value} </select> -->
+
+	<select id="Login" parameterType="java.lang.String"
+		resultType="map">
+		select s_email,s_id,s_pw,s_shape,s_kinds from SIGNUP where
+		s_id = #{value}
+	</select>
+
+	<select id="CNO" parameterType="map"
+		resultType="java.lang.String">
+		select c_no from SIGNUP
+		,(select c_no from client where s_email = (select s_email from signup where
+		s_id =#{s_id})) where s_id = #{s_id}
+	</select>
+
+	<select id="idExit" parameterType="map" resultType="int">
+		SELECT NVL((SELECT 1 as status FROM dual WHERE EXISTS
+		(SELECT S_ID FROM signup WHERE s_id=#{f_id} AND rownum=1)),0) status
+		FROM dual
+	</select>
+
+	<select id="EmailExit" parameterType="map" resultType="int">
+		SELECT NVL((SELECT 1 as status FROM dual WHERE EXISTS
+		(SELECT S_ID FROM signup WHERE s_email=#{f_email} AND rownum=1)),0) status
+		FROM dual
+	</select>
+
+	<!-- 네아로 카카오 연동시 유저의 정보를 가져온다. -->
+	<select id="UserInfoEmail" parameterType="java.lang.String"
+		resultType="map">
+		select s_email,s_id,s_pw,S_KINDS,s_shape,s_date,s_token from SIGNUP where
+		s_email = #{value}
+	</select>
+
+	<insert id="Join" parameterType="map">
+		insert into
+		SIGNUP(s_email,s_id,s_pw,s_shape,s_kinds,s_date)
+		values(#{j_email},#{j_id},#{j_pw},#{s_shape},#{radio},to_char(sysdate,'YYYY/MM/DDHH24:MI:SS'))
+	</insert>
+
+	<insert id="AJoin" parameterType="map">
+		insert into
+		SIGNUP(s_email,s_id,s_pw,s_kinds,s_shape,s_date)
+		values(#{j_email},#{j_id},#{j_pw},#{s_kids},#{f_shape},to_char(sysdate,'YYYY/MM/DDHH24:MI:SS'))
+	</insert>
+
+	<insert id="JoinCapchar" parameterType="map">
+		insert into
+		SIGNUP(s_email,s_id,s_shape,s_Token,s_kinds,s_date)
+		values(#{j_email},#{j_id},#{j_shape},#{j_token},#{radio},to_char(sysdate,'YYYY/MM/DDHH24:MI:SS'))
+	</insert>
+
+	<update id="proc_ClientUpdate" statementType="CALLABLE"
+		parameterType="hashmap">
+		{ call proc_ClientUpdate(
+		#{f_file},
+		#{f_dropdown},
+		#{f_name},
+		#{f_gender},
+		#{address},
+		#{f_email},
+		#{phone},
+		#{c_phone}
+		)
+		}
+	</update>
+	<insert id="ProJect_insert" statementType="CALLABLE"
+		parameterType="hashmap">
+		{ call ProJect_insert(
+		SEQPRONO.NEXTVAl,
+		#{c_no},
+		#{pro_name},
+		#{pro_period},
+		#{pro_price},
+		#{pro_plan},
+		#{pro_partners},
+		#{pro_skill},
+		#{pro_file},
+		#{pro_start},
+		#{pro_end},
+		#{pro_addr},
+		#{pro_management},
+		#{pro_contents},
+		#{pro_skill},
+		#{pro_partners}
+		)
+		}
+	</insert>
+	<insert id="ClientInsert" parameterType="java.lang.String">
+		insert into CLIENT(c_no,s_email) values(seq_cno.NEXTVAL,#{value})
+	</insert>
+
+	<select id="ClientInfo" parameterType="java.lang.String"
+		resultType="map">
+		select
+		c_no,c_phone,c_name,c_businessnumber,c_operator,c_file,s_email,c_addr,c_gender
+		from CLIENT where s_email = #{value}
+	</select>
+
+	<select id="CEmailExit" parameterType="java.lang.String"
+		resultType="int">
+		SELECT NVL((SELECT 1 as status FROM dual WHERE EXISTS
+		(SELECT s_email FROM CLIENT WHERE s_email=#{value} AND rownum=1)),0) status
+		FROM dual
+	</select>
+
+	<select id="Pwcheck" parameterType="map"
+		resultType="java.lang.String">
+		select s_pw from SIGNUP where s_email = #{s_email}
+
+	</select>
+
+	<update id="PwUpdate" parameterType="map">
+		update SIGNUP set s_pw = #{pw2} where s_email = #{s_email}
+	</update>
+	<delete id="UserExcape" parameterType="map">
+		delete SIGNUP where s_email = #{s_email} and s_pw = #{password}
+	</delete>
+	<!-- <select id = "Project_cate" parameterType = "map" resultType = "java.lang.String"> 
+		select cate_no from category where cate_main = #{pro_skill} and cate_sub 
+		= #{pro_partners} </select> <insert id="ProJect_insert2" parameterType="map"> 
+		insert into project(pro_no ,c_no , pro_name , pro_period , pro_price , pro_plan 
+		, pro_partners , pro_skill , pro_file , pro_start , pro_end , pro_addr , 
+		pro_management , pro_contents , cate_no) values(SEQ_PRO_NO.NEXTVAL,#{c_no},#{pro_name},#{pro_period},#{pro_price},#{pro_plan},#{pro_partners},#{pro_skill},#{pro_file},#{pro_start}, 
+		#{pro_end},#{pro_addr}, #{pro_management},#{pro_contents},#{pro_cate}) </insert> -->
+</mapper>
