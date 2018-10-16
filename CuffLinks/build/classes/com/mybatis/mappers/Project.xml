@@ -133,16 +133,29 @@
 	<!-- 지원자 모집중 -->
 	<resultMap id="Project_jiwon1" type="java.util.HashMap"/>
 	<resultMap id="Project_jiwon2" type="java.util.HashMap"/>
-	<select id="PROC_PROJECT_JIWON" statementType="CALLABLE" parameterType="map">
-	{call PROC_PROJECT_JIWON(
+	
+	<select id="PROC_PROJECT_JIWON" statementType="CALLABLE" parameterType="java.util.HashMap">
+	 {call PROC_PROJECT_JIWON(
 	#{e_no,  mode=IN , jdbcType=NUMERIC, javaType=int},
 	#{pro_JiwonList, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=Project_jiwon1},
 	#{pro_support,   mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=Project_jiwon2})}
 	</select>
 	<!-- 지원 목록 -->
 	
-	<select id="project_jiwon" resultType="map" parameterType="map">
-	select * from project 
-
+	<select id="Project_JUser" resultType="map" parameterType="map">
+SELECT 
+     *
+  FROM SUPPORT a,
+       project b,
+       (SELECT pro_no
+          FROM PROJECT
+         WHERE c_no = (SELECT c_no
+                         FROM CLIENT
+                        WHERE s_email = 'zab@vonkumko.ad')) c,
+       category d
+ WHERE     a.pro_no = b.pro_no
+       AND su_state = '지원'
+       AND c.pro_no = b.pro_no
+       AND d.cate_no = b.cate_no
 	</select>
 </mapper>

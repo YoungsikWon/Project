@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 
 import com.cufflink.partners.PartnersDao;
 
-import sun.java2d.pipe.OutlineTextRenderer;
-
 @Service
 public class ProjectDao {
 	Logger logger = Logger.getLogger(ProjectDao.class);
@@ -21,12 +19,9 @@ public class ProjectDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 
-	Map<String, Object> map = new HashMap<>();
-	List<Map<String, Object>> list;
-	int result;
-	
-	
-	
+	List<Map<String, Object>> list; //
+	Map<String, Map> map;// 맵에 담아줄 것입니다.
+
 	/*******************************************************************
 	 * @Name : 원영식
 	 * @return : list
@@ -130,47 +125,9 @@ public class ProjectDao {
        map = sqlSessionTemplate.selectOne("ProjectView", map);
        return map;
     }
-    
+
     public List<Map<String,Object>> projectList(Map<String,Object> pMap){
     	list = sqlSessionTemplate.selectList("ProjectPagination", pMap);
     	return list;
     }
-/////////프로젝트 지원목록 getProject_Jiwon///////////////
-    //프로젝트 지원목록 - >
-    //지원 프로젝트
-/*	public List<Map<String, Object>> Jiwon_List() {
-		List<Map<String, Object>> list = new ArrayList<>();
-		List<Object> lists = new ArrayList<Object>();
-		list = sqlSessionTemplate.selectList("Jiwon_List"); // 개발
-		lists.add(list);
-		// list = sqlSessionTemplate.selectList("ProjectCate_main2"); //디자인
-		return list;
-	}*/
-    /*************************
-	    * @category 지원 목록  / 지원자 / 클라이언트 접속할 아이디
-	    * @since 2018 - 10 - 15
-	    **************************/
-    //클라이언트 접속 아이디
-    public int getUserC_no(String s_email) {
-    		System.out.println(s_email+","+sqlSessionTemplate);
-    		int result = 0;
-    		try {
-    			result = sqlSessionTemplate.selectOne("getUserC_no",s_email);
-    		} catch (Exception e) {
-    			System.out.println("exception:"+e.getMessage());
-    		}
-    		return result;
-    	}
-    
-	//지원 프로젝트 목록 및 지원자 명단
-	public Map<String, Object> project_jiwon(int p_no){
-		logger.info("project_jiwon 호출성공");
-		list = new ArrayList<>();
-		map.put("e_no", p_no);
-		sqlSessionTemplate.selectList("PROC_PROJECT_JIWON");
-		return map;
-	}
-	
-   
- 
 }

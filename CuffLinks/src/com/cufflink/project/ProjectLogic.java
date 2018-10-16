@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.jdbc.SQL;
 import org.apache.log4j.Logger;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,6 @@ public class ProjectLogic {
 
 	List<Map<String, Object>> list;
 	Map<String, Map> map;
-	Map<String, Object> pMap;
 	int result;
 
 	// 프로젝트 찾기  전체목록을 담아줄 것입니다.
@@ -132,30 +130,4 @@ public class ProjectLogic {
 		   }
 		   return list;
 	   }
-	   /*************************
-	    * @category 지원 목록  / 지원자 / 클라이언트 접속할 아이디
-	    * @since 2018 - 10 - 15
-	    **************************/
-	   //지원 프로젝트 목록
-	   public List<Map<String,Object>> pro_JiwonList(int pno) {
-			logger.info("e_grade 호출성공");
-			pMap = projectDao.project_jiwon(pno);
-			list = (List<Map<String, Object>>) map.get("pro_JiwonList");
-			return list;
-		}
-	   //지원자
-		public List<Map<String,Object>> pro_support(int pno) {
-			logger.info("e_pro 호출성공");
-			pMap = projectDao.project_jiwon(pno);
-			list = (List<Map<String, Object>>) map.get("pro_support");
-			return list;
-		}
-		//클라이언트 접속
-		public int getUserC_no(String s_email) {
-			// TODO Auto-generated method stub
-			int userEmail = projectDao.getUserC_no(s_email);
-			logger.info("getUserP_no: "+userEmail);
-			return userEmail;
-		}
-
 }

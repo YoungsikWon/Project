@@ -3,17 +3,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	List<Map<String, Object>> getState = (List<Map<String, Object>>) request.getAttribute("getState");
-	System.out.print(getState);
-	
-	
-	//지원 목록
-	List<Map<String,Object>> JiwonList   =(List<Map<String,Object>>)request.getAttribute("pro_JiwonList");
-	System.out.print(JiwonList);
-	List<Map<String,Object>> JiwonUser   =(List<Map<String,Object>>)request.getAttribute("pro_support");
-	System.out.print(JiwonUser);
-	
-	
+Cookie[]    cs          = request.getCookies();
+HttpSession infoSession = request.getSession();
+Map<String,Object> info = null;
+int      login_cnt = 0;
+for(int i = 0; i<cs.length;i++){
 
+String cName = cs[i].getName();
+  if("id".equals(cName)){
+	
+	  info = (Map<String,Object>)infoSession.getAttribute(cs[i].getValue());
+	
+  }
+}
 
 %>
 <!DOCTYPE html>
@@ -26,6 +28,14 @@
 <link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	
+});
+
+</script>
 	<!----------------------------------------------------------------------- top 시작 -->
 	<header class="header">
 		<div class="ui">
@@ -118,6 +128,8 @@
 					<!-- ***************************************************************************************************************************20181013 수정 -->
 					<div style="text-align: left; padding-left: 10px; padding-top: 20px; padding-bottom: 0px"></div>
 					<!-- ***************************************************************************************************************************20181013 수정 -->
+
+
 					<%
 						if (getState.size() <= 0) {
 					%>
@@ -133,10 +145,10 @@
 						<div class="column" style="width: 80%; background-color: #dedede;">
 							<h3 class="ui teal header"><%=state.get("PRO_NAME")%></h3>
 							<div class="sub header" style="margin-top: 10px;">
-								<i class="won sign icon"></i> 예상금액 원
-								<%=state.get("PRO_PRICE")%>
-								<i class="clock outline icon" style="margin-left: 20px;"></i> 예상기간 일
-								<%=state.get("PRO_PERIOD")%>
+								<i class="won sign icon"></i> 예상금액 
+								<%=state.get("PRO_PRICE")%>원
+								<i class="clock outline icon" style="margin-left: 20px;"></i> 예상기간 
+								<%=state.get("PRO_PERIOD")%>일
 							</div>
 							<div class="sub header" style="margin-top: 30px;">
 								<%=state.get("CATE_MAIN")%>
@@ -150,8 +162,8 @@
 						<!-- 우측 -->
 						<div class="column" style="width: 20%; background-color: #dedede;">
 							<div align="right"></div>
-							<div class="ui container" style="padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">마 전</div>
-							<div style="padding-top: 10px; padding-bottom:10px; padding-left: 10px; padding-right: 5px;">총  지원</div>
+							<div class="ui container" style="padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">마감 <%=state.get("PRO_END") %> 전</div>
+							<div style="padding-top: 10px; padding-bottom:10px; padding-left: 10px; padding-right: 5px;">총 1명 지원</div>
 							<div class="ui black  label" style="padding: 10px; padding-right: 10px;">프로젝트 지원하기 </div>
 						</div>
 						
@@ -167,6 +179,52 @@
 			<%
 				}
 			%>
+
+
+
+
+
+
+			<!-- 수정전 -->
+			<%-- 					<%
+						if (getState.size() <= 0) {
+					%>
+					<!-- ***************************************************************************************************************************20181013 수정 -->
+					<div style="text-align: left; padding-left: 10px; padding-top: 20px; padding-bottom: 0px; min-height: 380px; border: 1px solid #dedede;">지원자 모집 중인 프로젝트가 없습니다.</div>
+					<!-- ***************************************************************************************************************************20181013 수정 -->
+					<%
+						} else {
+					%>
+					<%
+						for (Map<String, Object> state : getState) {
+					%>
+					<div class="ui column segment" style="padding-top: 30px; padding-left: 30px; text-align: left !important;">
+						<div class="ui green top left attached label">
+							>>모집중<< </a>
+						</div>
+						<h2 class="ui teal header"><%=state.get("PRO_NAME")%></h2>
+						<div class="sub header">
+							<i class="won sign icon"></i> 예상금액 원 |
+							<%=state.get("PRO_PRICE")%>
+							<i class="clock outline icon"></i> 예상기간 일
+							<%=state.get("PRO_PERIOD")%>
+						</div>
+						<p style="margin-bottom: 30px;"></p>
+						<div class="sub header">
+							cate_main
+							<%=state.get("CATE_MAIN")%>
+							<i class="angle right icon"></i> cate_sub
+							<%=state.get("CATE_SUB")%>
+							| 위치 <i class="angle right icon"></i>
+						</div>
+						<div class="ui section divider"></div>
+					</div>
+					<%
+						}
+					%>
+					<%
+						}
+					%> --%>
 		</div>
 	</div>
 	</div>
