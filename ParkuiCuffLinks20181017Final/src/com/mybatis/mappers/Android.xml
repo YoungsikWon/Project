@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper">
+
+<select resultType="map" id="GooggleMap">select pro_no,pro_name, pro_price, pro_addr from project </select>
+<select resultType="map" id="AprojectList">select PRO_NO,PRO_NAME,PRO_PERIOD,PRO_PRICE,PRO_PLAN,PRO_PARTNERS,PRO_SKILL,PRO_FILE,PRO_END,PRO_ADDR,PRO_START,PRO_MANAGEMENT,PRO_CONTENTS,C_NO from project </select>
+<select resultType="map" id="AMainProject">Select count(rownum)a, SUM(pro_price)b,count(b.ro2)c from Project a,(select count(rownum) ro2 from client) b </select>
+<select resultType="map" id="ProjectInfo" parameterType="map">select PRO_NO , PRO_PERIOD ,PRO_PLAN,PRO_PARTNERS,PRO_SKILL,PRO_END,PRO_ADDR,PRO_MANAGEMENT,PRO_CONTENTS,PRO_PRICE,PRO_START,PRO_NAME from project where Pro_NO = #{P_NO} </select>
+<select resultType="map" id="SearchList">select PRO_NO,PRO_NAME,PRO_PERIOD,PRO_PRICE,PRO_PLAN,PRO_PARTNERS,PRO_SKILL,PRO_FILE,PRO_END,PRO_ADDR,PRO_START,PRO_MANAGEMENT,PRO_CONTENTS,C_NO from project where Pro_name LIKE '%' || #{search} || '%' </select>
+<select resultType="map" id="ProjectAttention" parameterType="map"> SELECT PRO_NO,cate_main, cate_sub, pro_name, pro_period, pro_price, pro_addr, pro_end FROM project p, category c WHERE pro_no in (SELECT pro_no FROM support WHERE su_state = #{su_state} AND p_no = (select p_no from partners where s_email = #{s_email} )) AND p.cate_no = c.cate_no </select>
+<select resultType="map" id="ALogin" parameterType="java.lang.String">select s_email,s_id,s_pw,s_shape,s_kinds from SIGNUP where s_id = #{value} </select>
+
+
+</mapper>

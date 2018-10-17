@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper">
+    <!-- 다음,네이버 지도 주소 반환 -->
+	<select id = "onMapReady" resultType = "map">
+Select rownum ro,
+        pro_name,
+        pro_period,
+        pro_price,
+        pro_plan,
+        pro_partners,
+        pro_file,
+        pro_end,
+        pro_addr,
+        pro_start,
+        pro_management,
+        pro_contents,
+        c_businessnumber,
+        a.c_no,
+        c_phone
+        from Project a,CLIENT b where a.c_no = b.c_no
+	</select>
+</mapper>

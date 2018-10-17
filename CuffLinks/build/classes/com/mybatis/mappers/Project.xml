@@ -69,12 +69,13 @@
 
 	<!-- 프로젝트 상세보기 / 클라이언트 프로젝트 건수 넣어주기 -->
 	<select id="P_Project" resultType="map" parameterType="map">
-		select
-		count(decode(su_state,'완료',1))A,
-		count(decode(su_state,'진행',2))B,
-		sum(decode(su_state,'완료',1,'진행',1))C,
-		SUBSTR(count(decode(su_state,'완료',1))/count(decode(su_state,'완료',1,'진행',1))*100,1,4)D
-		from SUPPORT where p_no = '2002'
+		      select
+        count(decode(su_state,'완료',1))A,
+        count(decode(su_state,'완료',1))B,
+        count(decode(su_state,'진행',2))C,
+        avg(decode(su_state,'완료',1))||'%'D
+         FROM SUPPORT
+         where p_no = #{p_no}
 	</select>
 	<!-- ★★★★★★★★★★★파트너스 히스토리★★★★★★★★★★★★★ -->
 	<!-- 파트너스 히스토리 프로젝트 현황표 넣기 -->
@@ -142,20 +143,40 @@
 	</select>
 	<!-- 지원 목록 -->
 	
+	 <select id="Project_JList" resultType="map" parameterType="map">
+<![CDATA[
+      SELECT ROWNUM rno,
+             cate_main,
+             cate_sub,
+             pro_no,
+             pro_name,
+             pro_period,
+             pro_price,
+             pro_plan,
+             pro_partners,
+             pro_skill,
+             pro_file,
+             pro_start,
+             pro_end,
+             pro_addr,
+             pro_management,
+             pro_contents
+        FROM PROJECT p INNER JOIN category c ON p.cate_no = c.cate_no
+       WHERE ROWNUM < 6
+]]>
+	</select> 
 	<select id="Project_JUser" resultType="map" parameterType="map">
-SELECT 
-     *
-  FROM SUPPORT a,
-       project b,
-       (SELECT pro_no
-          FROM PROJECT
-         WHERE c_no = (SELECT c_no
-                         FROM CLIENT
-                        WHERE s_email = 'zab@vonkumko.ad')) c,
-       category d
- WHERE     a.pro_no = b.pro_no
-       AND su_state = '지원'
-       AND c.pro_no = b.pro_no
-       AND d.cate_no = b.cate_no
+	 select p_no,
+    sum(DECODE(su_state,'지원','1','0'))지원
+    from support
+        where p_no = 2001
+        and  su_state = '지원'
+        group by p_no
 	</select>
+<!-- 	<insert id="">
+	
+	</insert>
+	<delete id="">
+	
+	</delete> -->
 </mapper>

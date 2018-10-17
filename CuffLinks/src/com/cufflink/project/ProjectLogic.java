@@ -130,4 +130,23 @@ public class ProjectLogic {
 		   }
 		   return list;
 	   }
+	   /**************************************
+	    * @author 지원 프로젝트 리스트 / 지원자
+	    ***************************************/
+	   //지원 리스트
+	   public List<Map<String, Object>> Project_JList() {
+			logger.info("Project_JList 호출 성공");
+			List<String> Project_JList = new ArrayList<>();
+			List<Map<String, Object>> list = projectDao.Project_JList();
+			for (Map<String, Object> map : list) {
+				Project_JList.add((String) map.get("rno"));
+			}
+			return list;
+		}
+	   public Map<String,Map> Project_JUser(Map<String, Object> pMap){
+			logger.info("Project_JUser 호출성공");
+			map = projectDao.Project_JUser(pMap);
+			logger.info(map);
+			return map;
+		}
 }

@@ -125,9 +125,29 @@ public class ProjectDao {
        map = sqlSessionTemplate.selectOne("ProjectView", map);
        return map;
     }
-
+    //프로젝트 페이지 네이션
     public List<Map<String,Object>> projectList(Map<String,Object> pMap){
     	list = sqlSessionTemplate.selectList("ProjectPagination", pMap);
     	return list;
+    }
+    /***************************************
+     * @author 지원 목록 및 지원명단
+     ***************************************/
+    //지원 목록
+    public List<Map<String, Object>> Project_JList() {
+		List<Map<String, Object>> list = new ArrayList<>();
+		List<Object> lists = new ArrayList<Object>();
+		list = sqlSessionTemplate.selectList("Project_JList"); // 지원목록
+		lists.add(list);
+		return list;
+	}
+    	//지원명단
+	public Map<String, Map> Project_JUser(Map<String, Object> pMap) {
+		logger.info("Project_JUser 호출성공");
+		Map<String, Map> rMap = new HashMap<>();
+		map = sqlSessionTemplate.selectOne("Project_JUser", map);
+		 rMap.put("Project_JUser", map);
+		 return rMap;
+
     }
 }

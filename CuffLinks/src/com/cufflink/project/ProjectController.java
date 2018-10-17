@@ -72,6 +72,9 @@ public class ProjectController {
 		List<Map<String,Object>> state = projectLogic.getState(map.get("S_EMAIL").toString(), "지원");
 		
 		
+		m.addAttribute("Project_JList", projectLogic.Project_JList());
+		m.addAttribute("Project_JUser", projectLogic.Project_JUser(pMap));
+		
 		m.addAttribute("getState", state);
 		
 	
@@ -86,6 +89,7 @@ public class ProjectController {
 		m.addAttribute("kind", userInfo(session, req).get("S_KINDS"));
 		List<Map<String,Object>> rList = projectLogic.getState(map.get("S_EMAIL").toString(), "진행");
 		m.addAttribute("getState", rList);
+		
 		return "Project/ProjectContractInProgress";
 	}
 
