@@ -62,7 +62,27 @@ public class ClientController {
 		List<Map<String, Object>> rList = projectLogic.getState(map.get("S_EMAIL").toString(), "진행");
 		m.addAttribute("getState", rList);
 		logger.info("getState:" + rList);
-		return "/clients/ClientMyCufflink";
+		/***********수정20181018시작*********/
+	      try {
+	          int c_no = Integer.parseInt(pMap.get("C_NO").toString());
+	          Map<String,Object> map1 = projectLogic.getHistory(c_no);
+	          logger.info("history: "+map1);
+	          logger.info("getUser: "+pMap);
+	          m.addAttribute("comp",map1.get("COMP"));
+	          m.addAttribute("money",map1.get("MONEY"));
+	          m.addAttribute("ing",map1.get("ING"));
+	          m.addAttribute("sup",map1.get("SUP"));
+	          List<Map<String,Object>> list = projectLogic.projectSupportUser(c_no);
+	          m.addAttribute("projectCount",list.size());
+	          m.addAttribute("userSupport",list);
+	          /***********수정20181018끝*********/
+	          return "/clients/ClientMyCufflink";
+	          
+	       } catch (NullPointerException e) {
+	          // TODO: handle exception
+	       }
+	       
+	       return "/clients/ClientMyCufflink";
 	}
 
 	/// 쿠쿠쿠쿠키 쿠키
@@ -285,8 +305,8 @@ public class ClientController {
 
 	@RequestMapping(value = "/PartnersImages", method = RequestMethod.POST)
 	public String PartnersImages(@RequestParam("f_file") MultipartFile f_file, @RequestParam Map<String, Object> pMap, HttpSession session, HttpServletRequest req) {
-		String fileName = HangulConversion.toKor(f_file.getOriginalFilename());
-		String path = "C:\\새 폴더 (3)\\CuffLinks\\WebContent\\image\\partnersImg\\";
+		String fileName = HangulConversion.toUTF(f_file.getOriginalFilename());
+		String path = "C:\\git\\final\\ParkuiCuffLinks\\WebContent\\image\\partnersImg\\";
 		int result = 0;
 		System.out.println(fileName);
 		Map<String,Object> map = userInfo(session,req);
@@ -329,9 +349,9 @@ public class ClientController {
 	public String projectRegister1(HttpServletRequest req, @RequestParam("pro_file") MultipartFile f_file,
 			@RequestParam Map<String, Object> pMap) {
 
-		String fileName = HangulConversion.toKor(f_file.getOriginalFilename());
+		String fileName = HangulConversion.toUTF(f_file.getOriginalFilename());
 		//수정 <시작>
-		String path = "C:\\새 폴더 (3)\\CuffLinks\\WebContent\\pds\\";
+		String path = "C:\\git\\final\\ParkuiCuffLinks\\WebContent\\pds\\";
 		//수정 <끝>
 		HashMapBinder binder = new HashMapBinder(req);
 		binder.bind(pMap);

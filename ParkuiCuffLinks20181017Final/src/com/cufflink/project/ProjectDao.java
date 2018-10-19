@@ -167,4 +167,13 @@ public class ProjectDao {
 	   sqlSessionTemplate.update("stateChange", pMap);
    }
    /**********수정 20181017 끝*******/
+   
+   /**********수정 20181018 시작*******/
+   public Map<String,Object> getHistory(int c_no){
+	  Map<String,Object> map = new HashMap<>();
+	  map = sqlSessionTemplate.selectOne("getHistory", c_no);
+	  return map;
+   }
+   /**********수정 20181018 끝*******/
+   
 }

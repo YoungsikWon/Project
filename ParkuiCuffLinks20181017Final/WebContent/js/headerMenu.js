@@ -41,10 +41,12 @@ $(document).ready(function() {
 
    //현재 화면의 파일이름 가져오기   
      var thisfilefullname = document.URL.substring(document.URL.lastIndexOf("/")+1, document.URL.length);
-/*     alert(thisfilefullname);*/
+     /*alert(thisfilefullname);*/
      //	 프로젝트 파인트 메뉴효과
      var pfind = thisfilefullname.substr(0,4);
      /*alert("pfind : "+pfind);*/
+     var partnerfind = thisfilefullname.split('?');
+     /*alert(partnerfind[0]);*/
      
      /*alert("파일명을 알려줘:"+thisfilefullname);*/
      //  검수중 하위관련   메뉴
@@ -87,9 +89,9 @@ $(document).ready(function() {
       /* $('.'+thisfilefullname).addClass("active");*/
        /*alert("프로젝트찾기호출");*/
       }
-     
      //이외의 상단메뉴 모두
      else {
+    	$('.'+partnerfind[0]).addClass("active");
 	    $('.'+thisfilefullname).addClass("active");
 	    /*alert("프로젝트등록 메인선택 : "+thisfilefullname);*/
      }

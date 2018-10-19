@@ -29,26 +29,26 @@
 		<div class="ui two column grid container" style="height: 670px">
 			<div class="ui column" style="width: 20%;padding-top: 0px;padding-left: 0px;padding-right: 0px">
 <!-- 로그인 정보 =================================================================================-->
-				<div class="ui segment">
+				<div class="ui segment" style=" background-color: #E6E6E6;">
 					<jsp:include page="../auth/loginOk.jsp" />
 				</div>
 <!-- 로그인 정보 =================================================================================-->
 
 <!-- 서브 메뉴 ===================================================================================-->
-				<div class="ui fluid vertical menu" style="padding-right: 0px">
+				<div class="ui fluid vertical menu" style="padding-right: 0px; background-color: #E6E6E6;"">
 					<jsp:include page="./info/ClientInfoSubmenu.jsp" />
 				</div>
 <!-- 서브 메뉴 ===================================================================================-->			
 			</div>
 			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; width: 80%;">
-				<div class="ui container" style="padding: 20px; padding-bottom: 30px; left: 5px; border: 1px solid #dedede; height: auto">
+				<div class="ui container" style="padding: 20px; padding-bottom: 30px; left: 5px; border: 1px solid #dedede;min-height:670px; height: auto; background-color: #E0ECF8;">
 					<div style="padding-bottom:20px;">
 						<h3 style="text-align: left">프로젝트 히스토리</h3>
 					</div>
-					<div class="ui container" style="padding-top: 0px; padding-bottom: 30px; padding-left: 0px; padding-right: 0px;">
+					<div class="ui container" style="padding-top: 0px; padding-bottom: 15px; padding-left: 0px; padding-right: 0px;">
 						<hr class="dotted" style="" />
 					</div>
-					<div class="ui two column grid container" style="border:1px solid #dedede; padding-right: 20px;">
+					<div class="ui two column grid container" style="border:1px solid #dedede; padding-right: 20px;background-color: #fff;">
 						<div class="column" style="width=50%; border-right: 1px solid #dedede;">
 							<div class="ui two column grid">
 								<div class="column" style="width:60%">

@@ -1,8 +1,7 @@
 <%@page import="java.util.Map"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	Map<String, Object> info = (Map<String, Object>)request.getAttribute("info");
+	Map<String, Object> info = (Map<String, Object>) request.getAttribute("info");
 %>
 <!DOCTYPE html>
 <html>
@@ -139,9 +138,9 @@
 
 
 
-	<div class="ui basicspace">
-		<!-- navigation menu와 여백 -->
-	</div>
+	<!-- 	<div class="ui basicspace">
+		navigation menu와 여백
+	</div> -->
 
 	<!--======================================================================================-->
 	<!----------------------------------------------------------------------- main content 시작 -->
@@ -150,101 +149,73 @@
 
 		<!-- main 입력 시작-->
 
-		<div class="ui two column grid container"
-			style="padding: 5px; height: auto; margin-bottom: 50px;">
-			<div class="ui column"
-				style="width: 20%; padding-top: 0px; padding-left: 0px; padding-right: 0px">
+		<div class="ui two column grid container" style="padding: 5px; height: auto; margin-top: 0px; margin-bottom: 0px;">
+			<div class="ui column" style="width: 20%; padding-top: 0px; padding-left: 0px; padding-right: 0px">
 				<!-- 로그인 정보 =================================================================================-->
-				<div class="ui segment">
+				<div id="partnersback" class="ui segment">
 					<jsp:include page="../../auth/PartnersLoginOk.jsp" />
 				</div>
 				<!-- 로그인 정보 =================================================================================-->
 
 				<!-- 서브 메뉴 ===================================================================================-->
-				<div class="ui fluid vertical menu" style="padding-right: 0px">
-					<a id="partnersProfile" class="partnersProfile teal item" href='javascript:location.reload();'> <font
-						style="vertical-align: inherit;"> 기본 정보 수정 </font>
-					</a> <a id="partnersCashExchange"
-						href='javascript:changePage("./partnersCashExchange")'
-						class="partnersCashExchange teal item"> <font
-						style="vertical-align: inherit;"> 현금교환 </font>
-					</a> <a id="partnersReLogin" class="partnersReLogin teal item"
-						href='javascript:changePage("./partnersReLogin")'> <font
-						style="vertical-align: inherit;"> 비밀번호 변경 </font>
-					</a> <a id="partnersNotificationSetting"
-						href='javascript:changePage("./partnersNotificationSetting")'
-						class="partnersNotificationSetting teal item"> <font
-						style="vertical-align: inherit;"> 알림 설정 </font>
-					</a> <a id="partnersWithdrawal" class="partnersWithdrawal teal item"
-						href='javascript:changePage("./partnersWithdrawal")'> <font
-						style="vertical-align: inherit;"> 회원 탈퇴 </font>
+				<div id="partnersback" class="ui fluid vertical menu" style="padding-right: 0px">
+					<a id="partnersProfile" class="partnersProfile teal item" href='javascript:location.reload();'> <font style="vertical-align: inherit;"> 기본 정보 수정 </font>
+					</a> <a id="partnersCashExchange" href='javascript:changePage("./partnersCashExchange")' class="partnersCashExchange teal item"> <font style="vertical-align: inherit;"> 현금교환 </font>
+					</a> <a id="partnersReLogin" class="partnersReLogin teal item" href='javascript:changePage("./partnersReLogin")'> <font style="vertical-align: inherit;"> 비밀번호 변경 </font>
+					</a> <a id="partnersNotificationSetting" href='javascript:changePage("./partnersNotificationSetting")' class="partnersNotificationSetting teal item"> <font style="vertical-align: inherit;"> 알림 설정 </font>
+					</a> <a id="partnersWithdrawal" class="partnersWithdrawal teal item" href='javascript:changePage("./partnersWithdrawal")'> <font style="vertical-align: inherit;"> 회원 탈퇴 </font>
 					</a>
 				</div>
 
 				<!-- 서브 메뉴 ===================================================================================-->
 			</div>
-			<div class="ui column" id='subBody'
-				style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; padding-right: 10px; width: 80%;">
-				<div class="ui container"
-					style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
+			<div class="ui column" id='subBody' style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; padding-right: 10px; width: 80%;">
+				<div id="partnersback" class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
 					<div>
 						<h3 style="text-align: left">기본 정보 수정</h3>
 					</div>
-					<div class="ui two column grid container"
-						style="padding-left: 0px; padding-top: 10px;">
+					<div class="ui two column grid container" style="padding-left: 0px; padding-top: 10px;">
 						<div class="column" style="padding-left: 0px">
 							<h5 style="text-align: left">계정의 기본 정보들을 수정할 수 있습니다.</h5>
 						</div>
-						<div class="column"
-							style="text-align: right; padding-bottom: 0px;">
-							<h11 style="text-align: right; padding-right:10px;"> <a
-								href="">파트너스 정보 수정하기 </a>
+						<!-- <div class="column" style="text-align: right; padding-bottom: 0px;">
+							<h11 style="text-align: right; padding-right:10px;"> <a href="">파트너스 정보 수정하기 </a>
 							</h6>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<div style="height: 10px;"></div>
+					<form id="f_UserInfo1" method="post" enctype="multipart/form-data" style="width: 100%;">
+				<div class="ui container" style="width: 100% padding-left: 20px; padding-top: 0px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height: auto;">
 
-				<div class="ui container"
-					style="width: 100% padding-left: 20px; padding-top: 20px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height: auto;">
-					<form id="f_UserInfo1" method="post" enctype="multipart/form-data"
-						style="width: 100%;">
-						<div class="ui two column grid container" style="width: 100%">
-							<div class="center column container"
-								style="padding: 17px; width: 30%; text-align: left;">
+						<div class="ui two column grid container" style="width: 100%;margin-top: 0;">
+							<div class="center column container" style="padding-left: 20px; width: 30%; text-align: left; background-color: #CECEF6">
 								<h5>계정 정보</h5>
 							</div>
-							<div class="column container"
-								style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;">
+							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%; background-color: #CECEF6">
 								<!-- 빈공간 -->
 							</div>
 
-							<div class="center column container"
-								style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;">
+							<div class="center column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;">
 								<strong>아이디</strong>
 							</div>
-							<div class="column container"
-								style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;"><%=info.get("S_ID")%></div>
-							<div class="center column container"
-								style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;">
+							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;"><%=info.get("S_ID")%></div>
+							<div class="center column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 30%;">
 								<strong>이메일</strong>
 							</div>
-							<div class="column container"
-								style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;"><%=info.get("S_EMAIL")%></div>
-							<div class="ui one column container"
-								style="padding-left: 10px; padding-top: 10px; padding-bottom: 0px; padding-right: 30px; width: 100%;">
-								<hr class="dotted divider" style="margin-top: 15px;'" />
+							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;"><%=info.get("S_EMAIL")%></div>
+							<div class="ui one column container" style="padding-left: 10px; padding-top: 10px; padding-bottom: 30px; padding-right: 30px; width: 100%;">
+								<!-- <hr class="dotted divider" style="margin-top: 15px;'" /> -->
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%; text-align: left;">
+							
+							<div class="center column container" style="padding-left: 20px; width: 30%; text-align: left; background-color: #CECEF6;">
 								<h5>기본 정보</h5>
 							</div>
-							<div class="column container"
-								style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;">
+							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%; background-color: #CECEF6;">
 								<!-- 빈공간 -->
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%;">
+							
+							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>프로필 사진
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
@@ -252,8 +223,7 @@
 								<input id="f_file" name="f_file" type="file" class="inputfile" />
 
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%;">
+							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>파트너스 형태
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
@@ -264,8 +234,7 @@
 													allowAdditions : true
 												});
 									</script>
-									<select id="f_dropdown" name="f_dropdown"
-										class="ui fluid search dropdown" style="width: 60.5%;">
+									<select id="f_dropdown" name="f_dropdown" class="ui fluid search dropdown" style="width: 60.5%;">
 										<option id="1" value="개인">개인</option>
 										<option id="2" value="팀">팀</option>
 										<option id="3" value="개인 사업자">개인 사업자</option>
@@ -273,18 +242,15 @@
 									</select>
 								</div>
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%;">
+							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>이름
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
 								<div class="ui input">
-									<input id="f_name" name="f_name" type="text"
-										placeholder="이름을 입력하세요." size="45px">
+									<input id="f_name" name="f_name" type="text" placeholder="이름을 입력하세요." size="45px">
 								</div>
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%;">
+							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>성별
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
@@ -293,22 +259,19 @@
 										<div class="grouped fields">
 											<div class="field">
 												<div class="ui radio checkbox">
-													<input type="radio" id="gender1" name="f_gender" value="남"
-														checked="checked"> <label>남</label>
+													<input type="radio" id="gender1" name="f_gender" value="남" checked="checked"> <label>남</label>
 												</div>
 											</div>
 											<div class="field">
 												<div class="ui radio checkbox">
-													<input type="radio" id="gender2" name="f_gender" value="여">
-													<label>여</label>
+													<input type="radio" id="gender2" name="f_gender" value="여"> <label>여</label>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%;">
+							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>생년월일
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
@@ -321,16 +284,10 @@
 										<%
 											}
 										%>
-									</select> <i class="window minimize outline icon"
-										style="padding: 5px; color: gray;"></i><input id="f_mounth"
-										name="f_mounth" type="text" size="5px"><i
-										class="window minimize outline icon"
-										style="padding: 5px; color: gray;"></i><input id="f_day"
-										name="f_day" type="text" size="5px">
+									</select> <i class="window minimize outline icon" style="padding: 5px; color: gray;"></i><input id="f_mounth" name="f_mounth" type="text" size="5px"><i class="window minimize outline icon" style="padding: 5px; color: gray;"></i><input id="f_day" name="f_day" type="text" size="5px">
 								</div>
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%;">
+							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>지번
 							</div>
 
@@ -341,8 +298,7 @@
 									</button>
 								</div>
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%;">
+							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>나머지 주소
 							</div>
 
@@ -351,8 +307,7 @@
 									<input id="address" name="address" type="text" size="44px">
 								</div>
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%;">
+							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>세금계산서용 이메일
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
@@ -360,28 +315,24 @@
 									<input name="f_email" id="email" type="text" size="44px">
 								</div>
 							</div>
-							<div name="f_email" class="center column container"
-								style="padding: 17px; width: 30%;"></div>
+							<!-- <div name="f_email" class="center column container" style="padding: 17px; width: 30%;"></div>
 							<div class="column container" style="padding: 10px; width: 70%;">
 								<div style="padding-right: 20px; text-align: right;"></div>
-							</div>
+							</div> -->
 						</div>
 						<div class="ui two column grid container" style="width: 100%">
 
-							<div class="ui one column container"
-								style="padding-left: 10px; padding-top: 10px; padding-bottom: 0px; padding-right: 30px; width: 100%;">
-								<hr class="dotted" />
+							<div class="ui one column container" style="padding-left: 10px; padding-top: 10px; padding-bottom: 0px; padding-right: 30px; width: 100%;">
+								<!-- <hr class="dotted" /> -->
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%; text-align: left;">
+							
+							<div class="center column container" style="padding-left: 20px; width: 30%; text-align: left; background-color: #CECEF6;">
 								<h5>연락처 정보</h5>
 							</div>
-							<div class="column container"
-								style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%;">
+							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 70%; background-color: #CECEF6;">
 								<!-- 빈공간 -->
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%;">
+							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span> 핸드폰 번호
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
@@ -394,16 +345,10 @@
 										<option value="018">018</option>
 										<option value="019">019</option>
 										<option value="foreign">해외</option>
-									</select> <i class="window minimize outline icon"
-										style="padding: 5px; color: gray;"></i> <input id="second"
-										name="second" type="text" size="7px"> <i
-										class="window minimize outline icon"
-										style="padding: 5px; color: gray;"></i> <input id="three"
-										name="three" type="text" size="6px">
+									</select> <i class="window minimize outline icon" style="padding: 5px; color: gray;"></i> <input id="second" name="second" type="text" size="7px"> <i class="window minimize outline icon" style="padding: 5px; color: gray;"></i> <input id="three" name="three" type="text" size="6px">
 								</div>
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%;">
+							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>전화번호
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
@@ -411,13 +356,10 @@
 									<select id="skills2" name="skills2" class="ui search dropdown">
 										<option value="5546">5546</option>
 										<option value="foreign">해외</option>
-									</select> <i class="window minimize outline icon"
-										style="padding: 5px; color: gray;"> </i><input id="SecondT"
-										name="SecondT" type="text" size="22px">
+									</select> <i class="window minimize outline icon" style="padding: 5px; color: gray;"> </i><input id="SecondT" name="SecondT" type="text" size="22px">
 								</div>
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%; margin-bottom: 20px;">
+							<div class="center column container" style="padding: 17px; width: 30%; margin-bottom: 20px;">
 								<span>*</span>팩스번호
 							</div>
 							<div class="column container" style="padding: 10px; width: 70%;">
@@ -425,8 +367,7 @@
 									<input type="text" size="45px">
 								</div>
 							</div>
-							<div class="center column container"
-								style="padding: 17px; width: 30%;"></div>
+							<div class="center column container" style="padding: 17px; width: 30%;"></div>
 							<div class="column container" style="padding: 10px; width: 70%;">
 								<div style="padding-right: 20px; text-align: right;">
 									<button type="button" id="plusfriend" class="ui blue button">플러스친구</button>
@@ -435,9 +376,9 @@
 							</div>
 
 						</div>
-					</form>
+					
 				</div>
-
+</form>
 			</div>
 		</div>
 		<!-- main 입력 끝-->
@@ -460,10 +401,10 @@
 	<!----------------------------------------------------------------------- main content 끝 --->
 	<!--======================================================================================-->
 
-	<div class="ui basicspace">
-		<!-- login title와 main content 여백 -->
+	<!-- <div class="ui basicspace">
+		login title와 main content 여백
 	</div>
-
+ -->
 	<!----------------------------------------------------------------------- footer content 시작 -->
 	<!-- footer 시작-->
 	<footer class="footer">

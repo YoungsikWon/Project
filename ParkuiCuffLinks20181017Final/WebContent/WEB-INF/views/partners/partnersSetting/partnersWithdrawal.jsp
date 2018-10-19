@@ -60,7 +60,7 @@
  
 
 </script>
-	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
+	
 	
 <!--======================================================================================-->
 <!----------------------------------------------------------------------- main content 시작 -->
@@ -69,7 +69,7 @@
 	
 	<!-- main 입력 시작-->
 
-		<div class="ui two column grid container" style="height: 700px">
+		<div class="ui two column grid container" style="height: auto;">
 <!-- 로그인 정보 =================================================================================-->
 				
 <!-- 로그인 정보 =================================================================================-->
@@ -78,8 +78,8 @@
 				
 <!-- 서브 메뉴 ===================================================================================-->
 						
-			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; padding-right: 10px; width: 80%;">
-				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
+			<div class="ui column" style="padding-left: 0px; padding-top: 15px; padding-bottom: 0px; width: 100%; height: auto;">
+				<div id="partnersback" class="ui container" style="margin-bottom: 10px; padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
 					<div>
 						<h3 style="text-align: left">회원 탈퇴</h3>
 					</div>
@@ -94,22 +94,19 @@
 				</div>
 						<form id = "Excape">
 				<div style="height: 10px;"></div>
-				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 30px; padding-bottom: 0px; left: 5px; border: 1px solid #dedede; height:330px;">
-					<div class="ui two column grid container" style="padding-top: 0px; border: 1px solid #dedede;">
+				<div class="ui two column grid container" style="margin-bottom: 5px;padding-top: 0px; border: 1px solid #dedede;">
 						<div class="column" style="width: 10%; padding: 20px">
 							<img class="ui medium circular image" style="width: 40px;" src="../../image/process-question-mark.png">
 						</div>
 						<div class="column" style="width: 90%;text-align: left; padding-left: 5px ">
-							이메일 또는 문자메시지에 대한 불편으로 회원 탈퇴를 신청하려 하시나요?<br>
-							[알림 설정]에서 받고 싶은 알림만 받도록 설정할 수 있습니다.
+							<h5>보안 로그인</h5>
+							개인정보 보호를 위하여 회원님의 비밀번호를 다시 한번 확인합니다.
 						</div>
 					</div>
+				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 10px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede; min-height:479px; height:auto; background-color: #E6E6E6;">
+					
 					<div style="padding-top:30px;">
 						<div class="ui two column grid container">
-							<div class="ui one center column container" style="padding: 17px; width: 90%; text-align: left;height: 54px;">
-								<h5>보안 로그인</h5>
-								개인정보 보호를 위하여 회원님의 비밀번호를 다시 한번 확인합니다.
-							</div>
 						
 							<!-- <div class="center column container" style="padding: 17px; width: 30%; text-align: left;height: 54px;">
 								<h5>보안 로그인</h5><br>
@@ -137,7 +134,7 @@
 							<div class="center column container" style="padding: 17px; width: 30%;">
 								
 							</div>
-							<div class="column container" style="padding: 10px; width: 60%; text-align:right">
+							<div class="column container" style="margin-top: 270px;padding: 10px; width: 60%; text-align:right">
 								<div class="ui container" style="padding-right:30px; ">
 									<button type = "button" id = "Escape" class="ui blue button" >탈퇴신청</button>
 								</div>

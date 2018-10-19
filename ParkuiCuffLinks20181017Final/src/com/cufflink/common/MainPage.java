@@ -35,37 +35,36 @@ public class MainPage {
 		return "test/NewFile1";
 	}
 	
-	/******** 수정 20181017 시작 *******/
-	@RequestMapping("/")
-	public String mainpage(Model mod, HttpServletRequest req, HttpSession session) {
-		List<Map<String,Object>> pMap = null;
-		pMap = mainLogic.MainProject();
-		mod.addAttribute("MainProject",pMap);
-		Map<String, Object> userInfo = (Map<String, Object>)userInfo(session,req);
-		if(userInfo != null) {
-			if("클라이언트".equals(userInfo.get("S_KINDS"))) {
-				return "redirect:/clients/ClientMyCufflink";
-			}else if("파트너스".equals(userInfo.get("S_KINDS"))){
-				return "redirect:/partners/partnersMyWishket";
-			}
-		}
-		return "common/main";
-	}
-	
 	public Map<String, Object> userInfo(HttpSession session, HttpServletRequest req) {
-		String id= "";
-		Cookie[] cookies = req.getCookies();
-		if(cookies != null) {
-			for (Cookie cookie : cookies) {
-				if ("id".equals(cookie.getName())) {
-					id = cookie.getValue();
-				}
-			}
-		}
-		Map<String, Object> userInfo = (Map<String, Object>) session.getAttribute(id);
-		return userInfo;
-	}
-	/******** 수정 20181017 끝 *******/
+	      String id= "";
+	      Cookie[] cookies = req.getCookies();
+	      if(cookies != null) {
+	         for (Cookie cookie : cookies) {
+	            if ("id".equals(cookie.getName())) {
+	               id = cookie.getValue();
+	            }
+	         }
+	      }
+	      Map<String, Object> userInfo = (Map<String, Object>) session.getAttribute(id);
+	      return userInfo;
+	   }
+
+	   @RequestMapping("/")
+	   public String mainpage(Model mod, HttpServletRequest req, HttpSession session) {
+	      List<Map<String,Object>> pMap = null;
+	      pMap = mainLogic.MainProject();
+	      mod.addAttribute("MainProject",pMap);
+	      Map<String, Object> userInfo = (Map<String, Object>)userInfo(session,req);
+	      if(userInfo != null) {
+	         if("클라이언트".equals(userInfo.get("S_KINDS"))) {
+	            return "redirect:/clients/ClientMyCufflink";
+	         }else if("파트너스".equals(userInfo.get("S_KINDS"))){
+	            return "redirect:/partners/partnersMyWishket";
+	         }
+	      }
+	      return "common/main";
+	   }
+
 
 /*	@RequestMapping("/login")
 	public String login() {

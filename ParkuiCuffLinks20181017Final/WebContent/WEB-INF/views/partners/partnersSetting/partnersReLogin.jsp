@@ -63,7 +63,7 @@ $(document).ready(function(){
 
 </script>
 
-	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
+	<!-- <div class="ui basicspace">navigation menu와 여백</div> -->
 	
 <!--======================================================================================-->
 <!----------------------------------------------------------------------- main content 시작 -->
@@ -72,7 +72,7 @@ $(document).ready(function(){
 	
 	<!-- main 입력 시작-->
 
-		<div class="ui two column grid container" style="height: 720px">
+		<div class="ui two column grid container">
 		
 <!-- 로그인 정보 =================================================================================-->
 				
@@ -81,8 +81,8 @@ $(document).ready(function(){
 <!-- 서브 메뉴 ===================================================================================-->
 				
 <!-- 서브 메뉴 ===================================================================================-->
-			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; padding-right: 10px; width: 80%;">
-				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
+			<div class="ui column" style="padding-left: 0px; padding-top: 15px; padding-bottom: 0px; width: 100%;">
+				<div id="partnersback" class="ui container" style="margin-bottom: 10px; padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
 					<div>
 						<h3 style="text-align: left">비밀번호 변경</h3>
 					</div>
@@ -96,8 +96,7 @@ $(document).ready(function(){
 					</div>
 				</div>
 				<div style="height: 10px;"></div>
-				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 30px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height:auto;">
-					<div class="ui two column grid container" style="padding-top: 0px; border: 1px solid #dedede;">
+				<div class="ui two column grid container" style="margin-bottom: 5px;padding-top: 0px; border: 1px solid #dedede;">
 						<div class="column" style="width: 10%; padding: 20px">
 							<img class="ui medium circular image" style="width: 40px;" src="../../image/process-guide-warning.png">
 						</div>
@@ -106,8 +105,10 @@ $(document).ready(function(){
 							다른 사이트에서 사용하지 않는 고유한 비밀번호를 사용하시고, 주기적으로 변경해주세요.
 						</div>
 					</div>
+				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 10px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; min-height: 480px; height:auto; background-color: #E6E6E6;">
 					
-					<div style="padding-top:30px;">
+					
+					<div>
 							<div class="ui two column grid container">
 								<div class="center column container" style="padding: 17px; width: 30%; text-align: left;">
 									<h5>보안 로그인</h5>
@@ -140,7 +141,7 @@ $(document).ready(function(){
 								<div class="center column container" style="padding: 17px; width: 30%;">
 									
 								</div>
-								<div class="column container" style="padding: 10px; width: 60%; text-align:right">
+								<div class="column container" style="padding: 10px; width: 60%;margin-top: 190px; text-align:right">
 									<div class="ui container" style="padding-right:30px; ">
 										<button type = "button" id = "PwModify" class="ui blue button" >비밀번호 변경</button>
 									</div>

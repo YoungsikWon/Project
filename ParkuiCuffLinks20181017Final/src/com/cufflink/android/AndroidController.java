@@ -53,7 +53,7 @@ public class AndroidController {
 	@RequestMapping(value = "/Android/Login",produces="text/plain;charset=UTF-8")
 	public String Login(@RequestParam Map<String, Object> pMap) {
 		
-		logger.info("È£Ãâ¼º°ø");
+		logger.info("í˜¸ì¶œì„±ê³µ");
 		int result = 0;
 		String tojson = "";
 		pMap = androidLogic.Login(pMap);
@@ -88,7 +88,7 @@ public class AndroidController {
 		
 		int result = 0;
 		String tojson = "";
-		logger.info("GoogleMap È£Ãâ ¿Ï·á");
+		logger.info("GoogleMap í˜¸ì¶œ ì™„ë£Œ");
 		
 		List<Map<String,Object>> list = null;
 		
@@ -155,20 +155,20 @@ public class AndroidController {
 	@RequestMapping(value = "/Android/ProjectAttention",produces="text/plain;charset=UTF-8")
 	public String ProjectAttention(@RequestParam Map<String, Object> pMap) {
 
-		logger.info("ProjectAttention È£Ãâ¼º°ø");
+		logger.info("ProjectAttention í˜¸ì¶œì„±ê³µ");
 		String tojson = "";
 		List<Map<String,Object>> list = null;
 		if(pMap.get("su_state").equals("1")) {
-			pMap.put("su_state", "°ü½É");
+			pMap.put("su_state", "ê´€ì‹¬");
 		}
 		else if(pMap.get("su_state").equals("2")) {
-			pMap.put("su_state", "Áö¿ø");
+			pMap.put("su_state", "ì§€ì›");
 		}
         else if(pMap.get("su_state").equals("3")) {
-        	pMap.put("su_state", "ÁøÇà");
+        	pMap.put("su_state", "ì§„í–‰");
 		}
         else if(pMap.get("su_state").equals("4")) {
-        	pMap.put("su_state", "¿Ï·á");
+        	pMap.put("su_state", "ì™„ë£Œ");
 		}
 	
 		logger.info(pMap.get("su_state"));
@@ -195,7 +195,7 @@ public class AndroidController {
  	   logger.info(pMap);
  	  androidLogic.projectAttention(pMap);
 	    
- 	   //°æ·ÎÀâ¾ÆÁÖ¼¼¿ä
+ 	   //ê²½ë¡œì¡ì•„ì£¼ì„¸ìš”
 	       return "";
  }
  @RequestMapping(value ="/Android/projectcancel",produces="text/plain;charset=UTF-8")
@@ -204,7 +204,7 @@ public class AndroidController {
     logger.info(pMap);
     androidLogic.projectcancel(pMap);
 	   
-	   //°æ·ÎÀâ¾ÆÁÖ¼¼¿ä
+	   //ê²½ë¡œì¡ì•„ì£¼ì„¸ìš”
     return "";
 }
 	

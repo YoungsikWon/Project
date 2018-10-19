@@ -110,7 +110,7 @@ var isok = true;
 
 		<!-- title 시작-->
 		<div class="ui container">
-			<div class="content-header">
+			<div class="content-header" style="background-color: #E0ECF8;">
 				<div class="ui two column grid container">
 					<div class="column" style="text-align: left;">
 						<h3 class="content-text">로그인</h3>
@@ -124,15 +124,15 @@ var isok = true;
 		</div>
 		<!-- title 끝-->
 
-		<div class="ui basicspace">
-			<!-- title와 main content 여백 -->
-		</div>
+		<!-- <div class="ui basicspace">
+			title와 main content 여백
+		</div> -->
 
 		<!-- main 입력 시작-->
 		<div class="ui container">
-			<div class="content-middle" style="height: auto;">
+			<div class="content-middle" style="margin-top: 10px;min-height: 550px; height: auto; background-color: #dedede;">
 				<div class="ui two column grid container" style="padding: 20px; height: auto;">
-					<div class="column grid" style="border-right: 1px solid #dedede; vertical-align: middle; padding: 20px; width: 60%;">
+					<div class="column grid" style="vertical-align: middle; padding: 20px; width: 60%;border-right: 1px solid #BDBDBD">
 						<div class="ui two column grid container">
 							
 							<div class="center column container" style="padding: 17px; width: 35%;">
@@ -151,7 +151,7 @@ var isok = true;
 							</div>
 							<div class="column container" style="padding: 10px; width: 65%;">
 								<div class="ui left icon input">
-									<input name="f_pw" type="text" placeholder="비밀번호" size="40px">
+									<input name="f_pw" type="password" placeholder="비밀번호" size="40px">
 									<i class="key icon"></i>
 								</div>
 								</form>
@@ -214,14 +214,14 @@ var isok = true;
 							<div class="column container" style="padding: 20px; width: 100%; text-align: center;">
 								<div class="ui two column grid container">
 									<div class="cloumn container" style="width: 50%;">
-										<div class="ui fluid animated fade button" tabindex="0">
+										<div class="ui fluid black animated fade button" tabindex="0">
 											<div class="visible content">로 그 인</div>
 											<div class="hidden content" onClick='login()'>Login Click</div>
 										</div>
 									</div>
 
 									<div class="cloumn  container" style="width: 50%;">
-										<div class="ui fluid animated fade button" tabindex="0">
+										<div class="ui fluid black animated fade button" tabindex="0">
 											<div class="visible content">회원가입</div>
 											<div class="hidden content">
 												<a href="/auth/join">Join Click</a>
@@ -284,9 +284,9 @@ var isok = true;
 	<!-- footer 끝-->
 	<!----------------------------------------------------------------------- footer content 끝 -->
 	<script type="text/javascript">
-	
-    $("#loading").hide();   
-	
+/******************************************************************************* 20181013 수정요청사항 캡차서비스 로딩중 처리 */	
+    $('#loading').hide();  
+/******************************************************************************* 20181013 수정요청사항 캡차서비스 로딩중 처리 */	 
 	    function Csuccess(){
 		    isok = true;
 		    alert("성공적으로 인증 되었습니다.");

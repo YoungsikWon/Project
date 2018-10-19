@@ -61,7 +61,6 @@ public class PartnersController {
 		mod.addAttribute("e_avg", partnersLogic.e_avg(pno));
 		mod.addAttribute("e_cate", partnersLogic.e_cate(pno));
 		mod.addAttribute("e_intro", partnersLogic.e_intro(pno));
-		mod.addAttribute("e_aboutme", partnersLogic.e_aboutme(pno));
 
 		mod.addAttribute("e_port", partnersLogic.e_port(pno));
 		mod.addAttribute("e_back_car", partnersLogic.e_back_car(pno));

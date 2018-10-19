@@ -1,8 +1,7 @@
 <%@page import="com.google.gson.Gson"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	List<Map<String, Object>> list1 = (List<Map<String, Object>>) request.getAttribute("ProjectFind1"); //개발
 	List<Map<String, Object>> list2 = (List<Map<String, Object>>) request.getAttribute("ProjectFind2"); // 디자인
@@ -67,24 +66,20 @@
 
 	<!----------------------------------------------------------------------- main content 시작 -->
 	<!----------------------------------------------------------------------- main content 시작 -->
-	<div class="ui container raised segment content"
-		style="height: auto; margin-top: 10px; padding-bottom: 20px;">
+	<div class="ui container raised segment content" style="height: auto; margin-top: 10px; padding-bottom: 20px;">
 		<!-- title 시작-->
 		<div class="ui container">
-			<div class="content-header">
+			<div class="segment content-header" style="background-color: #E0ECF8;">
 				<div class="ui two column grid container">
 					<div class="column" style="text-align: left">
 						<h3 class="content-text" style="text-align: left;">프로젝트 찾기</h3>
-						<small class="small-text" style="text-align: left;">000,000개의
-							프로젝트가 있습니다.</small>
+						<small class="small-text" style="text-align: left;">000,000개의 프로젝트가 있습니다.</small>
 					</div>
 					<div class="column" style="text-align: right; margin: 10px 0px;">
 						<!-- form 시작 ================================================================================================================================== -->
 						<div class="ui search">
 							<div class="ui icon input">
-								<input class="prompt" type="text"
-									placeholder="Search countries..." onkeyup="cateHandler(categoryList(),1,this.value)">
-								<i class="search icon"></i>
+								<input class="prompt" type="text" placeholder="Search countries..." onkeyup="cateHandler(categoryList(),1,this.value)"> <i class="search icon"></i>
 							</div>
 							<div class="results"></div>
 						</div>
@@ -101,61 +96,35 @@
 		<!-- main 입력 시작-->
 		<div class="ui container">
 			<div class="content-middle-project">
-				<div class="ui two column grid container"
-					style="padding: 00px; overflow: hidden;">
-					<div class="column grid"
-						style="vertical-align: middle; padding: 00px; width: 15%;">
-						<div class="ui raised segment" style="padding: 10px;">
-							<div class="column"
-								style="padding-left: 10px; text-align: left; font-size: 12px">프로젝트
-								정렬</div>
-							<div class="ui container"
-								style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
+				<div class="ui two column grid container" style="padding: 00px; overflow: hidden;">
+					<div class="column grid" style="vertical-align: middle; padding: 00px; width: 16%;">
+						<div class="ui raised segment" style="padding: 10px; background-color: #E6E6E6;">
+							<div class="column" style="padding-left: 10px; text-align: left; font-size: 12px">프로젝트 정렬</div>
+							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 								<hr style="" />
 							</div>
 							<div class="ui two column grid container" style="padding: 0px;">
-								<div class="column"
-									style="padding-top: 5px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; border-right: 1px solid #dedede;">
-									<a class="h10" id="sort" onclick="setSortFilterValue(this)">금액
-										높은 순</a>
-									<br>
-									<a class="h10" id="sort" onclick="setSortFilterValue(this)">금액
-										낮은 순</a>
-									<br>
+								<div class="column" style="padding-top: 5px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px; border-right: 1px solid #dedede;">
+									<a class="h10" id="sort" onclick="setSortFilterValue(this)">금액 높은 순</a> <br> <a class="h10" id="sort" onclick="setSortFilterValue(this)">금액 낮은 순</a> <br>
 								</div>
-								<div class="column"
-									style="padding-top: 5px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;">
-									<a class="h10" id="sort" onclick="setSortFilterValue(this)">최신
-										등록 순</a>
-									<br>
-									<a class="h10" id="sort" onclick="setSortFilterValue(this)">마감
-										임박 순</a>
-									<br>
+								<div class="column" style="padding-top: 5px; padding-bottom: 0px; padding-left: 5px; padding-right: 5px;">
+									<a class="h10" id="sort" onclick="setSortFilterValue(this)">최신 등록 순</a> <br> <a class="h10" id="sort" onclick="setSortFilterValue(this)">마감 임박 순</a> <br>
 								</div>
 							</div>
-							<div class="ui container"
-								style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
-							</div>
+							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;"></div>
 						</div>
-						<div class="ui raised segment" style="padding: 5px;">
-							<div class="column"
-								style="padding-left: 10px; text-align: left; font-size: 12px">프로젝트
-								카테고리</div>
-							<div class="ui container"
-								style="text-align: left; padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
+						<div class="ui raised segment" style="padding: 5px; background-color: #E6E6E6;">
+							<div class="column" style="padding-left: 10px; text-align: left; font-size: 12px">프로젝트 카테고리</div>
+							<div class="ui container" style="text-align: left; padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 								<hr style="" />
 							</div>
-							<div class="ui two column grid container"
-								style="padding-top: 10px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
-								<div class="ui relaxed list "
-									style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
-									<div class="item"
-										style="text-align: left; padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 5px;">
+							<div class="ui two column grid container" style="padding-top: 10px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
+								<div class="ui relaxed list " style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
+									<div class="item" style="text-align: left; padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 5px;">
 										<!-- form 시작 ================================================================================================================================== -->
 										<form name="develope" id='devs'>
 											<div class="ui master checkbox">
-												<input type="checkbox" id="dev" value='개발'>
-												<label class="h11">개발</label>
+												<input type="checkbox" id="dev" value='개발'> <label class="h11">개발</label>
 											</div>
 											<div class="list">
 												<%
@@ -164,9 +133,7 @@
 												<%-- <% for(String sb : map.get("sub1") { %> --%>
 												<div class="item dev">
 													<div class="ui child checkbox">
-														<input type="hidden" value="개발" />
-														<input type="checkbox" value='<%=sub1.get("CATE_SUB")%>'>
-														<label class="h11"><%=sub1.get("CATE_SUB")%></label>
+														<input type="hidden" value="개발" /> <input type="checkbox" value='<%=sub1.get("CATE_SUB")%>'> <label class="h11"><%=sub1.get("CATE_SUB")%></label>
 													</div>
 												</div>
 												<%
@@ -179,8 +146,7 @@
 									<div class="item" style="text-align: left;">
 										<form name="design" id='designs'>
 											<div class="ui master checkbox">
-												<input type="checkbox" id='design' value='디자인'>
-												<label class="h11">디자인</label>
+												<input type="checkbox" id='design' value='디자인'> <label class="h11">디자인</label>
 											</div>
 											<div class="list">
 												<%
@@ -188,10 +154,7 @@
 												%>
 												<div class="item design">
 													<div class="ui child checkbox">
-														<input type="hidden" value="디자인" />
-														<input type="checkbox" name="design_List"
-															value='<%=sub2.get("CATE_SUB")%>'>
-														<label class="h11"><%=sub2.get("CATE_SUB")%></label>
+														<input type="hidden" value="디자인" /> <input type="checkbox" name="design_List" value='<%=sub2.get("CATE_SUB")%>'> <label class="h11"><%=sub2.get("CATE_SUB")%></label>
 													</div>
 												</div>
 												<%
@@ -202,88 +165,61 @@
 									</div>
 								</div>
 							</div>
-							<div class="ui container"
-								style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
-
-							</div>
+							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;"></div>
 						</div>
 
 					</div>
-					<div class="column grid" id='body'
-						style="padding-top: 0px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px; width: 85%;">
+					<div class="column grid" id='body' style="padding-top: 0px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px; width: 84%;">
 
 						<!-- db 공통 코드===================================================================================================================================== -->
-						<div class="column"
-							style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">
-
-						</div>
-						<div class="ui container"
-							style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
-						</div>
+						<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;"></div>
+						<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;"></div>
 					</div>
-					<div class="ui container"
-						style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
-					</div>
+					<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;"></div>
 				</div>
+				<!-- *********************************************************************************************************20181013 수정요청사항 -->
+				<div style="margin-right: 5px;" align="right">
 					<div class="ui divider"></div>
 					<!---------------------- 수정 20181017 시작 ------------------->
 					<div class="ui pagination menu">
-						<a class="active item"
-							href="javascript:cateHandler(categoryList(),1)">1 </a>
-						<a class="item" href="javascript:cateHandler(categoryList(),2,$('.prompt').val())">2
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),3,$('.prompt').val())">3
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),4,$('.prompt').val())">4
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),5,$('.prompt').val())">5
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),6,$('.prompt').val())">6
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),7,$('.prompt').val())">7
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),8,$('.prompt').val())">8
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),9,$('.prompt').val())">9
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),10,$('.prompt').val())">10
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),11,$('.prompt').val())">11</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),12,$('.prompt').val())">12
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),13,$('.prompt').val())">13
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),14,$('.prompt').val())">14
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),15,$('.prompt').val())">15
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),16,$('.prompt').val())">16
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),17,$('.prompt').val())">17
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),18,$('.prompt').val())">18
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),19,$('.prompt').val())">19
-						</a>
-						<a class="item" href="javascript:cateHandler(categoryList(),20,$('.prompt').val())">20
-						</a>
+						<a class="active item" href="javascript:cateHandler(categoryList(),1)" value="1">1 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),2,$('.prompt').val())" value="2">2 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),3,$('.prompt').val())">3 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),4,$('.prompt').val())">4 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),5,$('.prompt').val())">5 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),6,$('.prompt').val())">6 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),7,$('.prompt').val())">7 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),8,$('.prompt').val())">8 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),9,$('.prompt').val())">9 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),10,$('.prompt').val())">10 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),11,$('.prompt').val())">11 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),12,$('.prompt').val())">12 </a>
+						<a class="item" href="javascript:cateHandler(categoryList(),13,$('.prompt').val())">13 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),14,$('.prompt').val())">14 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),15,$('.prompt').val())">15 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),16,$('.prompt').val())">16 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),17,$('.prompt').val())">17 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),18,$('.prompt').val())">18 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),19,$('.prompt').val())">19 </a> 
+						<a class="item" href="javascript:cateHandler(categoryList(),20,$('.prompt').val())">20 </a>
 					</div>
 					<!---------------------- 수정 20181017 시작 ------------------->
+				</div>
+				<!-- *********************************************************************************************************20181013 수정요청사항 -->
 			</div>
 		</div>
 	</div>
 	<!----------------------------------------------------------------------- footer content 시작 -->
 	<!-- footer 시작-->
 	<footer class="footer">
-		<div class="ui inverted segment"
-			style="height: 200px; padding: 25px; vertical-align: middle;">
+		<div class="ui inverted segment" style="height: 200px; padding: 25px; vertical-align: middle;">
 			<jsp:include page="../common/menu/footerMenu.jsp" />
 		</div>
 	</footer>
 	<input type="hidden" class="json" />
 	<!-- footer 끝-->
-	/************************************************************ 프로젝트 찾기 -
-	미팅지역선택 */
+	<!-- /************************************************************ 프로젝트 찾기 -
+	미팅지역선택 */ -->
 	<script type="text/javascript">
    </script>
 	<script type="text/javascript">
@@ -358,6 +294,13 @@
 		//페이지네이션 처리 함수
 		function pagination(pageNum) {
 		}
+		
+		$('.ui.pagination').find('a').click(function() {
+			/* alert("여기"); */
+
+		})
+		
+		
 		//category에 대한 처리 함수
 		function cateHandler(categoryList, pageNum, search) {
 			$.ajax({
@@ -380,45 +323,35 @@
 	
 		//html로 되어있는 project 넣기
 		function projectAppendHTML(cate_main, cate_sub, pro_no, pro_name, pro_price, pro_period, pro_start, pro_end, pro_skill, pro_contents) {
-			$('#body').append(`<div class="ui raised segment" style="padding: 20px;">
+			$('#body').append(`<div class="ui raised segment" style="padding: 20px;background-color: #dedede; height:auto;">
 						<div class="column" style="text-align: left;">
 						<h3>
 							<a href="<% if (request.getAttribute("kind") != null) {%>./View?pro_no=` + pro_no + `"<% } else { %> /auth/login"<% } %>>` + pro_name + `</a>
 						</h3>
-						<i class="fa fa-heart inactive-heart" onclick="toggle_interest(this);"
-							project-id="41160" style="" title="'관심 프로젝트'에 추가하기"></i>
+						<i class="fa fa-heart inactive-heart" onclick="toggle_interest(this);" project-id="41160" style="" title="'관심 프로젝트'에 추가하기"></i>
 					</div>
-					<div class="column"
-						style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">
+					<div class="column" style="text-align: left; padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 0px;">
 						예상금액 $` + pro_price + `원 &nbsp; | &nbsp;예상기간 ` + pro_period + ` &nbsp; | &nbsp; 등록일자 ` + pro_start + `</div>
-					<div class="ui container"
-						style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
+					<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px;">
 						<hr style="" />
 					</div>
-					<div class="ui two column grid container"
-						style="padding: 0px; height: 100px;">
-						<div class="column grid"
-							style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px; width: 80%; border-right: 1px solid grey; text-align: left">
-						<div>` + pro_contents + `</div>
+					<div class="ui two column grid container" style="padding: 0px; height: auto;">
+						<div class="column grid" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px; width: 80%; border-right: 1px solid grey; text-align: left">
+						<div style="padding: 10px;">` + pro_contents + `</div>
 						<span>`+cate_main+`</span><i class="angle right icon"></i><span>`+cate_sub+`</span>
 						</div>
-						<div class="column grid"
-							style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px; width: 20%; font-size: 11px;">
-							<div class="ui container"
-								style="padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
+						<div class="column grid" style="padding-top: 0px; padding-bottom: 10px; padding-left: 10px; padding-right: 5px; width: 20%; font-size: 11px;">
+							<div class="ui container" style="padding-top: 10px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
 								마감날짜 ` + pro_end + `
 							</div>
-							<div class="ui container"
-								style="padding-top: 0px; padding-bottom: 5px; padding-left: 20px; padding-right: 20px;">
+							<div class="ui container" style="padding-top: 0px; padding-bottom: 5px; padding-left: 20px; padding-right: 20px;">
 								<hr style="" />
 							</div>
-							<div class="ui container"
-								style="padding-top: 0px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
-								총 100명 지원</div>
-							<div class="ui container"
-								style="padding-top: 0px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px;">
+							<div class="ui container" style="padding-top: 0px; padding-bottom: 0px; padding-left: 10px; padding-right: 5px;">
+								총 100명 지원
+							</div>
+							<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px;">
 								관련기술 ` + pro_skill + `
-								<hr style="" />
 							</div>
 						</div>
 					</div>

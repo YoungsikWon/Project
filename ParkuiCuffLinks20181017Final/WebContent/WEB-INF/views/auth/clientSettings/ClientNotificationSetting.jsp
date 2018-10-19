@@ -33,19 +33,19 @@
 <!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->	
 			<div class="ui column" style="width: 20%;padding-top: 0px;padding-left: 0px;padding-right: 0px">
 <!-- 로그인 정보 =================================================================================-->
-				<div class="ui segment">
+				<div class="ui segment" style=" background-color: #E6E6E6;">
 					<jsp:include page="../loginOk.jsp" />
 				</div>
 <!-- 로그인 정보 =================================================================================-->
 
 <!-- 서브 메뉴 ===================================================================================-->
-				<div class="ui fluid vertical menu" style="padding-right: 0px">
+				<div class="ui fluid vertical menu" style="padding-right: 0px; background-color: #E6E6E6;">
 					<jsp:include page="./ClientProfileSubmenu.jsp" />
 				</div>
 <!-- 서브 메뉴 ===================================================================================-->
 			</div>
 			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; padding-right: 10px; width: 80%;">
-				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
+				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede; background-color: #E0ECF8;">
 					<div>
 						<h3 style="text-align: left">알림 설정</h3>
 					</div>
@@ -60,7 +60,7 @@
 				</div>
 				<div style="height: 10px;"></div>
 <!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->				
-				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 10px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede; min-height: 570px; height:auto;">
+				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 10px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede; min-height: 570px; height:auto; background-color: #E6E6E6;">
 <!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->
 					<div style="padding-top:0px;">
 						<div class="ui styled fluid accordion">
@@ -318,7 +318,7 @@
 	</div>
 
 <!----------------------------------------------------------------------- main content 끝 --->
-<!--======================================================================================-->
+<!--======================================================================================--> 
 	
 	<div class="ui basicspace"><!-- login title와 main content 여백 -->	</div>
 	

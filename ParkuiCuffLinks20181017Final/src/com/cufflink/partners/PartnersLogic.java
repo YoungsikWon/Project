@@ -58,12 +58,6 @@ public class PartnersLogic {
 		list = (List<Map<String, Object>>) map.get("e_intro");
 		return list;
 	}
-	 public List<Map<String,Object>> e_aboutme(int pno) {
-		  logger.info("e_aboutme 호출성공");
-		  map = partnersDao.proc_partners_eval(pno);
-		  list = (List<Map<String, Object>>) map.get("e_aboutme");
-		  return list;
-		 } 
 //@@proc_partners_back@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@	
 	public List<Map<String,Object>> e_port(int pno) {
 		logger.info("e_port 호출성공");
@@ -146,8 +140,6 @@ public class PartnersLogic {
 			map.put("skill",list);
 			list = e_grade(pno);
 			map.put("grade", list);
-			list = e_aboutme(pno);
-			map.put("aboutme", list);
 			getPartnersList.add(map);
 		}
 		return getPartnersList;

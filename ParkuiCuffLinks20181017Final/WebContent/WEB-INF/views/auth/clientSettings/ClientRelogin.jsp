@@ -83,19 +83,19 @@ $(document).ready(function(){
 		<div class="ui two column grid container" >
 			<div class="ui column" style="width: 20%;padding-top: 0px;padding-left: 0px;padding-right: 0px">
 <!-- 로그인 정보 =================================================================================-->
-				<div class="ui segment">
+				<div class="ui segment" style=" background-color: #E6E6E6;">
 					<jsp:include page="../loginOk.jsp" />
 				</div>
 <!-- 로그인 정보 =================================================================================-->
 
 <!-- 서브 메뉴 ===================================================================================-->
-				<div class="ui fluid vertical menu" style="padding-right: 0px">
+				<div class="ui fluid vertical menu" style="padding-right: 0px; background-color: #E6E6E6;">
 					<jsp:include page="./ClientProfileSubmenu.jsp" />
 				</div>
 <!-- 서브 메뉴 ===================================================================================-->
 			</div>
 			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; padding-right: 10px; width: 80%;">
-				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
+				<div class="ui container" style="margin-bottom: 5px;padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede; background-color: #E0ECF8;">
 					<div>
 						<h3 style="text-align: left">비밀번호 변경</h3>
 					</div>
@@ -108,11 +108,8 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
-				<div style="height: 10px;"></div>
-<!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->			
-				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 30px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; min-height: 570px; height:auto;">
-<!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->
-					<div class="ui two column grid container" style="padding-top: 0px; border: 1px solid #dedede;">
+				<div style="height: 20px;"></div>
+				<div class="ui two column grid container" style="margin-bottom: 5px;padding-top: 0px; border: 1px solid #dedede;">
 						<div class="column" style="width: 10%; padding: 20px">
 							<img class="ui medium circular image" style="width: 40px;" src="../../image/process-guide-warning.png">
 						</div>
@@ -121,15 +118,19 @@ $(document).ready(function(){
 							다른 사이트에서 사용하지 않는 고유한 비밀번호를 사용하시고, 주기적으로 변경해주세요.
 						</div>
 					</div>
+<!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->			
+				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 10px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; min-height: 480px; height:auto; background-color: #E6E6E6;">
+<!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->
 					
-					<div style="padding-top:30px;">
+					
+					<div style="padding-top:10px;">
 							<div class="ui two column grid container">
-								<div class="center column container" style="padding: 17px; width: 30%; text-align: left;">
+								<!-- <div class="center column container" style="padding: 17px; width: 30%; text-align: left;">
 									<h5>보안 로그인</h5>
-								</div>
-								<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 60%;">
-									<!-- 빈공간 -->
-								</div>
+								</div> -->
+								<!-- <div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 60%;">
+									빈공간
+								</div> -->
 								<div class="center column container" style="padding: 17px; width: 30%;">
 									<span>*</span>이메일
 								</div>
@@ -155,7 +156,7 @@ $(document).ready(function(){
 								<div class="center column container" style="padding: 17px; width: 30%;">
 									
 								</div>
-								<div class="column container" style="padding: 10px; width: 60%; text-align:right">
+								<div class="column container" style="margin-top: 220px;padding: 10px; width: 60%; text-align:right">
 									<div class="ui container" style="padding-right:30px; ">
 										<button type = "button" id = "PwModify" class="ui blue button" >비밀번호 변경</button>
 									</div>
@@ -167,7 +168,7 @@ $(document).ready(function(){
 		</div>
 
 
-	<!-- main 입력 끝-->
+	<!-- main 입력 끝--> 
 
 	</div>
 

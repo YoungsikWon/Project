@@ -30,19 +30,19 @@
 		<div class="ui two column grid container" style="height: 670px">
 			<div class="ui column" style="width: 20%;padding-top: 0px;padding-left: 0px;padding-right: 0px">
 <!-- 로그인 정보 =================================================================================-->
-				<div class="ui segment">
+				<div class="ui segment" style=" background-color: #E6E6E6;">
 					<jsp:include page="../../auth/loginOk.jsp" />
 				</div>
 <!-- 로그인 정보 =================================================================================-->
 
 <!-- 서브 메뉴 ===================================================================================-->
-				<div class="ui fluid vertical menu" style="padding-right: 0px">
+				<div class="ui fluid vertical menu" style="padding-right: 0px;  background-color: #E6E6E6;">
 					<jsp:include page="./ClientInfoSubmenu.jsp" />
 				</div>
 <!-- 서브 메뉴 ===================================================================================-->			
 			</div>
 			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; width: 80%;">
-				<div class="ui container" style="padding: 20px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; height: auto">
+				<div class="ui container" style="padding: 20px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede;min-height:670px; height: auto;  background-color: #E0ECF8;">
 					<div style="padding-bottom:20px;">
 						<h3 style="text-align: left">클라이언트 정보</h3>
 					</div>

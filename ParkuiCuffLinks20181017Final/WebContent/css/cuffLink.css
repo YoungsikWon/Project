@@ -13,6 +13,17 @@
     color: red;
 }
 
+#partnersback {
+	background-color: #F8E6E0;
+}
+
+#partnersmytablehead {
+	background-color: #E3CEF6;
+}
+
+/************************************************************************************** 파트너스 자기소개 스크롤 */
+.p-intro{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+
 /************************************************************************************** checkbox */
 .allcheckbox {padding-left: 12px;}
 .master input {float: left;}

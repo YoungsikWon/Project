@@ -17,12 +17,14 @@
 		,PRO_ADDR
 		,PRO_MANAGEMENT
 		,PRO_CONTENTS
-		FROM PROJECT
+		FROM
+		PROJECT
 		WHERE PRO_NO = 10001
 	</select>
 	<!-- 프로젝트 등록 건수 넣기 (클라이언트) -->
 	<select id="ProjectA" resultType="map" parameterType="map">
-		select count(C_no)
+		select
+		count(C_no)
 		from project
 		where C_no = 1002
 	</select>
@@ -44,20 +46,25 @@
 	</select>
 	<!-- 프로젝트 검색 -->
 	<select id="Pro_seach" resultType="map" parameterType="map">
-		select * from PROJECT where PRO_NAME like '%${value}%'
+		select *
+		from PROJECT where PRO_NAME like '%${value}%'
 	</select>
 
 	<!-- 상세보기 조회 -->
 	<select id="ProjectView" resultType="map" parameterType="int">
-		select * from Project
+		select *
+		from Project
 		where pro_no = #{pro_no}
 	</select>
-	<select id="ProjectPagination" parameterType="map"	resultType="map">
+	<select id="ProjectPagination" parameterType="map"
+		resultType="map">
 		SELECT cate_main, cate_sub,
 		pro_no, pro_name, pro_period, pro_price,
 		pro_plan, pro_partners, pro_skill, pro_file,
-		pro_start, pro_end, pro_addr, pro_management,
-		pro_contents FROM PROJECT p , category c WHERE
+		pro_start, pro_end,
+		pro_addr, pro_management,
+		pro_contents FROM PROJECT p , category c
+		WHERE
 		p.cate_no = c.cate_no
 		<if test="cate_main != null">
 			AND CATE_MAIN = #{cate_main}
@@ -94,18 +101,22 @@
 	</select>
 	<!-- 평가 점수 넣기. -->
 	<select id="Partners_AVG" resultType="map" parameterType="map">
-		select p_no,TO_CHAR(avg(su_prof),'9.9') as A,
-		TO_CHAR(avg(su_sati),'9.9') as B,
+		select
+		p_no,TO_CHAR(avg(su_prof),'9.9') as A,
+		TO_CHAR(avg(su_sati),'9.9') as
+		B,
 		TO_CHAR(avg(su_comm),'9.9') as C,
 		TO_CHAR(avg(su_comP),'9.9') as D,
 		TO_CHAR(avg(Su_acti),'9.9') as F from support
-		where p_no = 2001 and su_prof is not null
+		where p_no = 2001 and
+		su_prof is not null
 		group by p_no
 	</select>
 	<!-- 평균 평점 / 평가 n 개. -->
 	<select id="Partners_AllAVG" resultType="map"
 		parameterType="map">
-		SELECT TRUNC(avg((su_prof+su_sati+su_comm+su_comp+su_acti)/5),1)A
+		SELECT
+		TRUNC(avg((su_prof+su_sati+su_comm+su_comp+su_acti)/5),1)A
 		,COUNT(*)B
 		FROM support
 		WHERE p_no = 2002
@@ -116,16 +127,21 @@
 		parameterType="map">
 		select
 		c_no,C_name , C_ABOUTME from client
-		where c_no = 1003
+		where c_no =
+		1003
 	</select>
 	<select id="getStateProjectClient" resultType="map"
 		parameterType="map">
-		SELECT cate_main, cate_sub, pro_name, pro_period, pro_price, pro_end,
+		SELECT cate_main, cate_sub, pro_name, pro_period,
+		pro_price, pro_end,
 		pro_addr, p.pro_no
-		FROM project p, category c WHERE pro_no in
+		FROM project p, category c WHERE
+		pro_no in
 		(SELECT pro_no FROM support WHERE pro_no in
-		(SELECT pro_no FROM project WHERE c_no =
-		(SELECT c_no FROM client WHERE s_email = #{s_email}))
+		(SELECT pro_no
+		FROM project WHERE c_no =
+		(SELECT c_no FROM client WHERE s_email =
+		#{s_email}))
 		AND su_state = #{su_state})
 		AND p.cate_no = c.cate_no
 	</select>
@@ -147,20 +163,41 @@
 		)
 		}
 	</delete>
-	
-   	<!-- 수정 20181017 시작  -->
-	
-	<delete id="deleteProject" statementType="CALLABLE" parameterType="int">
+
+	<!-- 수정 20181017 시작 -->
+
+	<delete id="deleteProject" statementType="CALLABLE"
+		parameterType="int">
 		{call pro_pro_delete(#{value})}
 	</delete>
-   <select id="projectSupportUser" parameterType="int" resultType="map">
-   		SELECT count(p_no) userCount, pro_end, p.pro_no, pro_name, pro_period, pro_price, pro_addr, cate_main, cate_sub  
-		FROM project p, support s, category c WHERE p.pro_no = s.pro_no AND c.cate_no = p.cate_no AND c_no = #{value}  AND su_state != '진행' AND su_state != '완료' 
-		group by p.pro_no, pro_name, pro_period, pro_price, pro_addr, cate_main, cate_sub, pro_end
-   </select>
-   <update id="stateChange" parameterType="map">
-   		update support set su_state = #{su_state} WHERE pro_no = #{pro_no}
-   </update>
-   
-   <!--수정 20181017 끝 -->
+	<!-- 수정 20181018 시작 -->
+	<select id="projectSupportUser" parameterType="int"
+		resultType="map">
+		SELECT count(p_no) userCount, pro_end, p.pro_no, pro_name, pro_period,
+		pro_price, pro_addr, cate_main, cate_sub
+		FROM support s, project p, category c
+		WHERE p.pro_no = s.pro_no(+)
+		AND c.cate_no = p.cate_no
+		AND DECODE(su_state, '지원', 1, '관심', 1, null, 1, 0) = 1
+		AND c_no = #{value}
+		group by p.pro_no, pro_name, pro_period, pro_price,
+		pro_addr, cate_main, cate_sub, pro_end
+	</select>
+	<!-- 수정 20181018 끝 -->
+	<update id="stateChange" parameterType="map">
+		update support set su_state = #{su_state} WHERE pro_no = #{pro_no}
+	</update>
+
+	<!--수정 20181017 끝 -->
+	<!-- 수정시작20181018 -->
+	<select id="getHistory" parameterType="int" resultType="map">
+		SELECT
+		count(DECODE(su_state,'지원', 1, null)) sup
+		,count(DECODE(su_state,'완료', 1, null)) comp
+		,count(DECODE(su_state,'진행', 1, null)) ing
+		,sum(DECODE(su_state,'완료', su_money, 0)) money
+		FROM support WHERE pro_no in (SELECT pro_no FROM project WHERE c_no =
+		#{value})
+	</select>
+	<!-- 수정끝20181018 -->
 </mapper>

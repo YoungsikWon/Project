@@ -30,7 +30,6 @@
    List<Map<String,Object>> avg        =(List<Map<String,Object>>)request.getAttribute("e_avg");
    List<Map<String,Object>> cate       =(List<Map<String,Object>>)request.getAttribute("e_cate");
    List<Map<String,Object>> intro      =(List<Map<String,Object>>)request.getAttribute("e_intro");
-   List<Map<String,Object>> aboutme      =(List<Map<String,Object>>)request.getAttribute("e_aboutme");
                                          
    //list.get(1).get("프로시저의 OUT키")        (List<Map<String,Object>>)request.getAttribute(
    List<Map<String,Object>> port       =(List<Map<String,Object>>)request.getAttribute("e_port");
@@ -88,7 +87,7 @@
 <body style="margin-left: 14px; margin-right: 14px;">
    <!--=== title =========================================-->
    <div class="ui internally celled grid">
-      <div class="row">
+      <div id="partnersback" class="row">
          <div class="fifteen wide column" style="padding-bottom: 20px;">
             <h1 style="float: left; margin-bottom: 0px;padding-right:10px;"><%=intro.get(0).get("P_NAME").toString()%> </h1>
             <%
@@ -147,415 +146,481 @@
          </div>
       </div>
       <!----- 활동요약 정보 ----->
-      <div class="row">
-         <div class="five wide column">
-            <h3>활동 요약 정보</h3>
-            <div class="ui grid">
-               <div class="center aligned column">
-                  <div id="p_ratingAvg" class="ui massive star rating"style="margin-bottom: 10px;"></div>
-               </div>
-                  <div class="ui two column row" style="padding-top: 0px;margin-left: 50px;margin-right: 50px;">
-                     <div class="left aligned column" style="padding-right: 0px;">
-                        평균 평점 
-                        <strong style="font-size: 1.5em">
-                        <%=grade.get(0).get("AVG_ALLPRO")%>
-                        </strong>
-                         </div>
-                         <div class="right aligned column"style=" padding-left: 0px;">
-                            평가 <%=grade.get(0).get("EVAL_COUNT") %>개
-                         </div>
-                    </div>
-                  <div class="ui two column row"style="padding-top: 0px;margin-left: 20px;margin-right: 20px; ">
-                     <div class="left aligned column" style="padding-top: 5px;padding-right: 0px;">
-                        계약한 프로젝트 
-                         </div>
-                         <div class="right aligned column"style=" padding-left: 0px; width:50px !important">
-                            <strong style="font-size: 1.5em;"><%=pro.get(0).get("COUNT_PRO")%></strong>건
-                         </div>
-                    </div>
-                  <div class="ui two column row" style="padding-top: 0px;margin-left: 40px;margin-right: 50px;">
-                     <div class="left aligned column" style="padding-top: 5px;padding-right: 0px;">
-                        포트폴리오 
-                         </div>
-                         <div class="right aligned column"style=" padding-left: 0px;">
-                            <strong style="font-size: 1.5em"><%=pro.get(0).get("COUNT_PORT")%></strong>개
-                         </div>
-                    </div>
-               
-            </div><!-- grid -->
-         </div><!-- five wide column -->
-         <!----- 세부 항목 평가 ----->
-         <div class="five wide column">
-            <h3 style=" margin-top: 0px;">세부 항목 평가</h3>
-            <br>
-            <canvas id="chartjs-3" class="chartjs" width="770" height="385" style="display: block; width: 770px; height: 385px;"></canvas>
-            <script type="text/javascript">
-            new Chart(document.getElementById("chartjs-3"),{
-               "type":"radar"
-               ,"data":{"labels":["전문성","적극성","만족도","일정준수","의사소통"]
-               ,"datasets":[{"data":[<%=avg.get(0).get("AVG_PROF") %>,<%=avg.get(0).get("AVG_ACTI") %>,<%=avg.get(0).get("AVG_SATI") %>
-                                  ,<%=avg.get(0).get("AVG_COMP") %>,<%=avg.get(0).get("AVG_COMM") %>]
-                         ,"fill":true
-                         ,"backgroundColor":"rgba(255, 99, 132, 0.2)"
-                         ,"borderColor":"rgb(255, 99, 132)"
-                         ,"pointBackgroundColor":"rgb(255, 99, 132)"
-                         ,"pointBorderColor":"#fff"
-                         ,"pointHoverBackgroundColor":"#fff"
-                         ,"pointHoverBorderColor":"rgb(255, 99, 132)"}]}
-                ,"options":{"elements":{"line":{"tension":0,"borderWidth":3}}
-                        ,"scales":{"display":false}}
+<div class="row" style="width: 100%; height:350px; padding: 10px;">
+			<div class="column" style="width: 30%;">
+				<h3>활동 요약 정보</h3>
+				<div class="ui grid">
+					<div class="ui two column row" style="padding-top: 30px; margin-left: 0px; margin-right: 0px;">
+						<div class="left aligned column" style="font-size: 14px;padding-top: 5px; padding-right: 0px;">계약한 프로젝트</div>
+						<div class="right aligned column" style="margin-right: 0px;">
+							<strong style="font-size: 1.5em;"><%=pro.get(0).get("COUNT_PRO")%></strong>건
+						</div>
+					</div>
+					<div class="ui two column row" style="padding-top: 20px; margin-left: 0px; margin-right: 0px;">
+						<div class="left aligned column" style="padding-top: 5px; padding-right: 0px;">포트폴리오</div>
+						<div class="right aligned column" style="padding-left: 0px; margin-right: 0px;">
+							<strong style="font-size: 1.5em"><%=pro.get(0).get("COUNT_PORT")%></strong>개
+						</div>
+					</div>
+					<div class="ui two column row" style="padding-top: 20px; margin-left: 0px; margin-right: 0px;">
+						<div class="left aligned column" style="padding-top: 5px; padding-right: 0px;">평균 평점</div>
+						<div class="right aligned column" style="padding-left: 0px; margin-right: 0px;">
+							<strong style="right: 0px;font-size: 1.5em"> <%=grade.get(0).get("AVG_ALLPRO")%>	</strong>점
+						</div>
+					</div>
+					
+						<%-- <div class="right aligned column" style="padding-left: 0px;">
+							평가
+							<%=grade.get(0).get("EVAL_COUNT")%>개
+						</div> --%>
+					
+					<div class="ui aligned column" style="width: 100%;margin-top: 20px;" align="center">
+						<div id="p_ratingAvg" class="ui massive star rating" style="margin-bottom: 10px;"></div>
+					</div>
+					
 
-                });
-            </script>
-         </div>
+				</div>
+				<!-- grid -->
+			</div>
+			<!-- five wide column -->
+			<!----- 세부 항목 평가 ----->
+			<div class="column" style="width: 32%;">
+				<h3 style="margin-top: 0px;">세부 항목 평가</h3>
+				<br>
+				<canvas id="chartjs-3" class="chartjs" width="50%" height="50vh" style="display: block; width: 770px; height: 385px;"></canvas>
+				<script type="text/javascript">
+					new Chart(document.getElementById("chartjs-3"), {
+						"type" : "radar",
+						"data" : {
+							"labels" : [ "전문성", "적극성", "만족도", "일정준수", "의사소통" ],
+							"datasets" : [ {
+								"data" : [
+				<%=avg.get(0).get("AVG_PROF")%>
+					,
+				<%=avg.get(0).get("AVG_ACTI")%>
+					,
+				<%=avg.get(0).get("AVG_SATI")%>
+					,
+				<%=avg.get(0).get("AVG_COMP")%>
+					,
+				<%=avg.get(0).get("AVG_COMM")%>
+					],
+								"fill" : true,
+								"backgroundColor" : "rgba(255, 99, 132, 0.2)",
+								"borderColor" : "rgb(255, 99, 132)",
+								"pointBackgroundColor" : "rgb(255, 99, 132)",
+								"pointBorderColor" : "#fff",
+								"pointHoverBackgroundColor" : "#fff",
+								"pointHoverBorderColor" : "rgb(255, 99, 132)"
+							} ]
+						},
+						"options" : {
+							"elements" : {
+								"line" : {
+									"tension" : 0,
+									"borderWidth" : 3
+								}
+							},
+							"scales" : {
+								"display" : false
+							}
+						}
 
-         <!----- 진행한  카테고리 ----->
-         <div class="five wide column">
-            <h3>진행한 카테고리</h3>
-            <br>
-            <div data-tooltip="위시캣에서 진행한 프로젝트입니다." data-position="top center">
-               <div class="profile-main-category">
-                  <h5>
-                     <a href="#" style="text-decoration: none; color: #333"></a>
-                  </h5>
-                  <div class="chart-box">
-                     <canvas id="myChart"style="display:block;margin-bottom: 50px;margin-left: 30px;">
-                     <div id="doughnut_tooltip" class="above"
-                        style="opacity: 0; left: 26px; top: 80px; font-family:"
-                        "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 10px; font-style:normal; font-weight:bold;">"디자인 > 웹: 32"
-                     </div>
-                     <ul class="doughnut-legend" style="margin-top: 4px;">
-                        <li><span style="background-color: #05835E;"></span>"디자인 >
-                           애플리케이션"</li>
-                        <li><span style="background-color: #19906D;"></span>"디자인 >
-                           웹"</li>
-                        <li><span style="background-color: #2E9D7D;"></span>"디자인 >
-                           인쇄물"</li>
-                        <li><span style="background-color: #42AB8C;"></span>"디자인 >
-                           커머스,쇼핑몰"</li>
-                        <li><span style="background-color: #57B89C;"></span>"디자인 >
-                           로고"</li>
-                        <li><span style="background-color: #6BC6AB;"></span>"디자인 >
-                           그래픽"</li>
-                        <li><span style="background-color: #80D3BB;"></span>"디자인 >
-                           기타"</li>
-                     </ul>
-                     </canvas>
-                  </div>
-                  <script>
-                     new Chart(document.getElementById("myChart"), {
-                        "type" : "doughnut",
-                        "data" : {
-                           "labels" : [ "애플리케이션", "웹", "그래픽" ],
-                           "datasets" : [ {
-                              "label" : "My First Dataset",
-                              "data" : [ 300, 50, 100 ],
-                              "backgroundColor" : [ "rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)" ]
-                           } ]
-                        }
-                     });
-                  </script>
-               </div>
-               <!------  -->
-            </div>
-         </div>
-         <!--five wide column 끝 -->
-      </div>
+					});
+				</script>
+			</div>
+
+			<!----- 진행한  카테고리 ----->
+			<div class="column" style="width: 38%;">
+				<h3>진행한 카테고리</h3>
+				<br>
+				<div data-tooltip="위시캣에서 진행한 프로젝트입니다." data-position="top center">
+					<div class="profile-main-category">
+						<!-- <h5>
+							<a href="#" style="text-decoration: none; color: #333"></a> 
+						</h5> -->
+						<div class="chart-box" style="display:block; margin-bottom: 30px;margin-left: 00px;">
+							<canvas id="myChart" width="100%" height="80px">
+								<div id="doughnut_tooltip" class="above" style="opacity: 0; left: 0px;  font-family:" "HelveticaNeue", Helvetica, Arial, sans-serif; font-size: 10px; font-style:normal; font-weight:bold;">"디자인 > 웹: 32"</div>
+								
+								<ul class="doughnut-legend" style="margin-top: 30px;">
+									<li><span style="background-color: #05835E;"></span>"디자인 > 애플리케이션"</li>
+									<li><span style="background-color: #19906D;"></span>"디자인 > 웹"</li>
+									<li><span style="background-color: #2E9D7D;"></span>"디자인 > 인쇄물"</li>
+									<li><span style="background-color: #42AB8C;"></span>"디자인 > 커머스,쇼핑몰"</li>
+									<li><span style="background-color: #57B89C;"></span>"디자인 > 로고"</li>
+									<li><span style="background-color: #6BC6AB;"></span>"디자인 > 그래픽"</li>
+									<li><span style="background-color: #80D3BB;"></span>"디자인 > 기타"</li>
+								</ul>
+							</canvas>
+						</div>
+						<script>
+							new Chart(document.getElementById("myChart"), {
+								"type" : "doughnut",
+								"data" : {
+									"labels" : [ "애플리케이션", "웹", "그래픽" ],
+									"datasets" : [ {
+										"label" : "My First Dataset",
+										"data" : [ 300, 50, 100 ],
+										"backgroundColor" : [
+												"rgb(255, 99, 132)",
+												"rgb(54, 162, 235)",
+												"rgb(255, 205, 86)" ]
+									} ]
+								}
+							});
+						</script>
+					</div>
+					<!------  -->
+				</div>
+			</div>
+			<!--five wide column 끝 -->
+		</div>
       <!--활동요약정보 row끝 -->
    <!--=== 자기소개 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
       <div class="row">
-         <div class="fifteen wide column">
-            <h2 style="float: left; margin-bottom: 0px">자기소개</h2>
-            <br>
-            <p style="margin-top: 30px;"></p>
-            <div><%=intro.get(0).get("P_ABOUTME").toString()%></div>
-         </div>
-         <div class="sixteen wide right aligned column">
-            <h4 ><a href="./partnersIntroduction?s_email=<%= email %>">자기소개 더 보기 ></a></h4>
-         </div>
-      </div>
-      <div class="ui inverted divider"></div>
-   </div>
+			<div class="sixteen wide column" style="width: 100%; margin-top: 20px;">
+				<div style="background-color: #DEDEDE; height: 25px;">
+					<h3>자기소개</h3>
+				</div>
+				<br>
+				<div class="p-intro" style="background-color: #DEDEDE; padding: 10px;">
+
+					<%=intro.get(0).get("P_ABOUTME").toString()%>
+
+				</div>
+			</div>
+			<div style="width: 100%; text-align: right; margin-right: 20px;">
+				<h5>
+					<a href="./partnersIntroduction?s_email=<%=email %>">자기소개 더 보기 ></a>
+				</h5>
+			</div>
+		</div>
+	</div>
 
    <!--=== 포트폴리오 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-   <h2 align="left" style="margin-left: 14px;">포트폴리오</h2>
-   <p></p>
-   <div class="ui grid" style="padding-left: 14px;padding-right: 14px;">
-      <div class="row">
-         <div class="ui container" style="height: 420px;">
-            <div class="ui three column grid"style="height: 400px;">
-               <%for(int i=0;i<3;i++){ %>
-               <div class="column">
-                  <div class="ui segment">
-                     <div class="ui card">
-                        <div class="image">
-                           <img src="../image/portfolio/portfolio1.png" onclick="location.href='./sView?pro_no=10001?s_email=<%= email %>'">
-                        </div>
-                        <div class="content">
-                           <a class="header" href="./partnersPortfolioDetail?s_email=<%= email %>"><span class="txt"><%=port.get(i).get("PORT_NAME").toString()%></span>
-                              <span class="ui orange label"
-                              style="margin-left: 3px; padding-bottom: 6px; padding-top: 6px;">대표작품</span>
-                           </a>
-                           <div class="meta">
-                              <span class="date"><%=cate.get(i).get("CATE_MAIN").toString()%> > <%=cate.get(i).get("CATE_SUB").toString()%></span>
-                           </div>
-                           <div class="description">
-                              <%=port.get(i).get("PORT_CONTENTS").toString()%>
-                           </div>
-                        </div>
-                        <div class="extra content">
-                           <center>
-                              <a>
-                                 <div data-tooltip="위시캣에서 진행한 프로젝트입니다."data-position="top center">
-                                    <img src="../image/logo.png"style="height: 15px; width: 15px;"> 위시캣 프로젝트 포트폴리오
-                                 </div>
-                              </a>
-                           </center>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <%} %>
-               <!-- column -->
-            </div>
-            <!-- three column grid -->
-         </div>
-      <!-- container -->
-      </div><!-- row 1 -->
-      <div class="ui row">
-         <div class="sixteen wide right aligned column">
-            <h4><a href="./partnersPortfolio?s_email=<%= email %>" class="ui right aligned">포트폴리오 더 보기 ></a></h4>
-         </div>
-      </div><!-- row 2 -->
-   </div><!-- grid -->
    <div class="ui inverted divider"></div>
+	<div style="background-color: #DEDEDE; height: 25px; margin-left: 15px; margin-right: 15px; margin-top: 20px;">
+		<h3>포트폴리오</h3>
+	</div>
+	<br>
+	<div class="ui grid" style="padding-left: 14px; padding-right: 14px; margin-left: 10px; margin-right: 10px;">
+		<div class="row">
+			<div class="ui container" style="height: 100%;">
+				<div class="ui three column grid" style="height: 100%;">
+					<%
+						for (int i = 0; i < 3; i++) {
+					%>
+					<div class="column">
+						<div class="ui segment">
+							<div class="ui card" style="background-color: #F5ECCE;">
+								<div class="image">
+									<!-- <img src="../image/anonymous.png" onclick="location.href='#'"> -->
+								</div>
+								<div class="content">
+									<a class="header"><span class="txt"><%=port.get(i).get("PORT_NAME").toString()%></span> <span class="ui orange label" style="margin-left: 3px; padding-bottom: 6px; padding-top: 6px;">대표작품</span> </a>
+									<div class="meta">
+										<span class="date"><%=cate.get(i).get("CATE_MAIN").toString()%> > <%=cate.get(i).get("CATE_SUB").toString()%></span>
+									</div>
+									<div class="description">
+										<%=port.get(i).get("PORT_CONTENTS").toString()%>
+									</div>
+								</div>
+								<div class="extra content">
+									<center>
+										<a>
+											<div data-tooltip="위시캣에서 진행한 프로젝트입니다." data-position="top center">
+												<!-- <img src="../image/logo.png" style="height: 15px; width: 15px;"> -->
+												커프링크 프로젝트 포트폴리오
+											</div>
+										</a>
+									</center>
+								</div>
+							</div>
+						</div>
+					</div>
+					<%
+						}
+					%>
+					<!-- column -->
+				</div>
+				<!-- three column grid -->
+			</div>
+			<!-- container -->
+		</div>
+		<!-- row 1 -->
+		<div style="width: 100%; text-align: right; margin-right: 0px; margin-bottom: 10px;">
+			<h5>
+				<a href="./partnersPortfolio?s_email=<%=email %>" class="ui right aligned">포트폴리오 더 보기 ></a>
+			</h5>
+		</div>
+		<!-- row 2 -->
+	</div>
+	<!-- grid -->
 
    <!-- === 보유기술 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-   <h2 align="left">보유기술</h2>
-   <div class="ui grid" style="padding-left: 14px;padding-right: 14px;">
-      <div class="ui row">
-         <table class="ui selectable celled table">
-            <thead>
-               <tr>
-                  <th>종류</th>
-                  <th>숙련도</th>
-                  <th>경험</th>
-               </tr>
-            </thead>
-            <tbody>
-            <%for(int i=0;i<5;i++){ %>
-               <tr>
-                  <td><%=skill.get(i).get("SKILL_TEC")%>
-                  <%if(i<3){ %>
-                  <div class="ui orange label" style="padding-top: 10px pa; margin-left: 10px; padding-top: 5px; padding-bottom: 5px;">대표보유기술</div></td>
-                  <%} %>
-                  <td><%=skill.get(i).get("SKILL_PRO")%></td>
-                  <td><%=skill.get(i).get("SKILL_EDU")%></td>
-               </tr>
-               <%} %>
-            </tbody>
-         </table>
-      </div><!-- row1 -->
-   <p></p>
-      <div class="ui row">
-         <div class="sixteen wide right aligned column">
-            <h4><a href="./partnersSkill?s_email=<%= email %>" class="ui right aligned">보유 기술 더 보기 ></a></h4>
-         </div>
-      </div>
-   </div><!-- grid -->
    <div class="ui inverted divider"></div>
+	<div style="background-color: #DEDEDE; height: 25px; margin-left: 15px; margin-right: 15px; margin-top: 20px;">
+		<h3>보유기술</h3>
+	</div>
+	<br>
+	<div class="ui grid" style="padding-left: 14px; padding-right: 14px;">
+		<div class="ui row">
+			<table class="ui selectable celled table" style="margin-left: 15px; margin-right: 15px;">
+				<thead>
+					<tr>
+						<th id="partnersmytablehead">종류</th>
+						<th id="partnersmytablehead">숙련도</th>
+						<th id="partnersmytablehead">경험</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+						for (int i = 0; i < 5; i++) {
+					%>
+					<tr>
+						<td><%=skill.get(i).get("SKILL_TEC")%> <%
+ 	if (i < 3) {
+ %>
+							<div class="ui orange label" style="padding-top: 10px pa; margin-left: 10px; padding-top: 5px; padding-bottom: 5px;">대표보유기술</div></td>
+						<%
+							}
+						%>
+						<td><%=skill.get(i).get("SKILL_PRO")%></td>
+						<td><%=skill.get(i).get("SKILL_EDU")%></td>
+					</tr>
+					<%
+						}
+					%>
+				</tbody>
+			</table>
+		</div>
+		<!-- row1 -->
+		<div style="width: 100%; text-align: right; margin-right: 0px; margin-bottom: 10px;">
+			<h5>
+				<a href="./partnersSkill?s_email=<%=email %>" class="ui right aligned">보유 기술 더 보기 ></a>
+			</h5>
+		</div>
+	</div>
+	<!-- grid -->
    <!-- === 경력 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-   <h2 align="left">경력</h2>
-   <div class="ui grid" style="padding-left: 14px;padding-right: 14px;">
-   <div class="row">
-   <table class="ui fixed table" style="margin-bottom: 30px;">
-      <thead>
-         <tr>
-            <th>회사명</th>
-            <th>근무부서</th>
-            <th>직위</th>
-            <th>근무기간</th>
-         </tr>
-      </thead>
-      <tbody>
-      <%for(int i=0;i<3;i++){ %>
-         <tr>
-            <td><%=back_car.get(i).get("CA_NAME").toString()%></td>
-            <td><%=back_car.get(i).get("CA_DEPT").toString()%></td>
-            <td><%=back_car.get(i).get("CA_SPOT").toString()%></td>
-            <td><%=back_car.get(i).get("CA_DATE").toString()%></td>
-         </tr>
-      <%} %>
-      </tbody>
-   </table>
-   <p></p>
    <div class="ui inverted divider"></div>
-   <!-- === 학력 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-   <h2 align="left">학력</h2>
-   <table class="ui fixed table" style="margin-bottom: 30px;">
-      <thead>
-         <tr>
-            <th>학교명</th>
-            <th>전공</th>
-            <th>분류</th>
-            <th>상태</th>
-            <th>입학일</th>
-            <th>졸업일</th>
-         </tr>
-      </thead>
-      <tbody>
-      <%for(int i=0;i<1;i++){ %>
-         <tr>
-            <td><%=back_edu.get(i).get("EDU_NAME").toString()%></td>
-            <td><%=back_edu.get(i).get("EDU_MAJOR").toString()%></td>
-            <td><%=back_edu.get(i).get("EDU_PROCESS").toString()%></td>
-            <td><%=back_edu.get(i).get("EDU_CONDITION").toString()%></td>
-            <td><%=back_edu.get(i).get("EDU_INDATE").toString()%></td>
-            <td><%=back_edu.get(i).get("EDU_OUTDATE").toString()%></td>
-         </tr>
-      <%} %>
-      </tbody>
-   </table>
-   </div>
-      <div class="ui row">
-         <div class="sixteen wide right aligned column">
-            <h4><a href="./partnersBackground?s_email=<%= email %>" class="ui right aligned">경력,학력,자격증 더 보기 ></a></h4>
-         </div>
-      </div><!-- row 2 -->
-   </div>
-   <p></p>
-   <div class="ui inverted divider"></div>
+	<div style="background-color: #DEDEDE; height: 25px; margin-left: 15px; margin-right: 15px; margin-top: 20px;">
+		<h3>경력</h3>
+	</div>
+	<br>
+	<div class="ui grid" style="padding-left: 14px; padding-right: 14px;">
+		<div class="ui row">
+			<table class="ui selectable celled table" style="margin-bottom: 0px; margin-left: 15px; margin-right: 15px;">
+				<thead>
+					<tr>
+						<th id="partnersmytablehead">회사명</th>
+						<th id="partnersmytablehead">근무부서</th>
+						<th id="partnersmytablehead">직위</th>
+						<th id="partnersmytablehead">근무기간</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+						for (int i = 0; i < 3; i++) {
+					%>
+					<tr>
+						<td><%=back_car.get(i).get("CA_NAME").toString()%></td>
+						<td><%=back_car.get(i).get("CA_DEPT").toString()%></td>
+						<td><%=back_car.get(i).get("CA_SPOT").toString()%></td>
+						<td><%=back_car.get(i).get("CA_DATE").toString()%></td>
+					</tr>
+					<%
+						}
+					%>
+				</tbody>
+			</table>
+			<!-- === 학력 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+			<div class="ui inverted divider"></div>
+			<div style="width: 100%; background-color: #DEDEDE; height: 25px; margin-left: 15px; margin-right: 15px; margin-top: 0px;">
+				<h3>학력</h3>
+			</div>
+			<br>
+			<table class="ui selectable celled table" style="margin-top: 0;margin-bottom: 0px; margin-left: 15px; margin-right: 15px; ">
+				<thead>
+					<tr>
+						<th id="partnersmytablehead">학교명</th>
+						<th id="partnersmytablehead">전공</th>
+						<th id="partnersmytablehead">분류</th>
+						<th id="partnersmytablehead">상태</th>
+						<th id="partnersmytablehead">입학일</th>
+						<th id="partnersmytablehead">졸업일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%
+						for (int i = 0; i < 1; i++) {
+					%>
+					<tr>
+						<td><%=back_edu.get(i).get("EDU_NAME").toString()%></td>
+						<td><%=back_edu.get(i).get("EDU_MAJOR").toString()%></td>
+						<td><%=back_edu.get(i).get("EDU_PROCESS").toString()%></td>
+						<td><%=back_edu.get(i).get("EDU_CONDITION").toString()%></td>
+						<td><%=back_edu.get(i).get("EDU_INDATE").toString()%></td>
+						<td><%=back_edu.get(i).get("EDU_OUTDATE").toString()%></td>
+					</tr>
+					<%
+						}
+					%>
+				</tbody>
+			</table>
+		</div>
+		<div style="width: 100%; text-align: right; margin-right: 0px; margin-bottom: 10px;">
+			<h5>
+				<a href="./partnersBackground?s_email=<%=email %>" class="ui right aligned">경력,학력,자격증 더 보기 ></a>
+			</h5>
+		</div>
+		<!-- row 2 -->
+	</div>
+	<p></p>
 <!-- 
    <!-- === 평가@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-   <h2 align="left">평가</h2>
-   <%
-   System.out.println("pro 크기"+c_eval_pro.size());
-   System.out.println("grade 크기"+c_eval_grade.size());
-   System.out.println("cate 크기"+c_eval_cate.size());
-   System.out.println("info 크기"+c_eval_info.size());
-      for(int i=0;i<c_eval_info.size();i++){
-         
-         System.out.println("시이발나와라" + c_eval_info.get(i).toString());
-         //System.out.println(c_eval_pro.get(i).get("SU_PROF").toString());
-         
-         
-      
-   %>
-   <div class="ui segment" style="height: 500px;">
-      <h3 class="card-title">
-         <a href="#"> <%=c_eval_pro.get(i).get("PRO_NAME").toString() %></a>
-      </h3>
-      <div class="ui grid">
-         <div class="fifteen wide column"><%=c_eval_cate.get(i).get("CATE_MAIN").toString() %> > <%=c_eval_cate.get(i).get("CATE_SUB").toString() %> | 클라이언트
-            TeamEveryWhere</div>
-         <!-----계약금액 | 계약기간 | 계약일자------------------------->
-         <div class="sixteen wide column">
-            <table class="ui select able celled table">
-               <thead style="align-content: center;">
-                  <tr>
-                     <th>계약금액</th>
-                     <td><%=c_eval_pro.get(i).get("PRO_PRICE").toString()%></td>
-                     <%System.out.print("1번 디버깅:"+c_eval_pro.get(i).get("PRO_PRICE").toString()); %>
-                     <th>계약기간</th>   
-                     <td><%=c_eval_pro.get(i).get("PRO_PERIOD").toString()%></td>
-                     <%System.out.print("1번 디버깅:"+c_eval_pro.get(i).get("PRO_PERIOD").toString()); %>
-                     <th>계약일자</th>   
-                     <td><%=c_eval_pro.get(i).get("PRO_START").toString()%></td>
-                     <%System.out.print("1번 디버깅:"+c_eval_pro.get(i).get("PRO_START").toString()); %>
-                  </tr>
-               </thead>
-            </table>
-         </div>
-         <!-----평점---------------------------------------------->
-         <div class="sixteen wide column " style="padding-bottom: 21px;">
-            <div class="ui center aligned header">
-               <div class="ui massive star rating c_avg_pro" style=""><%=c_eval_grade.get(i).get("C_AVG_PRO").toString()%></div>
-            </div>
-         </div>
-         <!----전문성|결과물만족도|의사소통|일정 준수|적극성-  -->
-         <div class="sixteen wide column"
-            style="padding-bottom: 7px; padding-top: 7px;">
-            <div class="ui center aligned ">
-               <div class="ui center five column doubling grid"
-                  style="padding-bottom: 10px; padding-left: 30px;">
-                  <div class="three wide column"
-                     style="border-right: solid thin; padding-bottom: 2px; padding-top: 2px;">
-                     <center style="padding-bottom: 5px;">전문성</center>
-                     <center>
-                        <div class="ui star rating su_prof"><%=c_eval_grade.get(i).get("SU_PROF").toString()%></div>
-                     </center>
-                  </div>
-                  <div class="three wide column"
-                     style="border-right: solid thin; padding-bottom: 2px; padding-top: 2px;">
-                     <center style="padding-bottom: 5px;">결과물 만족도</center>
-                     <center>
-                        <div class="ui star rating su_sati"><%=c_eval_grade.get(i).get("SU_SATI").toString()%></div>
-                     </center>
-                  </div>
-                  <div class="three wide column"
-                     style="border-right: solid thin; padding-bottom: 2px; padding-top: 2px;">
-                     <center style="padding-bottom: 5px;">의사소통</center>
-                     <center>
-                        <div class="ui star rating su_comm"><%=c_eval_grade.get(i).get("SU_COMM").toString()%></div>
-                     </center>
-                  </div>
-                  <div class="three wide column"
-                     style="border-right: solid thin; padding-bottom: 2px; padding-top: 2px;">
-                     <center style="padding-bottom: 5px;">일정 준수</center>
-                     <center>
-                        <div class="ui star rating su_comp"><%=c_eval_grade.get(i).get("SU_COMP").toString()%></div>
-                     </center>
-                  </div>
-                  <div class="three wide column"
-                     style="padding-bottom: 2px; padding-top: 2px;">
-                     <center style="padding-bottom: 5px;">적극성</center>
-                     <center>
-                        <div class="ui star rating su_acti"><%=c_eval_grade.get(i).get("SU_ACTI").toString()%></div>
-                     </center>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <p></p>
-         <!-----클라이언트 코멘트---------------------------------->
-         <div class="sixteen wide column">
-            <div class="ui unstackable items">
-               <div class="item" style="margin-left: 30px;">
-                  <div class="ui small circular rotate reveal image">
-                     <img class="ui hidden content" src="../image/partnersImg/partners1.png">
-                     <img class="ui visible content" src="../image/wishket.png">
-                  </div>
-                  <div class="content" style="padding-left: 30px;">
-                     <a class="header" style="margin-top: 5px;"><span
-                        class="ui gray label">클라이언트</span></a>
-                     <div class="meta">
-                        <span><%=c_eval_info.get(i).get("C_NAME").toString()%></span>
-                     </div>
-                     <p></p>
-                     <div class="description">
-                        <div class="evaluation_txt">
-                           <%=c_eval_grade.get(i).get("SU_CONT").toString()%>
-                           <a href="#">자세히 보기</a>
+<div class="ui inverted divider"></div>
+	<div style="background-color: #DEDEDE; height: 25px; margin-left: 15px; margin-right: 15px; margin-top: 20px;">
+		<h3>평가</h3>
+	</div>
+	<br>
+	<%-- <%
+		System.out.println("pro 크기" + c_eval_pro.size());
+		System.out.println("grade 크기" + c_eval_grade.size());
+		System.out.println("cate 크기" + c_eval_cate.size());
+		System.out.println("info 크기" + c_eval_info.size());
+		for (int i = 0; i < c_eval_info.size(); i++) {
 
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-
-      </div>
-   </div>
-
+			System.out.println("시이발나와라" + c_eval_info.get(i).toString());
+			//System.out.println(c_eval_pro.get(i).get("SU_PROF").toString());
+	%> --%>
+	<div class="ui" style="width: 100%;">
+		<div style="width: 100%;">
+			<div id="partnersmytablehead" class="ui segment" style=" margin-left: 10px; margin-right: 10px;">
+				<div class="sixteen wide column" style="margin-bottom: 0px;">
+				<h4 class="card-title">
+					<a href="/project/View?pro_no=<%=c_eval_pro.get(0).get("PRO_NO").toString() %>"> <%=c_eval_pro.get(0).get("PRO_NAME").toString() %></a>
+				</h4>
+				<%=c_eval_cate.get(0).get("CATE_MAIN").toString() %>
+					>
+					<%=c_eval_cate.get(0).get("CATE_SUB").toString() %>
+					| 클라이언트 TeamEveryWhere
+				</div>
+			</div>		
+					<!-----계약금액 | 계약기간 | 계약일자------------------------->
+				<div style=" margin-left: 10px; margin-right: 10px;">
+					<table class="ui selectable celled table" style="margin-bottom: 10px; margin-left: 0px; margin-right: 10px;">
+						<thead>
+							<tr>
+								<th id="partnersmytablehead">계약금액</th>
+								<td><%=c_eval_pro.get(0).get("PRO_PRICE").toString()%></td>
+								<%System.out.print("1번 디버깅:"+c_eval_pro.get(0).get("PRO_PRICE").toString()); %>
+								<th id="partnersmytablehead">계약기간</th>
+								<td><%=c_eval_pro.get(0).get("PRO_PERIOD").toString()%></td>
+								<%System.out.print("1번 디버깅:"+c_eval_pro.get(0).get("PRO_PERIOD").toString()); %>
+								<th id="partnersmytablehead">계약일자</th>
+								<td><%=c_eval_pro.get(0).get("PRO_START").toString()%></td>
+								<%System.out.print("1번 디버깅:"+c_eval_pro.get(0).get("PRO_START").toString()); %>
+							</tr>
+						</thead>
+					</table>
+				
+				<!----전문성|결과물만족도|의사소통|일정 준수|적극성-  -->
+				<div class="ui column segment container" style="width: 100%;padding-bottom: 7px; padding-top: 7px; background-color: #F5ECCE; ;margin-bottom: 0;">
+					<div class="ui five column grid container" style="width: 100%; padding-bottom: 10px;">
+						<div class="column" style="width: 20%;" align="center">
+							전문성<br>
+							<div class="ui star rating su_prof" style="margin-top: 10px;"><%=c_eval_grade.get(0).get("SU_PROF").toString()%></div>
+							
+						</div>
+						<div class="column" style="width: 20%;" align="center">
+							결과물 만족도<br>
+							<div class="ui star rating su_sati" style="margin-top: 10px;"><%=c_eval_grade.get(0).get("SU_SATI").toString()%></div>
+							
+						</div>
+						<div class="column" style="width: 20%;" align="center">
+							의사소통<br>
+							<div class="ui star rating su_comm" style="margin-top: 10px;"><%=c_eval_grade.get(0).get("SU_COMM").toString()%></div>
+							
+						</div>
+						<div class="column" style="width: 20%;" align="center">
+							일정 준수<br>
+							<div class="ui star rating su_comp" style="margin-top: 10px;"><%=c_eval_grade.get(0).get("SU_COMP").toString()%></div>
+							
+						</div>
+						<div class="column" style="width: 20%;" align="center">
+							적극성<br>
+							<div class="ui star rating su_acti" style="margin-top: 10px;"><%=c_eval_grade.get(0).get("SU_ACTI").toString()%></div>
+							
+						</div>
+						<div style="width: 100%;">
+							<hr style="border: solid #BDBDBD; border-width: 1px 0 0;">
+						</div>
+						<!-----클라이언트 코멘트---------------------------------->
+						<div class="ui unstackable items" >
+							<div class="ui three column grid container" style="margin-left: 20px;">
+								<div class="column" style="width: 10%; padding: 0;">
+									<img src="/image/partners1.png" height="50" width="50">
+								</div>
+								<div class="column" style="padding-left: 10px; padding-top: 5px; width: 10%;">
+									<a class="header" style="margin-top: 0px;"><span class="ui black label">클라이언트</span></a>
+									<div class="meta">
+										<span><%=c_eval_info.get(0).get("C_NAME").toString() %></span>
+									</div>
+									<p></p>
+									<%-- <div class="description">
+										<div class="evaluation_txt">
+											<%=c_eval_grade.get(0).get("SU_CONT").toString()%>
+											<a href="#">자세히 보기</a>
+		
+										</div>
+									</div> --%>
+								</div>
+								<!-----평점---------------------------------------------->
+								<div class="column" style="width: 80%; margin-bottom: 15px;">
+									<div class="ui column" style="padding-bottom: 0px; padding-right: 20px; box-sizing: border-box;" align="center">
+										<div class="ui three column grid container">
+											<div class="column" style="width: 27%;"></div>
+											<div class="column" style="width: 15%;">
+												<h4>총 평점</h4>
+											</div>
+											<div class="column" style="width: 22%;">
+												<div class="ui massive star rating c_avg_pro">
+													 <%=c_eval_grade.get(0).get("C_AVG_PRO").toString()%>
+												</div>
+												<div class="description" align="right" style="margin-top: 5px;">
+							                        <div class="evaluation_txt" style="display: inline-block; background-color: #08298A; ">
+							                           <%-- <%=c_eval_grade.get(0).get("SU_CONT").toString()%> --%>
+							                           <a href="/project/View?pro_no=<%=c_eval_pro.get(0).get("PRO_NO").toString() %>">자세히 보기</a>
+							
+							                        </div>
+							                     </div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div style="width: 100%; text-align: right; margin-right: 0px; margin-top: 20px;margin-bottom: 20px;">
+				<h5>
+					<a href="./partnersEvaluation?s_email=<%=email %>" class="ui right aligned">평가 더 보기 ></a>
+				</h5>
+				</div>
+			</div>
+		</div>
+	</div>
    <!--==========================================================================================-->
    <!--==========================================================================================-->
 
- <%
+ <%-- <%
       }
    
       System.out.println("포문 끝");
-   %> 
-   <a href="./partnersEvaluation?s_email=<%=email %>" class="ui right aligned">평가 더 보기 ></a>
+   %>  --%>
 
    <script type="text/javascript">
   	 //개인 평균

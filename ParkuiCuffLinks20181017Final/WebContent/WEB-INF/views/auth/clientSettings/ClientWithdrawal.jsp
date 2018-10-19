@@ -75,25 +75,25 @@
 	<div class="ui container">
 
 		<!-- main 입력 시작-->
-		<!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->
+<!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->
 		<div class="ui two column grid container">
-			<!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->
+<!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->
 			<div class="ui column" style="width: 20%; padding-top: 0px; padding-left: 0px; padding-right: 0px">
 				<!-- 로그인 정보 =================================================================================-->
-				<div class="ui segment">
+				<div class="ui segment" style=" background-color: #E6E6E6;">
 					<jsp:include page="../loginOk.jsp" />
 				</div>
 				<!-- 로그인 정보 =================================================================================-->
 
 				<!-- 서브 메뉴 ===================================================================================-->
-				<div class="ui fluid vertical menu" style="padding-right: 0px">
+				<div class="ui fluid vertical menu" style="padding-right: 0px; background-color: #E6E6E6;">
 					<jsp:include page="./ClientProfileSubmenu.jsp" />
 				</div>
 				<!-- 서브 메뉴 ===================================================================================-->
 			</div>
 
 			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; padding-right: 10px; width: 80%;">
-				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
+				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede; background-color: #E0ECF8;">
 					<div>
 						<h3 style="text-align: left">회원 탈퇴</h3>
 					</div>
@@ -106,25 +106,30 @@
 						</div>
 					</div>
 				</div>
-				<form id="Excape">
-					<div style="height: 10px;"></div>
-<!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->					
-					<div class="ui container" style="padding-left: 20px; padding-right: 20px; padding-top: 30px; padding-bottom: 0px; left: 5px; border: 1px solid #dedede; height: 570px;">
-<!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->
-						<div class="ui two column grid container" style="padding-top: 0px; border: 1px solid #dedede;">
-							<div class="column" style="width: 10%; padding: 20px">
-								<img class="ui medium circular image" style="width: 40px;" src="../../image/process-question-mark.png">
-							</div>
-							<div class="column" style="width: 90%; text-align: left; padding-left: 5px">
-								이메일 또는 문자메시지에 대한 불편으로 회원 탈퇴를 신청하려 하시나요?<br> [알림 설정]에서 받고 싶은 알림만 받도록 설정할 수 있습니다.
-							</div>
+				
+				<div style="height: 20px;"></div>
+				<div class="ui two column grid container" style="margin-bottom: 7px;padding-top: 0px; border: 1px solid #dedede;background-color: #F5A9BC;">
+						<div class="column" style="width: 10%; padding: 20px">
+							<img class="ui medium circular image" style="width: 40px;" src="../../image/process-question-mark.png">
 						</div>
-						<div style="padding-top: 30px;">
+						<div class="column" style="width: 90%;text-align: left; padding-left: 5px ">
+							<h5>보안 로그인</h5>
+							개인정보 보호를 위하여 회원님의 비밀번호를 다시 한번 확인합니다.
+						</div>
+					</div>
+				
+				
+				<form id="Excape">
+					
+<!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->					
+					<div class="ui container" style="padding-left: 20px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px; left: 5px; border: 1px solid #dedede; height: 480px; background-color: #E6E6E6;"">
+<!-- ********************************************************************************************************************************************************우측내용 높이설정수정  -->
+						
+						<div style="padding-top: 10px;">
 							<div class="ui two column grid container">
-								<div class="ui one center column container" style="padding: 17px; width: 90%; text-align: left; height: 54px;">
-									<h5>보안 로그인</h5>
-									개인정보 보호를 위하여 회원님의 비밀번호를 다시 한번 확인합니다.
-								</div>
+								<!-- <div class="ui one column container" style="margin-top: 20px; color:red; padding-bottom: 10px;margin-bottom: 20px;padding: 7px; width: 100%; text-align: left;  background-color: #F5A9BC;">
+									
+								</div> -->
 
 								<!-- <div class="center column container" style="padding: 17px; width: 30%; text-align: left;height: 54px;">
 								<h5>보안 로그인</h5><br>
@@ -132,12 +137,12 @@
 							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 60%;">
 								빈공간
 							</div> -->
-								<div class="center column container" style="padding: 17px; width: 30%;">
+								<div class="center column container" style="margin-top: 20px;padding: 17px; width: 30%;">
 									<span>*</span>이메일
 								</div>
 
 								<input name="s_email" id="s_email" type="hidden" value='<%=info.get("S_EMAIL")%>'>
-								<div class="column container" style="padding: 17px; width: 60%;">
+								<div class="column container" style="margin-top: 20px;padding: 17px; width: 60%;">
 									<%=info.get("S_EMAIL")%>
 								</div>
 								<div class="center column container" style="padding: 17px; width: 30%;">
@@ -150,7 +155,7 @@
 								</div>
 
 								<div class="center column container" style="padding: 17px; width: 30%;"></div>
-								<div class="column container" style="padding: 10px; width: 60%; text-align: right">
+								<div class="column container" style="margin-top: 270px;padding: 10px; width: 60%; text-align: right">
 									<div class="ui container" style="padding-right: 30px;">
 										<button type="button" id="Escape" class="ui blue button">탈퇴신청</button>
 									</div>
@@ -158,10 +163,11 @@
 							</div>
 						</div>
 					</div>
+				</form>
 			</div>
 		</div>
 
-		</form>
+		
 		<!-- main 입력 끝-->
 
 	</div>

@@ -17,7 +17,7 @@ public class AndroidDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate = null;
 	
-	//¾ÆÀÌµğ°¡ Á¸Á¦ÇÏ¸é 1 ¾øÀ¸¸é 0
+	//ì•„ì´ë””ê°€ ì¡´ì œí•˜ë©´ 1 ì—†ìœ¼ë©´ 0
 		public int IdExit(Map<String,Object> pMap) {
 			
 		    return sqlSessionTemplate.selectOne("idExit",pMap);

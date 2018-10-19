@@ -17,5 +17,5 @@
 	<font style="vertical-align: inherit;"> 알림설정 </font>
 </a> 
 <a href="/auth/ClientWithdrawal" class="ClientWithdrawal teal item"> 
-	<font style="vertical-align: inherit;"> 회원탈퇴 </font>
+	<font style="vertical-align: inherit;"> 회원탈퇴 </font> 
 </a>

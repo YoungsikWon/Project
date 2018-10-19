@@ -25,14 +25,14 @@
 			<div class="right mini menu">
 				<div class="right menu"
 					style="padding-top: 0; padding-bottom: 0; margin-top: 0; margin-bottom: 0;">
-					<div id="mrc" class="mrc" style="margin-top: 0px;">
+					<!-- <div id="mrc" class="mrc" style="margin-top: 0px;">
 						<div id="mrc-win" class="mrc-win" style="">음성인식대기중...</div>
 						<div id="voice" class="icon-font">
 							<ul>
 								<li><a href="#"><i class="fas fa-microphone-alt fa-1x"></i>
 										<span class="tool">음성인식</span></a></li>
 							</ul>
-						</div>
+						</div> -->
 					</div>
 
 					<button class="ui button" style="margin-right: 10px;"

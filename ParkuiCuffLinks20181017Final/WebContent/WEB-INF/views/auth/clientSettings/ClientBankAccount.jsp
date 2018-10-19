@@ -39,19 +39,19 @@
 		<div class="ui two column grid container" style="min-height: 670px; height: auto;">
 			<div class="ui column" style="width: 20%; padding-top: 0px; padding-left: 0px; padding-right: 0px">
 				<!-- 로그인 정보 =================================================================================-->
-				<div class="ui segment">
+				<div class="ui segment" style=" background-color: #E6E6E6;">
 					<jsp:include page="../loginOk.jsp" />
 				</div>
 				<!-- 로그인 정보 =================================================================================-->
 
 				<!-- 서브 메뉴 ===================================================================================-->
-				<div class="ui fluid vertical menu" style="padding-right: 0px">
+				<div class="ui fluid vertical menu" style="padding-right: 0px; background-color: #E6E6E6;">
 					<jsp:include page="./ClientProfileSubmenu.jsp" />
 				</div>
 				<!-- 서브 메뉴 ===================================================================================-->
 			</div>
 			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; padding-right: 10px; width: 80%; ">
-				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
+				<div class="ui container" style="margin-bottom: 5px;padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede; background-color: #E0ECF8;">
 					<div>
 						<h3 style="text-align: left">입금 관리</h3>
 					</div>
@@ -64,24 +64,25 @@
 						</div>
 					</div>
 				</div>
-				<div style="height: 10px;"></div>
-				<div class="ui container" style="padding-left: 20px; padding-right: 20px; padding-top: 30px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; min-height:570px; height: auto;">
-					<div class="ui two column grid container" style="padding-top: 0px; border: 1px solid #dedede;">
-						<div class="column" style="width: 10%; padding: 20px">
-							<img class="ui medium circular image" style="width: 40px;" src="../../image/process-guide-warning.png">
-						</div>
-						<div class="column" style="width: 90%; text-align: left; padding-left: 5px">
-							[ 입금 관리 가이드 ]<br> 프로젝트 대금의 안전한 송금을 위해 정확한 이메일 확인이 필요합니다.
-						</div>
+				<div style="height: 20px;"></div>
+				<div class="ui two column grid container" style="padding-top: 0px; margin-bottom: 5px; border: 1px solid #dedede;">
+					<div class="column" style="width: 10%; padding: 20px">
+						<img class="ui medium circular image" style="width: 40px;" src="../../image/process-guide-warning.png">
 					</div>
-					<div style="padding-top: 30px;">
+					<div class="column" style="width: 90%; text-align: left; padding-left: 5px">
+						[ 입금 관리 가이드 ]<br> 프로젝트 대금의 안전한 송금을 위해 정확한 이메일 확인이 필요합니다.
+					</div>
+				</div> 
+				<div class="ui container" style="padding-left: 20px; padding-right: 20px; padding-top: 30px; padding-bottom: 20px; left: 5px; border: 1px solid #dedede; min-height:480px; height: auto; background-color: #E6E6E6;">
+					
+					<div style="padding-top: 0px;">
 						<div class="ui two column grid container">
-							<div class="center column container" style="padding: 17px; width: 30%; text-align: left;">
+							<!-- <div class="center column container" style="padding: 17px; width: 30%; text-align: left;">
 								<h5>기본 정보</h5>
 							</div>
 							<div class="column container" style="padding-left: 20px; padding-top: 10px; padding-bottom: 0px; width: 60%;">
-								<!-- 빈공간 -->
-							</div>
+								빈공간
+							</div> -->
 							<div class="center column container" style="padding: 17px; width: 30%;">
 								<span>*</span>완료된 프로젝트 목록
 							</div>
@@ -144,7 +145,7 @@
 											<th>잔여코인</th>
 										</tr>
 									</thead>
-									<tbody id='trans'>
+									<tbody id='trans'> 
 									</tbody>
 								</table>
 							</div>

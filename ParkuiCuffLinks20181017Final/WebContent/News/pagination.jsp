@@ -22,19 +22,19 @@
              JSONObject bookObject = (JSONObject) bookInfoArray.get(i);
          
       
-             %>
-             <div class="ui two column grid" style="text-align:center;">
-						<div class="column" style="padding-left: 30px; padding-right: 0px; padding-top: 10px; padding-bottom: 20px;text-align: left; width:80%;">
-							<a style="color: black" href="<%=bookObject.get("link")%>"><%=bookObject.get("title")%></a>
-						</div>
-
-					</div>
+        %>
+		<div class="ui two column grid" style="text-align:center;">
+			<div class="column" style="padding-left: 30px; padding-right: 0px; padding-top: 20px; padding-bottom: 20px;text-align: left; width:80%;">
+				<a style="color: black" href="<%=bookObject.get("link")%>"><%=bookObject.get("title")%></a>
+			</div>
 			
-					<div class="ui container" style="padding-top: 0px; padding-bottom: 10px; padding-left: 0px; padding-right: 0px;">
-						<hr class="garo" style="" />
-					</div>
+		</div>
+		
+		<div class="ui container" style="padding-top: 00px; padding-bottom: 0px; padding-left: 0px; padding-right: 0px;">
+			<hr class="garo" style="" />
+		</div>
 
-             <% 
+         <% 
              
          }
 

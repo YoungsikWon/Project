@@ -61,7 +61,7 @@
 <script src="../js/headerMenu.js"></script>
 
 <script>
-	var socket = new WebSocket('ws://192.168.0.36:8080/WebSocketServer')
+	var socket = new WebSocket('ws://192.168.0.133:8080/WebSocketServer')
 	var info = {
 		id : '<%=request.getRemoteAddr()%>',
 		message : '입장'

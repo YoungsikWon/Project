@@ -96,8 +96,10 @@ public class ProjectController {
 	   public String projectRecruiting(@RequestParam Map<String,Object> pMap, Model m, HttpSession session, HttpServletRequest req) {
 	      Map<String,Object> map = userInfo(session, req);
 	      m.addAttribute("kind", userInfo(session, req).get("S_KINDS"));
-	      List<Map<String,Object>> state = projectLogic.getState(map.get("S_EMAIL").toString(), "지원");
-	      m.addAttribute("getState", state);
+	      /******수정시작20181018*****/
+	      /*List<Map<String,Object>> state = projectLogic.getState(map.get("S_EMAIL").toString(), "지원");
+	      m.addAttribute("getState", state);*/
+	      /******수정끝20181018*****/
 	      Map<String,Object> userMap = sqlSessionTemplate.selectOne("getClientUser", map.get("S_EMAIL").toString());
 	      int c_no = Integer.parseInt(userMap.get("C_NO").toString());
 	      m.addAttribute("userSupport", projectLogic.projectSupportUser(c_no));

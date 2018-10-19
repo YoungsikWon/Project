@@ -11,7 +11,7 @@
 	
 <!----------------------------------------------------------------------- top 끝 -->
 
-	<div class="ui basicspace"><!-- navigation menu와 여백 --></div>
+	<!-- <div class="ui basicspace">navigation menu와 여백</div> -->
 	
 <!--======================================================================================-->
 <!----------------------------------------------------------------------- main content 시작 -->
@@ -20,7 +20,7 @@
 	
 	<!-- main 입력 시작-->
 
-		<div class="ui two column grid container" style="height: 830px">
+		<div class="ui two column grid container" style="height: auto;">
 <!-- 로그인 정보 =================================================================================-->
 			
 <!-- 로그인 정보 =================================================================================-->
@@ -28,8 +28,8 @@
 <!-- 서브 메뉴 ===================================================================================-->
 				
 <!-- 서브 메뉴 ===================================================================================-->
-			<div class="ui column" style="padding-left: 5px; padding-top: 0px; padding-bottom: 0px; padding-right: 10px; width: 80%;">
-				<div class="ui container" style="padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
+			<div class="ui column" style="padding-left: 0px; padding-top: 15px; padding-bottom: 0px; width: 100%; height: auto;">
+				<div id="partnersback" class="ui container" style="margin-bottom: 10px; padding-left: 20px; padding-top: 20px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede;">
 					<div>
 						<h3 style="text-align: left">알림 설정</h3>
 					</div>
@@ -42,8 +42,7 @@
 						</div>
 					</div>
 				</div>
-				<div style="height: 10px;"></div>
-				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 10px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede; height:auto;">
+				<div class="ui container" style="padding-left: 20px; padding-right:20px; padding-top: 10px; padding-bottom: 10px; left: 5px; border: 1px solid #dedede; min-height:562px; height:auto; background-color: #E6E6E6;">
 					<div style="padding-top:0px;">
 						<div class="ui styled fluid accordion">
 							<div class="ui two column grid title">
